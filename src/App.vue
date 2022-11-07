@@ -7,6 +7,11 @@
 </template>
 
 <style>
+*{
+    margin: 0;
+    box-sizing: border-box;
+    margin: auto;
+}
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -16,7 +21,7 @@
 }
 
 #nav {
-  padding: 30px;
+  padding: 10px;
 }
 
 #nav a {
