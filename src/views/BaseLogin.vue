@@ -1,12 +1,15 @@
 <template>
     <div class="base-login">
         
+        <Footer/>
     </div>
 </template>
 
 <script>
-export default{
+import Footer from '../components/Login/Footer.vue';
 
+export default{
+    components: { Footer }
 }
 </script>
 
