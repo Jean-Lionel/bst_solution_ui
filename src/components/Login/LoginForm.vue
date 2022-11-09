@@ -40,7 +40,7 @@ export default {
         submit(){
             axios.post("http://127.0.0.1:8000/api/login/", this.form)
             .then(function (response) {
-                console.log(response)
+                console.log(response.data)
             })
             .catch(function (error) {
                 console.error(error)

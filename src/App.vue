@@ -1,10 +1,15 @@
 <template>
-    <router-view />
+    <click-counter/>
+    <hover-counter/>
+    <!-- <router-view /> -->
 </template>
 
 <script>
+import ClickCounter from './components/test/ClickCounter.vue'
+import HoverCounter from './components/test/HoverCounter.vue'
 
 export default {
+  components: { ClickCounter, HoverCounter },
     data(){
         return{
             isLogidIn : true
