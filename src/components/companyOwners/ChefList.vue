@@ -2,6 +2,8 @@
     <div>
         <h1>Liste des chefs d'entreprises</h1>
 
+        <button>Ajouter Un Entreprise</button>
+
         <table width="100" class="table">
         <thead>
         <tr>
@@ -15,6 +17,7 @@
         <th>Adresse</th>
         <th>nationalite</th>
         <th>Description</th>
+        <th>Action</th>
         </tr>
         </thead>
         <tbody>
@@ -30,6 +33,7 @@
                 <td>{{ entreprise.address }} </td>
                 <td>{{ entreprise.nationality }} </td>
                 <td>{{ entreprise.description }} </td>
+                <td><button @click="deleteEntreprise(entreprise.id)">Effacer</button></td>
             </tr>
         </tbody>
         </table>
@@ -63,6 +67,24 @@ import axios from "axios";
                     .catch(err => {
                         console.error(err)
                     })
+            },
+            deleteEntreprise(id) {
+                axios.delete("http://127.0.0.1:8000/api/company_owners/"+id, {
+                    headers: {
+                        "Accept": "application/json",
+                        "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
+                    }
+                })
+                    .then(resp => {
+                        this.chefsEntreprise = resp.data
+                        console.log(resp.data)
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    })
+
+                this.fetchData()
+
             }
         }
     }
