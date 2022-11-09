@@ -6,7 +6,8 @@ export default createStore({
         baseUrl: 'http://127.0.0.1:8000/api',
         user : null,
         isLoggedIn: false, 
-        
+        entreprises : [],
+
   },
   mutations: {
     login(state, user) {
