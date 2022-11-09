@@ -123,4 +123,7 @@ export default {
     width: 100%;
     
 }
+.add-form div span{
+    color: tomato;
+}
 </style>
