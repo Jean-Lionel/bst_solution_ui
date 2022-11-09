@@ -18,12 +18,12 @@ export default{
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
 .base-login{
       
     height: 100%;
     width: 100%;
-    background: linear-gradient(90deg, #5E72E4 0%, #20ad2b 100%);
+
 }
 </style>
 
