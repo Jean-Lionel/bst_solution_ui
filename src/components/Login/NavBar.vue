@@ -30,5 +30,7 @@ export default {
 .base-login{
     display: flex;
     justify-content: space-between;
+   
 }
+
 </style>
