@@ -1,11 +1,16 @@
 <template>
-    <router-view /> 
+
+    <base-component v-if="$store.state.user"/>
+    <login v-else/>
 
 </template>
 
 <script>
+import BaseComponent from './views/BaseComponent.vue'
+import Login from './views/Login.vue'
 
 export default {
+  components: { BaseComponent, Login },
   
     data(){
         return{
@@ -14,9 +19,6 @@ export default {
     },
     mounted(){
         this.$store.commit("initializeStore")
-    },
-    methods : {
-        
     }
 }
 

@@ -1,4 +1,5 @@
 import { createStore } from 'vuex'
+import router from '../router'
 
 export default createStore({
   state: {
@@ -10,13 +11,11 @@ export default createStore({
     login(state, user) {
         state.user = user;
         localStorage.setItem('user', state.user);
-        alert(" Login Success");
-
     },
     logout(state) {
         state.user = null;
         localStorage.removeItem('user');
-        alert(" Logout Success");
+        router.push('/login')
     },
     initializeStore(state) {
         if(localStorage.getItem('user')){
