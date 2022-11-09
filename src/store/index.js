@@ -4,8 +4,10 @@ import router from '../router'
 export default createStore({
   state: {
         baseUrl: 'http://127.0.0.1:8000/api',
-        user : "",
-        isLoggedIn: false
+        user : null,
+        isLoggedIn: false, 
+        entreprises : [],
+
   },
   mutations: {
     login(state, user) {
@@ -28,5 +30,11 @@ export default createStore({
   actions: {
   },
   modules: {
+  },
+  getters:{
+
+  },
+  computed:{
+
   }
 })

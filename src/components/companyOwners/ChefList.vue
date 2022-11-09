@@ -1,46 +1,48 @@
 <template>
     <div>
         <h1>Liste des chefs d'entreprises</h1>
-
+        
         <button @click="modalActive = true">Ajouter Un Entreprise</button>
-
+        
         <modal-component :modalActive="modalActive" @close="modalActive = !modalActive">
             <add-form/>
         </modal-component>
+        <div class="table_containner">
         
-        <table width="100" class="table">
-        <thead>
-        <tr>
-        <th>#</th>
-        <th>Nom</th>
-        <th>Prénom</th>
-        <th>Titre</th>
-        <th>Status</th>
-        <th>Telephone</th>
-        <th>Email</th>
-        <th>Adresse</th>
-        <th>nationalite</th>
-        <th>Description</th>
-        <th>Action</th>
-        </tr>
-        </thead>
-        <tbody>
-            <tr v-for="entreprise in chefsEntreprise.data">
-                <td>{{ entreprise.id }}</td>
-                <td>{{ entreprise.first_name }} </td>
-                <td>{{ entreprise.last_name }} </td>
-                <td>{{ entreprise.title }} </td>
-                <td>{{ entreprise.status }} </td>
-                <td>{{ entreprise.telephone_mobile }} </td>
-                <td>{{ entreprise.telephone }} </td>
-                <td>{{ entreprise.email }} </td>
-                <td>{{ entreprise.address }} </td>
-                <td>{{ entreprise.nationality }} </td>
-                <td>{{ entreprise.description }} </td>
-                <td><button @click="deleteEntreprise(entreprise.id)">Effacer</button></td>
-            </tr>
-        </tbody>
-        </table>
+            <table  class="table">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Titre</th>
+                        <th>Status</th>
+                        <th>Telephone</th>
+                        <th>Email</th>
+                        <th>Adresse</th>
+                        <th>nationalite</th>
+                        <th>Description</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="entreprise in chefsEntreprise.data">
+                        <td>{{ entreprise.id }}</td>
+                        <td>{{ entreprise.first_name }} </td>
+                        <td>{{ entreprise.last_name }} </td>
+                        <td>{{ entreprise.title }} </td>
+                        <td>{{ entreprise.status }} </td>
+                        <td>{{ entreprise.telephone_mobile }} </td>
+                        <td>{{ entreprise.telephone }} </td>
+                        <td>{{ entreprise.email }} </td>
+                        <td>{{ entreprise.address }} </td>
+                        <td>{{ entreprise.nationality }} </td>
+                        <td>{{ entreprise.description }} </td>
+                        <td><button @click="deleteEntreprise(entreprise.id)">Effacer</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 </template>
 
@@ -49,59 +51,69 @@ import axios from "axios";
 import ModalComponent from '../global/ModalComponent.vue';
 import AddForm from './AddForm.vue';
 
-    export default {
-  components: { ModalComponent, AddForm },
-        data() {
-             return{
-                 modalActive: false,
-                chefsEntreprise : []
-             }
+export default {
+    components: { ModalComponent, AddForm },
+    data() {
+        return{
+            modalActive: false,
+            chefsEntreprise : []
+        }
+    },
+    mounted(){
+        this.fetchData()
+    },
+    methods:{
+        fetchData() {
+            axios.get(this.$store.state.baseUrl + "/company_owners",{
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
+                }
+            })
+            .then(resp => {
+                this.chefsEntreprise = resp.data.data
+            })
+            .catch(err => {
+                console.error(err)
+            })
         },
-        mounted(){
+        deleteEntreprise(id) {
+            axios.delete(this.$store.state.baseUrl+"/company_owners/"+id, {
+                headers: {
+                    "Accept": "application/json",
+                    "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
+                }
+            })
+            .then(resp => {
+                this.chefsEntreprise = resp.data
+               
+            })
+            .catch(err => {
+                console.error(err)
+            })
+            
             this.fetchData()
-        },
-        methods:{
-            fetchData() {
-                axios.get("http://127.0.0.1:8000/api/company_owners",{
-                    headers: {
-                        "Accept": "application/json",
-                        "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
-                    }
-                })
-                    .then(resp => {
-                        this.chefsEntreprise = resp.data
-                        console.log(resp.data)
-                    })
-                    .catch(err => {
-                        console.error(err)
-                    })
-            },
-            deleteEntreprise(id) {
-                axios.delete("http://127.0.0.1:8000/api/company_owners/"+id, {
-                    headers: {
-                        "Accept": "application/json",
-                        "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
-                    }
-                })
-                    .then(resp => {
-                        this.chefsEntreprise = resp.data
-                        console.log(resp.data)
-                    })
-                    .catch(err => {
-                        console.error(err)
-                    })
-
-                this.fetchData()
-
-            }
+            
         }
     }
+}
 </script>
 
 <style lang="scss" scoped>
 .table{
     width: 100%;
     border-collapse: collapse;
-
+    
+}
+.table_containner{
+    width: 100vw;
+    overflow-x: scroll;
+}
+tr{
+    border-bottom: 2px solid black;
+}
+td{
+    text-align: left;
+    padding-left: 10px;
 }
 </style>
