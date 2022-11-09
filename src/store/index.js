@@ -3,24 +3,24 @@ import { createStore } from 'vuex'
 export default createStore({
   state: {
         baseUrl: 'http://127.0.0.1:8000/api',
-        email : "",
+        user : "",
         isLoggedIn: false
   },
   mutations: {
-    login(state, email) {
-        state.email = email;
-        localStorage.setItem('email', state.email);
-        alert("Email Login Success");
+    login(state, user) {
+        state.user = user;
+        localStorage.setItem('user', state.user);
+        alert(" Login Success");
 
     },
     logout(state) {
-        state.email = "";
-        localStorage.removeItem('email');
-        alert("Email Logout Success");
+        state.user = null;
+        localStorage.removeItem('user');
+        alert(" Logout Success");
     },
     initializeStore(state) {
-        if(localStorage.getItem('email')){
-            state.email = localStorage.getItem('email');
+        if(localStorage.getItem('user')){
+            state.user = localStorage.getItem('user');
         }
     }
   },

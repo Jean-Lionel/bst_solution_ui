@@ -1,20 +1,19 @@
 <template>
-    
     <router-view /> 
+
 </template>
 
 <script>
-import ClickCounter from './components/test/ClickCounter.vue'
-import HoverCounter from './components/test/HoverCounter.vue'
 
 export default {
-  components: { ClickCounter, HoverCounter },
+  
     data(){
         return{
             isLogidIn : true
         }
     },
     mounted(){
+
         this.$store.commit("initializeStore")
     },
     methods : {

@@ -41,10 +41,10 @@ export default {
     },
     methods:{
         submit(){
-            axios.post("http://127.0.0.1:8000/api/login/", this.form)
+            axios.post(this.$store.state.baseUrl + "/login/", this.form)
             .then( (response) =>{
-                
                 if(response.data.success) {
+                    
                    this.$router.push("/") 
                 }
             })
