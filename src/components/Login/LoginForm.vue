@@ -44,8 +44,8 @@ export default {
             axios.post(this.$store.state.baseUrl + "/login/", this.form)
             .then( (response) =>{
                 if(response.data.success) {
-                    
-                   this.$router.push("/") 
+                    this.$store.commit("login", response.data.data)
+                    this.$router.push("/") 
                 }
             })
             .catch( (error)=> {

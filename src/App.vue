@@ -13,7 +13,6 @@ export default {
         }
     },
     mounted(){
-
         this.$store.commit("initializeStore")
     },
     methods : {

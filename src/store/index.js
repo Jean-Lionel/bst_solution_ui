@@ -21,6 +21,8 @@ export default createStore({
     initializeStore(state) {
         if(localStorage.getItem('user')){
             state.user = localStorage.getItem('user');
+        }else{
+           this.commit("logout");
         }
     }
   },
