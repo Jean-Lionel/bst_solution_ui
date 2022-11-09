@@ -1,7 +1,6 @@
 <template>
-    <click-counter/>
-    <hover-counter/>
-    <!-- <router-view /> -->
+    
+    <router-view /> 
 </template>
 
 <script>

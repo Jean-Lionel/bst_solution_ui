@@ -2,6 +2,7 @@
     <div class="login-form">
         <div>
             <div>Sign in with</div>
+           
             <div>
                 <h5>Sign in with Credentials</h5>
                 
@@ -14,6 +15,7 @@
                         <label for="password">Mot de passe</label>
                         <input type="password" v-model="form.password" required>
                     </div>
+                    <div class="login-error"> {{ errorMessage }}</div>
                     <div>
                         <button>Sign in</button>
                     </div>
@@ -32,18 +34,27 @@ export default {
             form:{
                 email: "nijeanlionel@gmail.com",
                 password: "12345678",
-            }
+            },
+            errorMessage: ""
 
         }
     },
     methods:{
         submit(){
             axios.post("http://127.0.0.1:8000/api/login/", this.form)
-            .then(function (response) {
-                console.log(response.data)
+            .then( (response) =>{
+                
+                if(response.data.success) {
+                   this.$router.push("/") 
+                }
             })
-            .catch(function (error) {
-                console.error(error)
+            .catch( (error)=> {
+                if (error.message == "Network Error"){
+                    this.errorMessage = "Vous n'êtes pas connecté au serveur"
+                }else{
+                    this.errorMessage = error.response.data.message
+                }
+                
             })
 
         }
@@ -52,8 +63,10 @@ export default {
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.login-error{
+    color: red;
+}
 .login-form{
  
     width: 363px;
