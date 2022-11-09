@@ -16,6 +16,11 @@ export default {
   name: 'Home',
   components: {
 
+  },
+  methods: {
+      logout() {
+          this.$store.commit("logout")
+      }
   }
 }
 </script>

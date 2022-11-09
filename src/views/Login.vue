@@ -1,40 +1,29 @@
 <template>
-  <div>
-    <form @submit.prevent="submit">
-    <div>
-    <label for="email">Email</label>
-    <input type="text" name="email" v-model="email" required>
+    <div class="base-login">
+        <nav-bar/>
+        <Welcome/>
+        <login-form/>
+        <Footer/>
     </div>
-    <div>
-    <label for="password">Mot de passe</label>
-    <input type="text" name="password" v-model="password" required>
-    </div>
-    <div>
-        <button type="submit">Se connecter</button>
-    </div>
-        
-    </form>
-  </div>
 </template>
 
 <script>
-export default {
-    data(){
-        return{
-            email: "",
-            password: "",
-        }
-    },
-    methods :{
-        submit(){
-            this.$store.commit("login", this.email)
-            this.$router.push("/")
-        }
-    }
+import Footer from '../components/Login/Footer.vue';
+import LoginForm from '../components/Login/LoginForm.vue';
+import NavBar from '../components/Login/NavBar.vue';
+import Welcome from '../components/Login/Welcome.vue';
 
+export default{
+    components: { Footer, NavBar, Welcome, LoginForm }
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
+.base-login{
+      
+    height: 100%;
+    width: 100%;
 
+}
 </style>
+

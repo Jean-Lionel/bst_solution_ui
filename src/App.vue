@@ -14,9 +14,7 @@ export default {
         this.$store.commit("initializeStore")
     },
     methods : {
-        logout(){
-            this.$store.commit("logout")
-        }
+        
     }
 }
 
