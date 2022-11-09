@@ -2,8 +2,8 @@ import { createStore } from 'vuex'
 
 export default createStore({
   state: {
-    email : "",
-
+        email : "",
+        isLoggedIn: false
   },
   mutations: {
     login(state, email) {

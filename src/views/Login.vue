@@ -27,8 +27,8 @@ export default {
     },
     methods :{
         submit(){
-
             this.$store.commit("login", this.email)
+            this.$router.push("/")
         }
     }
 

@@ -2,7 +2,8 @@
   <div class="home">
     <div id="nav">
         <router-link to="/">Home</router-link> |
-        <router-link to="/login">About</router-link>
+        <router-link v-if="!$store.state.email" to="/login">Login</router-link> |
+        <router-link v-if="$store.state.email" to="" @click="logout">Logout</router-link>
     </div>
   
   </div>
