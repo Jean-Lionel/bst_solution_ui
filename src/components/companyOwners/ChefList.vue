@@ -8,6 +8,7 @@
             <add-form/>
         </modal-component>
         <div class="table_containner">
+        
             <table  class="table">
                 <thead>
                     <tr>
@@ -63,22 +64,21 @@ export default {
     },
     methods:{
         fetchData() {
-            axios.get("http://127.0.0.1:8000/api/company_owners",{
+            axios.get(this.$store.state.baseUrl + "/company_owners",{
                 headers: {
                     "Accept": "application/json",
                     "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
                 }
             })
             .then(resp => {
-                this.chefsEntreprise = resp.data
-                console.log(resp.data)
+                this.chefsEntreprise = resp.data.data
             })
             .catch(err => {
                 console.error(err)
             })
         },
         deleteEntreprise(id) {
-            axios.delete("http://127.0.0.1:8000/api/company_owners/"+id, {
+            axios.delete(this.$store.state.baseUrl+"/company_owners/"+id, {
                 headers: {
                     "Accept": "application/json",
                     "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
@@ -86,7 +86,7 @@ export default {
             })
             .then(resp => {
                 this.chefsEntreprise = resp.data
-                console.log(resp.data)
+               
             })
             .catch(err => {
                 console.error(err)
@@ -108,5 +108,12 @@ export default {
 .table_containner{
     width: 100vw;
     overflow-x: scroll;
+}
+tr{
+    border-bottom: 2px solid black;
+}
+td{
+    text-align: left;
+    padding-left: 10px;
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
     <div  class="add-form">
+        <h4>Création du Nouvel Chef d'entreprise</h4>
         <form action="" @submit.prevent="saveInformation">
-        {{ errors }}
             <div>
                 <label for="">Nom</label>
                 <input type="text" v-model="form.first_name" />
