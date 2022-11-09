@@ -1,5 +1,11 @@
 <template>
   <router-view/>
+    <div id="nav" >
+        <router-link to="/">Home</router-link> |
+        <router-link v-if="!$store.state.email" to="/login">Login</router-link>
+        <router-link v-if="$store.state.email" @click="logout">Logout</router-link>
+    </div>
+
 </template>
 
 <script>
@@ -8,6 +14,14 @@ export default {
     data(){
         return{
             isLogidIn : true
+        }
+    },
+    mounted(){
+        this.$store.commit("initializeStore")
+    },
+    methods : {
+        logout(){
+            this.$store.commit("logout")
         }
     }
 }

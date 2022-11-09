@@ -17,7 +17,7 @@ export default createStore({
         localStorage.removeItem('email');
         alert("Email Logout Success");
     },
-    ininitializeStore(state) {
+    initializeStore(state) {
         if(localStorage.getItem('email')){
             state.email = localStorage.getItem('email');
         }
