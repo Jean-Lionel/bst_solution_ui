@@ -2,8 +2,12 @@
     <div>
         <h1>Liste des chefs d'entreprises</h1>
 
-        <button>Ajouter Un Entreprise</button>
+        <button @click="modalActive = true">Ajouter Un Entreprise</button>
 
+        <modal-component :modalActive="modalActive" @close="modalActive = !modalActive">
+            <add-form/>
+        </modal-component>
+        
         <table width="100" class="table">
         <thead>
         <tr>
@@ -42,10 +46,14 @@
 
 <script>
 import axios from "axios";
+import ModalComponent from '../global/ModalComponent.vue';
+import AddForm from './AddForm.vue';
 
     export default {
+  components: { ModalComponent, AddForm },
         data() {
              return{
+                 modalActive: false,
                 chefsEntreprise : []
              }
         },
