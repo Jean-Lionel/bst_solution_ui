@@ -34,6 +34,8 @@ export default {
 body{
     height: 100vh;
     overflow: hidden;
+    width: 98vw;
+    margin: auto;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

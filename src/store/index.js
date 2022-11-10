@@ -20,7 +20,7 @@ export default createStore({
     },
     initializeStore(state) {
         if(localStorage.getItem('user')){
-            state.user = localStorage.getItem('user');
+            state.user = JSON.parse(localStorage.getItem('user'));
         }else{
            this.commit("logout");
         }
@@ -31,7 +31,13 @@ export default createStore({
   modules: {
   },
   getters:{
-
+    user : state =>{
+        if(state.user === null){
+            return JSON.parse(localStorage.getItem('user'))
+        }
+        return state.user
+    },
+    token : (state, getters)=> getters?.user?.token
   },
   computed:{
 
