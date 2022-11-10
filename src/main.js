@@ -7,7 +7,7 @@ import axios from 'axios'
 // Configuration pour axios
 
 const axiosInstance = axios.create({
-   withCredentials: true,
+   withCredentials: false,
    baseURL: store.state.baseUrl
 })
 axiosInstance.defaults.headers.common['Authorization'] = "Bearer "+ store.getters.token;

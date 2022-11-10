@@ -47,7 +47,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import ModalComponent from '../global/ModalComponent.vue';
 import AddForm from './AddForm.vue';
 
@@ -56,7 +55,7 @@ export default {
     data() {
         return{
             modalActive: false,
-            chefsEntreprise : []
+           
         }
     },
     mounted(){
@@ -64,29 +63,20 @@ export default {
     },
     methods:{
         fetchData() {
-            axios.get(this.$store.state.baseUrl + "/company_owners",{
-                headers: {
-                    "Accept": "application/json",
-                    "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
-                }
+            this.axios.get("/company_owners",{
+                
             })
             .then(resp => {
-                this.chefsEntreprise = resp.data.data
+                    this.$store.state.chefsEntreprise = resp.data.data
             })
             .catch(err => {
                 console.error(err)
             })
         },
         deleteEntreprise(id) {
-            axios.delete(this.$store.state.baseUrl+"/company_owners/"+id, {
-                headers: {
-                    "Accept": "application/json",
-                    "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
-                }
-            })
+            this.axios.delete("/company_owners/"+id)
             .then(resp => {
                 this.chefsEntreprise = resp.data
-               
             })
             .catch(err => {
                 console.error(err)
@@ -94,6 +84,11 @@ export default {
             
             this.fetchData()
             
+        }
+    },
+    computed:{
+        chefsEntreprise() {
+            return this.$store.state.chefsEntreprise
         }
     }
 }
