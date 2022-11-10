@@ -7,7 +7,6 @@ export default createStore({
         user : null,
         isLoggedIn: false, 
         entreprises : [],
-
   },
   mutations: {
     login(state, user) {

@@ -29,6 +29,11 @@ export default {
     margin: 0;
     box-sizing: border-box;
     margin: auto;
+    padding: 0;
+}
+body{
+    height: 100vh;
+    overflow: hidden;
 }
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;

@@ -21,7 +21,7 @@
                         <input type="text" v-model="form.email"  required ><i class="fa fa-envelope" aria-hidden="true"></i>
                         <input type="password" v-model="form.password" required><i class="fa fa-unlock-alt" aria-hidden="true"></i>
                     
-                        <h6 >password strength: <span class="text-primary">strong</span></h6>
+                        <div class="login-error">{{ errorMessage }}</div>
                     
                         <input type="checkbox">I agree with the Privacy Policy
                         <div>
@@ -54,6 +54,7 @@ export default {
     },
     methods:{
         submit(){
+         
             axios.post(this.$store.state.baseUrl + "/login/", this.form)
             .then( (response) =>{
                 if(response.data.success) {
