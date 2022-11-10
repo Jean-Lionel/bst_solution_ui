@@ -73,16 +73,21 @@ export default {
                 console.error(err)
             })
         },
-        deleteEntreprise(id) {
-            this.axios.delete("/company_owners/"+id)
-            .then(resp => {
-                this.chefsEntreprise = resp.data
-            })
-            .catch(err => {
-                console.error(err)
-            })
-            
-            this.fetchData()
+        async deleteEntreprise(id) {
+           const {value: result} = await this.confirmDelete()
+            if (result){
+                this.axios.delete("/company_owners/" + id)
+                    .then(resp => {
+                        this.chefsEntreprise = resp.data
+                        this.showDeleteConfirmation()
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    })
+                this.fetchData()
+
+            }
+           
             
         }
     },
