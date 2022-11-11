@@ -107,7 +107,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style  scoped>
 .add-form div{
     display: grid;
     grid-template-columns : 1fr 1fr 1fr;

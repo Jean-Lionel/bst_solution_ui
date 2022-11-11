@@ -2,12 +2,12 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import axios from 'axios'
+
 import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import mixins from './mixins'
-
-
+import axiosInstance from './plugins/axiosConfig'
+// Vuetify
 // SweetAlert Configuration
 
 const options = {
@@ -16,18 +16,9 @@ const options = {
 };
 
 // Configuration pour axios
-
-const axiosInstance = axios.create({
-   withCredentials: true,
-   baseURL: store.state.baseUrl
-})
-axiosInstance.defaults.headers.common['Authorization'] = "Bearer "+ store.getters.token;
-axiosInstance.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded';
-
 const app = createApp(App)
 
 app.config.globalProperties.axios =  { ...axiosInstance }
-
 app
 .mixin(mixins)
 .use(VueSweetalert2,options)
