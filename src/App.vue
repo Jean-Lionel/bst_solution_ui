@@ -1,8 +1,6 @@
 <template>
-
-    <base-component v-if="$store.state.user"/>
+    <base-component v-if="$store.state.user" class="container-fluid"/>
     <login v-else/>
-
 </template>
 
 <script>

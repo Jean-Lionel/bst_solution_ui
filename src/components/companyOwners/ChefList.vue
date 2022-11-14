@@ -9,7 +9,7 @@
         </modal-component>
         <div class="table_containner">
         
-            <table  class="table">
+            <table  class="table table-responsive table">
                 <thead>
                     <tr>
                         <th>#</th>

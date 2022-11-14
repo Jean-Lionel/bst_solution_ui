@@ -7,6 +7,7 @@ import VueSweetalert2 from 'vue-sweetalert2';
 import 'sweetalert2/dist/sweetalert2.min.css';
 import mixins from './mixins'
 import axiosInstance from './plugins/axiosConfig'
+//import bootstrap from './plugins/bootsrapp'
 // Vuetify
 // SweetAlert Configuration
 
