@@ -38,7 +38,12 @@
                         <td>{{ entreprise.address }} </td>
                         <td>{{ entreprise.nationality }} </td> 
                         <td>{{ entreprise.description }} </td>-->
-                        <td><button @click="deleteEntreprise(entreprise.id)">Effacer</button></td>
+                        <td>
+                        <button @click="deleteEntreprise(entreprise.id)" class=""><i class="fa-solid fa-trash"></i></button>
+                        <button @click="showDetail(entreprise.id)" class="">Detail</button>
+                        <button @click="showDetail(entreprise.id)" class="">Modifier</button>
+                        <button @click="showDetail(entreprise.id)" class="">Arreter</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -72,6 +77,10 @@ export default {
             .catch(err => {
                 console.error(err)
             })
+        },
+        showDetail(data){
+
+            alert("Todo ")
         },
         async deleteEntreprise(id) {
            const {value: result} = await this.confirmDelete()
