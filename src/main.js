@@ -6,9 +6,6 @@ import mixins from './mixins'
 import axiosInstance from './plugins/axiosConfig'
 import VueSweetalert2,{ options} from './plugins/sweetAlert'
 import "./assets/css/main.css"
-//import bootstrap from './plugins/bootsrapp'
-// Vuetify
-// SweetAlert Configuration
 
 // Configuration pour axios
 const app = createApp(App)

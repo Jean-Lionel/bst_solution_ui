@@ -1,8 +1,20 @@
 <template>
     <div>
-        <h1>Liste des chefs d'entreprises</h1>
-        
-        <button @click="modalActive = true">Ajouter Un Entreprise</button>
+       
+
+        <div class="header-table">
+            <div>
+            <h4>Liste des Entreprises</h4>
+            </div>
+                <div>
+            <input type="text" />
+            </div>
+  
+            <div class="text-right">
+            <button @click="modalActive = true" class="add-btn">Ajouter Un Entreprise</button>
+            </div>
+        </div>
+       
         
         <modal-component :modalActive="modalActive" @close="modalActive = !modalActive">
             <add-form/>
@@ -39,10 +51,19 @@
                         <td>{{ entreprise.nationality }} </td> 
                         <td>{{ entreprise.description }} </td>-->
                         <td>
-                        <button @click="deleteEntreprise(entreprise.id)" class=""><i class="fa-solid fa-trash"></i></button>
-                        <button @click="showDetail(entreprise.id)" class="">Detail</button>
-                        <button @click="showDetail(entreprise.id)" class="">Modifier</button>
-                        <button @click="showDetail(entreprise.id)" class="">Arreter</button>
+                        <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
+                        <i class='fa fa-trash'></i>
+                        </button>
+                        <button @click="showDetail(entreprise.id)" class="">
+                        <i class='fa fa-eye'></i>
+                        
+                        </button>
+                        <button @click="showDetail(entreprise.id)" class="">
+                        <i class="fa fa-edit"></i>
+                        </button>
+                        <button @click="showDetail(entreprise.id)" class="">
+                        <i class="fa fa-ban"></i>
+                        </button>
                         </td>
                     </tr>
                 </tbody>
@@ -109,6 +130,20 @@ export default {
 </script>
 
 <style  scoped>
+.header-table{
+    display:flex;
+    justify-content:right;
+}
+button{
+    padding: 4px 8px;
+    border: 1px solid rgb(162, 162, 162);
+    border-radius: 8px;
+    margin-right: 5px;
+
+}
+button i{
+    font-size: 16px;
+}
 .table_containner{
     border: 1px solid rgb(225, 217, 217);
     border-radius: 10px;
