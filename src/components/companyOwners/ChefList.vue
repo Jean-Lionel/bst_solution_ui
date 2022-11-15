@@ -9,7 +9,7 @@
         </modal-component>
         <div class="table_containner">
         
-            <table  class="table table-responsive table">
+            <table  class="text-left" >
                 <thead>
                     <tr>
                         <th>#</th>
@@ -17,27 +17,27 @@
                         <th>Prénom</th>
                         <th>Titre</th>
                         <th>Status</th>
-                        <th>Telephone</th>
+                        <!-- <th>Telephone</th>
                         <th>Email</th>
                         <th>Adresse</th>
                         <th>nationalite</th>
-                        <th>Description</th>
+                        <th>Description</th> -->
                         <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr v-for="entreprise in chefsEntreprise.data">
-                        <td>{{ entreprise.id }}</td>
+                        <td><b>{{ entreprise.id }}</b></td>
                         <td>{{ entreprise.first_name }} </td>
                         <td>{{ entreprise.last_name }} </td>
                         <td>{{ entreprise.title }} </td>
                         <td>{{ entreprise.status }} </td>
-                        <td>{{ entreprise.telephone_mobile }} </td>
+                        <!-- <td>{{ entreprise.telephone_mobile }} </td>
                         <td>{{ entreprise.telephone }} </td>
                         <td>{{ entreprise.email }} </td>
                         <td>{{ entreprise.address }} </td>
-                        <td>{{ entreprise.nationality }} </td>
-                        <td>{{ entreprise.description }} </td>
+                        <td>{{ entreprise.nationality }} </td> 
+                        <td>{{ entreprise.description }} </td>-->
                         <td><button @click="deleteEntreprise(entreprise.id)">Effacer</button></td>
                     </tr>
                 </tbody>
@@ -100,20 +100,28 @@ export default {
 </script>
 
 <style  scoped>
-.table{
+.table_containner{
+    border: 1px solid rgb(225, 217, 217);
+    border-radius: 10px;
+    margin: 10px 0px;
+}
+table{
     width: 100%;
     border-collapse: collapse;
     
+    
 }
-.table_containner{
-    width: 100vw;
-    overflow-x: scroll;
-}
+
 tr{
-    border-bottom: 2px solid black;
+    border-bottom: 1px solid rgb(231, 228, 228);
 }
+
 td{
-    text-align: left;
-    padding-left: 10px;
+    padding: 6px 10px;
+}
+th{
+    text-transform: uppercase;
+    padding: 6px 10px;
+    font-size: 0.8rem;
 }
 </style>

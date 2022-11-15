@@ -1,7 +1,6 @@
 <template>
     <div>
         <h4>Liste des utilisateurs</h4>
-    
         <table>
             <thead>
                 <tr>
