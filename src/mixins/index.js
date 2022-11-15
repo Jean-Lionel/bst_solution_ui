@@ -1,4 +1,7 @@
+import axiosMethods from "./axiosMethods"
+
 export default{
+    mixins: [axiosMethods],
     data() {
         return {
             
