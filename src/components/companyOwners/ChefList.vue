@@ -134,38 +134,5 @@ export default {
     display:flex;
     justify-content:right;
 }
-button{
-    padding: 4px 8px;
-    border: 1px solid rgb(162, 162, 162);
-    border-radius: 8px;
-    margin-right: 5px;
 
-}
-button i{
-    font-size: 16px;
-}
-.table_containner{
-    border: 1px solid rgb(225, 217, 217);
-    border-radius: 10px;
-    margin: 10px 0px;
-}
-table{
-    width: 100%;
-    border-collapse: collapse;
-    
-    
-}
-
-tr{
-    border-bottom: 1px solid rgb(231, 228, 228);
-}
-
-td{
-    padding: 6px 10px;
-}
-th{
-    text-transform: uppercase;
-    padding: 6px 10px;
-    font-size: 0.8rem;
-}
 </style>

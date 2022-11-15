@@ -1,9 +1,14 @@
 <template>
     <div>
         <h4>Liste des utilisateurs</h4>
+
+        <div class="table_containner">
+        
         <table>
             <thead>
                 <tr>
+                    <th>#</th>
+                    <th>#</th>
                     <th>#</th>
                 </tr>
             </thead>
@@ -17,6 +22,7 @@
             </tbody>
             
         </table>
+        </div>
     </div>
 </template>
 
