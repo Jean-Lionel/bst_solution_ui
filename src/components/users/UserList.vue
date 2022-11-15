@@ -8,8 +8,9 @@
             <thead>
                 <tr>
                     <th>#</th>
-                    <th>#</th>
-                    <th>#</th>
+                    <th>Nom et Prénom</th>
+                    <th>Email</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +18,23 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
+
+                <td>
+                </td>
+
+                <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
+                    <i class='fa fa-trash'></i>
+                </button>
+                <button @click="showDetail(entreprise.id)" class="">
+                    <i class='fa fa-eye'></i>
+                
+                </button>
+                <button @click="showDetail(entreprise.id)" class="">
+                    <i class="fa fa-edit"></i>
+                </button>
+                <button @click="showDetail(entreprise.id)" class="">
+                    <i class="fa fa-ban"></i>
+                    </button>
                
                 </tr>
             </tbody>
