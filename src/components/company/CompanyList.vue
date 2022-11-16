@@ -1,5 +1,6 @@
 <template>
     <div>
+  
         <div class="table_containner">
         <input type="text" v-model="searchText" placeholder="Rechercher ici">
         <table>
@@ -9,7 +10,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr v-for="(item, i) in campaniesLists?.data?.data">
+        <tr v-for="(item, i) in filtCampanies">
         <td><b>{{item.id}}</b></td>
         <td>{{ item.tp_name }}</td>
         <td>{{ item.tp_type }}</td>
@@ -43,22 +44,24 @@
     export default {
         data() {
             return {
-                searchText: searchText
+                searchText: ""
             }
         },
         watch:{
-            searchText(val,last) {
-                this.$store.state.campaniesLists = this.searchInArray(this.campaniesLists, val);
-            }
+            
         },
         mounted(){
             this.get()
         },
         methods:{
+            searchTextInput(val, last) {
+                const hello = this.searchInArray(this.campaniesLists, val);
+                this.$store.state.campaniesLists = hello;
+            },
             get() {
                 this.getData("companies")
                 .then((response) =>{
-                    this.$store.state.campaniesLists = response.data
+                    this.$store.state.campaniesLists = response.data?.data
                 }).catch((error) =>{
                     console.error(error)
                 })
@@ -73,6 +76,9 @@
         computed:{
             campaniesLists() {
                 return this.$store.state.campaniesLists
+            },
+            filtCampanies() {
+                return this.searchInArray(this.campaniesLists, this.searchText)
             }
         }
         

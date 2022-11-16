@@ -1,3 +1,4 @@
+
 import axiosMethods from "./axiosMethods"
 
 export default{
@@ -30,13 +31,18 @@ export default{
                         'success'
                     )
         },
-        searchInArray(array, searchText) {
+        searchInArray(arrayList, searchText) {
             //Methode pour faire une rechercher dans le tableau
-            return array.filter(
+
+            if(Array.isArray(arrayList) ){
+                return arrayList.filter(
                 e => JSON.stringify(e)
                          .toLowerCase()
                          .includes(searchText.toLowerCase())
             )
+            }
+            return arrayList
+            
 
         }
 
