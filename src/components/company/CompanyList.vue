@@ -8,6 +8,11 @@
         <thead>
         <tr>
             <th>#</th>
+            <th>Dénomination</th>
+            <th>Type</th>
+            <th>NIF</th>
+            <th>Quartier</th>
+            <th>Action</th>
         </tr>
         </thead>
         <tbody class="table-body">
@@ -16,8 +21,7 @@
         <td>{{ item.tp_name }}</td>
         <td>{{ item.tp_type }}</td>
         <td>{{ item.tp_TIN }}</td>
-        <td>{{ item.tp_address_privonce }}</td>
-        <td>{{ item.tp_address_commune }}</td>
+        
         <td>{{ item.tp_address_quartier }}</td>
         <td>
             <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
