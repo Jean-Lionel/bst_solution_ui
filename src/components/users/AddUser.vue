@@ -69,6 +69,8 @@ export default {
             this.$emit('close')
         },
         saveUser() {
+
+            alert('J suis cool')
             
         }
     }

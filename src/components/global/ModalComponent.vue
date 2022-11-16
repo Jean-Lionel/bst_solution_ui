@@ -2,10 +2,12 @@
     <transition name="modal-animation">
         <div v-show="modalActive" class="modal">
             <transition name="modal-animation-inner">
+            
                 <div v-show="modalActive" class="modal-inner">
-                    <i @click="close" class="fa-solid fa-circle-xmark"></i>
+                <button @click="close" class="modal-modal" type="button">X</button>
+                    
                     <slot />
-                    <button @click="close" type="button">Close</button>
+                    
                 </div>
             </transition>
         </div>
@@ -45,28 +47,28 @@ export default {
     width: 80%;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     background-color: #fff;
-    padding: 64px 16px;
+    padding: 20px 0px;
 }
 
-i {
+.modal-modal {
     position: absolute;
-    top: 15px;
-    right: 15px;
+    top: 0px;
+    right: 0px;
     font-size: 20px;
     cursor: pointer;
 
 
 }
 
-i:hover {
+/* .modal-modal:hover {
     color: crimson;
 
-}
+} */
 
 button {
-    padding: 20px 30px;
+    padding: 4px 4px;
     border: none;
-    font-size: 16px;
+    font-size: 8px;
     background-color: crimson;
     color: #fff;
     cursor: pointer;

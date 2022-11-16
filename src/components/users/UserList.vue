@@ -1,6 +1,7 @@
 <template>
     <div>
-    <add-user v-if="isAddUser" @close="addUser"/>
+
+    <add-user v-if="isAddUser"  @close="addUser"/>
     <h4>Liste des utilisateurs</h4>
     
     <div class="table_containner">
