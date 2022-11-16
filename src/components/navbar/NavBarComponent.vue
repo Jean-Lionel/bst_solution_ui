@@ -3,7 +3,6 @@
     <div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/company">Company</router-link> |
-        <router-link to="/entreprises">Entreprise</router-link> |
         <router-link to="/company_owners">Chefs des entreprises</router-link> |
         <router-link to="/users">Utilisateur</router-link> |
         <router-link v-if="$store.state.user" to="" @click="logout">Logout</router-link>

@@ -3,7 +3,6 @@ import Home from '../views/Home.vue'
 import BaseLogin from '../views/Login.vue'
 import Company from '../views/Company.vue'
 import CompanyOwner from '../views/CompanyOwner.vue'
-import Entreprise from '../views/Entreprise.vue'
 import Users from '../views/Users.vue'
 
 const routes = [
@@ -20,9 +19,6 @@ const routes = [
   },
   {
     path: '/company_owners',name: 'company_owners',component: CompanyOwner
-  },
-  {
-    path: '/entreprises',name: 'entreprises',component: Entreprise
   },
   {
     path: '/users',name: 'users',component: Users
