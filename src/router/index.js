@@ -4,6 +4,7 @@ import BaseLogin from '../views/Login.vue'
 import Company from '../views/Company.vue'
 import CompanyOwner from '../views/CompanyOwner.vue'
 import Users from '../views/Users.vue'
+import UsersDetail from '../views/UsersDetail.vue'
 
 const routes = [
   {
@@ -22,6 +23,9 @@ const routes = [
   },
   {
     path: '/users',name: 'users',component: Users
+  },
+  {
+    path: '/users/:id',name: 'users-details',component: UsersDetail
   },
 ]
 

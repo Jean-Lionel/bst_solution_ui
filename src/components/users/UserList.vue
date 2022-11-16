@@ -85,18 +85,18 @@ export default {
             this.getData(url)
             .then(resp =>{
                 //console.log(resp.data)
-                this.$store.state.usersLists = resp
+                this.$store.state.usersLists = resp?.data
             }).catch(err =>{
                 console.log(err.response.statusText)
             })
         },
         showDetail(id) {
-           this.$router.push(`/users-details/${id}`)
+           this.$router.push(`/users/${id}`)
         }
     },
     computed: {
         usersLists (){
-            return this.$store.state.usersLists?.data
+            return this.$store.state.usersLists
         } ,
         filterUsers() {
             return this.searchInArray(this.usersLists, this.searchText)

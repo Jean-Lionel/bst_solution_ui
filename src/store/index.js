@@ -10,6 +10,7 @@ export default createStore({
         chefsEntreprise : [],
         usersLists : [],
         campaniesLists : [],
+        fetchData : {},
   },
   mutations: {
     login(state, user) {
