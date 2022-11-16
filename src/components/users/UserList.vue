@@ -2,7 +2,7 @@
     <div>
 
     <add-user v-if="isAddUser"  @close="addUser"/>
-    <h4>Liste des utilisateurs</h4>
+    <h4>Liste des utilisateurs </h4>
     
     <div class="table_containner">
         <input type="text" v-model="searchText">
@@ -26,17 +26,17 @@
                 <td>
                 </td>
 
-                <button @click="deleteUser(user.id)" title="Effacer" class="">
+                <button @click="handleDelete(user.id)" title="Effacer EXE" class="">
                     <i class='fa fa-trash'></i>
                 </button>
                 <button @click="showDetail(user.id)" class="">
                     <i class='fa fa-eye'></i>
                 
                 </button>
-                <button @click="showDetail(user.id)" class="">
+                <button @click="updateUser(user.id)" class="">
                     <i class="fa fa-edit"></i>
                 </button>
-                <button @click="showDetail(user.id)" class="">
+                <button @click="blockUser(user.id)" class="">
                     <i class="fa fa-ban"></i>
                     </button>
                
@@ -62,6 +62,19 @@ export default {
         this.get();
     },
     methods: {
+       async handleDelete(id){
+            const { value: result } = await this.confirmDelete()
+            if(result){
+                this.deleteData(`users/${ id }`)
+                    .then(resp => {
+                        this.showDeleteConfirmation()
+                        this.get();
+                    })
+                    .catch(err => {
+                        console.error(err)
+                    })
+            }
+        },
         addUser(){
             this.isAddUser = !this.isAddUser;
         },
@@ -77,11 +90,8 @@ export default {
                 console.log(err.response.statusText)
             })
         },
-        deleteUser(id){
-            alert('To do')
-        },
         showDetail(id) {
-            alert('Todo')
+           this.$router.push(`/users-details/${id}`)
         }
     },
     computed: {
