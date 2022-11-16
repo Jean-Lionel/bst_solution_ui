@@ -1,7 +1,7 @@
 <template>
     <div>
         <div class="table_containner">
-
+        <input type="text" v-model="searchText" placeholder="Rechercher ici">
         <table>
         <thead>
         <tr>
@@ -43,7 +43,12 @@
     export default {
         data() {
             return {
-
+                searchText: searchText
+            }
+        },
+        watch:{
+            searchText(val,last) {
+                this.$store.state.campaniesLists = this.searchInArray(this.campaniesLists, val);
             }
         },
         mounted(){
