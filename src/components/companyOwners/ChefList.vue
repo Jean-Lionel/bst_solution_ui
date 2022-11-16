@@ -1,7 +1,5 @@
 <template>
     <div>
-
-
 <div class="header-table">
     <div>
         <h4>Liste des Entreprises</h4>

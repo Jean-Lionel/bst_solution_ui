@@ -1,9 +1,12 @@
 <template>
     <div>
-        <h4>Liste des utilisateurs</h4>
-
-        <div class="table_containner">
-        
+    <add-user v-if="isAddUser" @close="addUser"/>
+    <h4>Liste des utilisateurs</h4>
+    
+    <div class="table_containner">
+        <input type="text" v-model="searchText">
+        <button @click="searchInDB">ok</button>
+        <button @click="addUser">Ajouter un utilisateur</button>
         <table>
             <thead>
                 <tr>
@@ -14,7 +17,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr v-for="user in usersLists?.data?.data" :key="user.id" >
+                <tr v-for="user in filterUsers" :key="user.id" >
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
@@ -45,18 +48,27 @@
 </template>
 
 <script>
+import AddUser from './AddUser.vue';
 export default {
+  components: { AddUser },
     data(){
         return {
-            
+            searchText : "",
+            isAddUser : false,
         }
     },
     mounted(){
         this.get();
     },
     methods: {
-        get() {
-            this.getData("users")
+        addUser(){
+            this.isAddUser = !this.isAddUser;
+        },
+        searchInDB(){
+            this.get("users?q="+ this.searchText);
+        },
+        get(url="users") {
+            this.getData(url)
             .then(resp =>{
                 //console.log(resp.data)
                 this.$store.state.usersLists = resp
@@ -73,8 +85,11 @@ export default {
     },
     computed: {
         usersLists (){
-            return this.$store.state.usersLists
-        } 
+            return this.$store.state.usersLists?.data
+        } ,
+        filterUsers() {
+            return this.searchInArray(this.usersLists, this.searchText)
+        }
         
     }
 }
