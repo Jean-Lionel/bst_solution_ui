@@ -3,13 +3,14 @@
   
         <div class="table_containner">
         <input type="text" v-model="searchText" placeholder="Rechercher ici">
+        <button @click="searchIntoDb">Rechercher</button>
         <table>
         <thead>
         <tr>
             <th>#</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody class="table-body">
         <tr v-for="(item, i) in filtCampanies">
         <td><b>{{item.id}}</b></td>
         <td>{{ item.tp_name }}</td>
@@ -51,15 +52,14 @@
             
         },
         mounted(){
-            this.get()
+            this.get("companies")
         },
         methods:{
-            searchTextInput(val, last) {
-                const hello = this.searchInArray(this.campaniesLists, val);
-                this.$store.state.campaniesLists = hello;
+            searchIntoDb(){
+                this.get("companies?q=" + this.searchText)
             },
-            get() {
-                this.getData("companies")
+            get(url) {
+                this.getData(url)
                 .then((response) =>{
                     this.$store.state.campaniesLists = response.data?.data
                 }).catch((error) =>{
@@ -85,6 +85,9 @@
     }
 </script>
 
-<style lang="scss" scoped>
+<style scoped>
+.table-body{
+  
 
+}
 </style>

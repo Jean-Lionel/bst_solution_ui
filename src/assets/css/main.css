@@ -22,11 +22,11 @@ h1,h2,h3,h4,h5,h6, th{
 
 body {
     height: 100vh;
-    overflow: hidden;
+    
     width: 98vw;
     margin: auto;
     color: var(--main-color);
-    overflow: scroll;
+   
    
 }
 
@@ -41,6 +41,7 @@ button {
     margin-right: 5px;
 
 }
+
 
 button i {
     font-size: 16px;
