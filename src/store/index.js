@@ -3,7 +3,7 @@ import router from '../router'
 
 export default createStore({
   state: {
-        baseUrl: 'http://127.0.0.1:8000/api',
+        baseUrl: 'http://127.0.0.1:8000/api/',
         user : null,
         isLoggedIn: false, 
         entreprises : [],

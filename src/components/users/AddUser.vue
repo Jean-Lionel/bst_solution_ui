@@ -2,38 +2,45 @@
     <div>
         <modal-component :modalActive="modalActive" @close="close">
             <div>
+
+            <div v-if="error">
+            {{ error }}
+            </div>
                 <form action="" @submit.prevent="saveUser">
                     <div>
                         <label for=""> name </label>
-                        <input type="text" v-model="form.name" />
+                        <input type="text" v-model="form.name" required />
                     </div>
                     
                     <div>
                         <label for=""> first_name </label>
-                        <input type="text" v-model="form.first_name" />
+                        <input type="text" v-model="form.first_name" required />
                     </div>
                     
                     <div>
                         <label for=""> last_name </label>
-                        <input type="text" v-model="form.last_name" />
+                        <input type="text" v-model="form.last_name" required />
                     </div>
                     
                     <div>
                         <label for=""> telephone </label>
                         <input type="text" v-model="form.telephone" />
                     </div>
-                    <div>
-                        <label for=""> description </label>
-                        <input type="text" v-model="form.description" />
-                    </div>
+                   
                     <div>
                         <label for=""> email </label>
-                        <input type="text" v-model="form.email" />
+                        <input type="email" v-model="form.email" />
                     </div>
                     
                     <div>
                         <label for=""> password </label>
                         <input type="text" v-model="form.password" />
+                    </div>
+
+                    <div>
+                        <label for=""> description </label>
+                        <textarea name="" id=""  v-model="form.description"></textarea>
+                        
                     </div>
                     <div>
                     <button type="submit">Enregitrer</button>
@@ -60,7 +67,9 @@ export default {
                 is_active : "",
                 email : "",
                 password : "",
-            }
+            },
+            error:null,
+
         }
     },
     methods: {
@@ -69,8 +78,24 @@ export default {
             this.$emit('close')
         },
         saveUser() {
+            this.postData("users", this.form)
+                .then((response) =>{
+                   
+                    if(response.data.success){
+                        this.form = {}
 
-            alert('J suis cool')
+                        this.successAllert({
+                            body : "Utilisateur bien ajouté"
+                        })
+
+                        this.close() 
+                    }
+                })
+                .catch(err =>{
+                  //  console.error(err.response?.data?.data)
+
+                    this.error = err.response
+                })
             
         }
     }

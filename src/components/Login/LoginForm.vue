@@ -55,7 +55,7 @@ export default {
     methods:{
         submit(){
          
-            axios.post(this.$store.state.baseUrl + "/login/", this.form)
+            axios.post(this.$store.state.baseUrl + "login/", this.form)
             .then( (response) =>{
                 if(response.data.success) {
                     this.$store.commit("login", JSON.stringify(response.data.data))

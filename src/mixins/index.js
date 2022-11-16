@@ -12,6 +12,7 @@ export default{
       
     },
     methods: {
+        // Modal Confirmation delete
         async confirmDelete() {
          return  await this.$swal({
                 title: 'Are you sure?',
@@ -31,9 +32,15 @@ export default{
                         'success'
                     )
         },
+        successAllert() {
+             this.$swal.fire(
+                        'Success',
+                        'Opération réussi !!',
+                        'success'
+                    )
+        },
         searchInArray(arrayList, searchText) {
             //Methode pour faire une rechercher dans le tableau
-
             if(Array.isArray(arrayList) ){
                 return arrayList.filter(
                 e => JSON.stringify(e)
