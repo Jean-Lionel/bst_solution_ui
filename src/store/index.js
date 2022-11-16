@@ -9,6 +9,7 @@ export default createStore({
         entreprises : [],
         chefsEntreprise : [],
         usersLists : [],
+        campaniesLists : [],
   },
   mutations: {
     login(state, user) {

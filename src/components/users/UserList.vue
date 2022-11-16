@@ -22,17 +22,17 @@
                 <td>
                 </td>
 
-                <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
+                <button @click="deleteUser(user.id)" title="Effacer" class="">
                     <i class='fa fa-trash'></i>
                 </button>
-                <button @click="showDetail(entreprise.id)" class="">
+                <button @click="showDetail(user.id)" class="">
                     <i class='fa fa-eye'></i>
                 
                 </button>
-                <button @click="showDetail(entreprise.id)" class="">
+                <button @click="showDetail(user.id)" class="">
                     <i class="fa fa-edit"></i>
                 </button>
-                <button @click="showDetail(entreprise.id)" class="">
+                <button @click="showDetail(user.id)" class="">
                     <i class="fa fa-ban"></i>
                     </button>
                
@@ -63,6 +63,12 @@ export default {
             }).catch(err =>{
                 console.log(err.response.statusText)
             })
+        },
+        deleteUser(id){
+            alert('To do')
+        },
+        showDetail(id) {
+            alert('Todo')
         }
     },
     computed: {
