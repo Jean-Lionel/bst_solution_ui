@@ -1,6 +1,7 @@
 <template>
     <div>
     <button>Ajouter une entreprise</button>
+    <add-company/>
   <div>
     {{ company }}
   </div>
@@ -9,7 +10,9 @@
 </template>
 
 <script>
+import AddCompany from '../company/AddCompany.vue';
 export default {
+  components: { AddCompany },
     data() {
         return {
             company: {}
