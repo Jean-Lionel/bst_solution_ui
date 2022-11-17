@@ -6,7 +6,7 @@
                 
                 <div>
                     <label for="tp_name">tp_name</label>
-                    <input type="text" id="tp_name" v-model="form.tp_name" />
+                    <input type="text" id="tp_name" v-model="form.tp_name" required />
                 </div>
                 
                 <div>
@@ -87,10 +87,7 @@
                    <label for="">description</label> 
                     <textarea v-model="form.description"></textarea>
                 </div>
-                <div>
-                    <label for="company_owner_id">company_owner_id</label>
-                    <input type="text" v-model="form.company_owner_id" />
-                </div>
+               
                 <div>
                 <button type="submit">Enregistrer</button>
                 </div>
@@ -128,10 +125,23 @@ export default {
                 tp_legal_form : "",
                 payment_type : "",
                 description : "",
-                company_owner_id : "",
+                
             }
         }
     },
+    methods: {
+        saveCompany(){
+            this.form.company_owner_id = this.$route.params.id 
+            this.postData("companies",this.form)
+                .then(resp =>{
+                    console.log(resp)
+                })
+                .catch(err =>{
+                    console.log(err)
+                })
+                ;
+        }
+    }
     
 }
 </script>
