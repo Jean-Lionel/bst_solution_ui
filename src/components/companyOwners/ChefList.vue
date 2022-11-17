@@ -57,12 +57,10 @@
                                 <i class='fa fa-eye'></i>
                                 
                             </button>
-                            <button @click="showDetail(entreprise.id)" title="Modifier" class="">
+                            <button @click="update(entreprise.id)" title="Modifier" class="">
                                 <i class="fa fa-edit"></i>
                             </button>
-                            <button @click="showDetail(entreprise.id)" title="Bloquer" class="">
-                                <i class="fa fa-ban"></i>
-                            </button>
+                            
                         </td>
                     </tr>
                 </tbody>
@@ -88,6 +86,10 @@
             this.get()
         },
         methods:{
+            showDetail(id){
+               
+                this.$router.push(`company_owners/${id}`)
+            },
             searchinDatabase(){
                 this.get("company_owners?q=" + this.searchText)
             },
@@ -99,10 +101,6 @@
                 .catch(err => {
                     console.error(err)
                 })
-            },
-            showDetail(data){
-                
-                alert("Todo ")
             },
             async deleteEntreprise(id) {
                 const {value: result} = await this.confirmDelete()
