@@ -1,16 +1,18 @@
 <template>
     <div>
-        <h1>Details</h1>
+        <detail-company-owner/>
     </div>
 </template>
 
 <script>
+import DetailCompanyOwner from '../components/companyOwners/DetailCompanyOwner.vue'
 export default {
-    setup () {
+  components: { DetailCompanyOwner },
+   data() {
+    return {
         
-
-        return {}
     }
+   }
 }
 </script>
 
