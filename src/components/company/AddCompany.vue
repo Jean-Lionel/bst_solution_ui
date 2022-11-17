@@ -127,6 +127,9 @@
                 </div>
                 
             </form>
+            <div class="error">
+            {{ errors }}
+            </div>
             
         </modal-component>
     </div>
@@ -160,7 +163,8 @@ export default {
                 payment_type : "",
                 description : "",
                 
-            }
+            },
+            errors:""
         }
     },
     methods: {
@@ -169,9 +173,12 @@ export default {
             this.postData("companies",this.form)
                 .then(resp =>{
                     console.log(resp)
+                    this.errors = ""
+                    this.form = {}
                 })
                 .catch(err =>{
                     console.log(err)
+                    this.errors = err.response
                 })
                 ;
         }

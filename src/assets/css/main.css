@@ -95,3 +95,7 @@ th {
 #nav a.router-link-exact-active {
     color: #42b983;
 }
+.error{
+    color: rgb(215, 28, 28);
+    font-style: italic;
+}
