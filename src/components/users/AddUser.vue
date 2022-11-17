@@ -79,8 +79,7 @@ export default {
         },
         saveUser() {
             this.postData("users", this.form)
-                .then((response) =>{
-                   
+                .then((response) =>{ 
                     if(response.data.success){
                         this.form = {}
 

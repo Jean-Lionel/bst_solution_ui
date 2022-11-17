@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-  {{ $store.state.user }}
   <alert-component/>
  
   </div>
