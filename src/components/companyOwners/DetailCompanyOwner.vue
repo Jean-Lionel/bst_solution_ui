@@ -1,21 +1,22 @@
 <template>
-    <div>
-    <button>Ajouter une entreprise</button>
-    <add-company/>
+<div> 
+<button @click="showModal">Ajouter une entreprise</button>
+<add-company :modalActive="modalActive" @close="showModal"/>
   <div>
     {{ company }}
   </div>
   
     </div>
 </template>
-
+    
 <script>
 import AddCompany from '../company/AddCompany.vue';
 export default {
   components: { AddCompany },
     data() {
         return {
-            company: {}
+            company: {},
+            modalActive : false,
         }
     },
     mounted(){
@@ -30,11 +31,15 @@ export default {
                 .catch((error) =>{
                     console.error(error)
                 });
+        },
+        showModal(){
+            this.modalActive = !this.modalActive
+            this.get()
         }
     }
 }
 </script>
-
+    
 <style lang="scss" scoped>
 
 </style>

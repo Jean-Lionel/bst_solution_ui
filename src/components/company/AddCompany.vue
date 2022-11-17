@@ -1,6 +1,6 @@
 <template>
     <div>
-        <modal-component :modalActive="modalActive">
+        <modal-component :modalActive="modalActive" @close="close">
             
             <form action="" @submit.prevent="saveCompany">
                 
@@ -139,9 +139,9 @@
 import ModalComponent from '../global/ModalComponent.vue'
 export default {
     components: { ModalComponent },
+    props: ["modalActive"],
     data(){
         return {
-            modalActive : true,
             form: {
                 tp_name : "",
                 tp_type : "",
@@ -175,12 +175,16 @@ export default {
                     console.log(resp)
                     this.errors = ""
                     this.form = {}
+                    this.close()
                 })
                 .catch(err =>{
                     console.log(err)
                     this.errors = err.response
                 })
                 ;
+        },
+        close(){
+            this.$emit("close")
         }
     }
     
