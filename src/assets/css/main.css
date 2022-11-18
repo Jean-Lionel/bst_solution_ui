@@ -99,3 +99,8 @@ th {
     color: rgb(215, 28, 28);
     font-style: italic;
 }
+
+.container-flex{
+    display: flex;
+    justify-content: space-evenly;
+}
