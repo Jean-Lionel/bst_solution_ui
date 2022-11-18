@@ -33,9 +33,12 @@ import AddProduct from './products/AddProduct.vue';
         methods: {
             addProduct(){
                 this.isAddProduct = !this.isAddProduct
+                this.get();
             },
             addCategory(){
                 this.isAddCategory = !this.isAddCategory
+
+                this.get();
             },
             get(){
                 this.getData("stocks/"+this.$route.params.id)

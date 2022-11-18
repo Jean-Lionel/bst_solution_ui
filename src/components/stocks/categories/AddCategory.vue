@@ -47,9 +47,13 @@ export default {
             this.postData("categories", this.form)
             .then(resp =>{
                 console.log(resp.data)
+                this.form = {
+                    stock_id: this.$route.params.id
+                }
+                this.$emit('close')
             })
             .catch(err =>{
-                this.errors = err.response.data.errors
+                this.errors = err.response.data
             })
         }
     }

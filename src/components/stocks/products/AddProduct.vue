@@ -19,10 +19,10 @@
                     <input type="text" v-model="form.marque" required> 
                 </div>
                 <div>
-                    <label for="category_id">Catégorie</label>
+                    <label for="category_id">Catégorie </label>
                     <select name="" id="" v-model="form.category_id">
                         <option value=""></option>
-                        <option v-for="category in categories" :key="category.id" v-bind="category.id">
+                        <option v-for="category in categories" :key="category.id" :value="category.id">
                             {{ category.name}}
                         </option>
                     </select>
@@ -33,11 +33,11 @@
                 </div>
                 <div>
                     <label for="name">Quantite</label>
-                    <input type="text" v-model="form.quantite" required> 
+                    <input type="number" v-model="form.quantite" required> 
                 </div>
                 <div>
                     <label for="name">Quantite Minimum</label>
-                    <input type="text" v-model="form.quantite_alert" required> 
+                    <input type="number" v-model="form.quantite_alert" required> 
                 </div>
                 <div>
                     <label for="name">Price </label>
@@ -45,7 +45,7 @@
                 </div>
                 <div>
                     <label for="name">Date d'expiration </label>
-                    <input type="text" v-model="form.date_expiration" required> 
+                    <input type="date" v-model="form.date_expiration" required> 
                 </div>
                 <div>
                     <label for="name">Description </label>
@@ -56,7 +56,9 @@
                 </div>
                 
             </form>
-            
+            <div>
+            {{ response }}
+            </div>
             <div class="error">
                 {{ errors }}
             </div>
@@ -85,17 +87,21 @@ export default {
                 category_id : "",
                 
             },
-            errors : []
+            errors : [],
+            response : null
         }
     },
     methods: {
         saveProduct() {
+            console.log(this.form)
             this.postData("products", this.form)
             .then(response =>{
-                this.emit("close")
+                this.$emit("close")
+                this.form = {}
+               
             })
             .catch(error =>{
-                this.errors = error.response.data
+                this.errors = error.response
             })
         }
     }
