@@ -9,8 +9,7 @@
     </div>
     <div>
     {{ stock }}
-    <hr>
-    {{ categories }}
+   
     </div>
     </div>
 </template>
@@ -49,6 +48,9 @@ import AddProduct from './products/AddProduct.vue';
                     .then(error =>{
                         console.log(error)
                     })
+            },
+            getProducts(id) {
+                
             }
         },
         computed:{
