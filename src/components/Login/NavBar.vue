@@ -15,6 +15,7 @@
 </template>
 
 <script>
+import "@/assets/css/tony_css/navbar.css"
 export default {
 
     data(){
@@ -26,11 +27,6 @@ export default {
 }
 </script>
 
-<style scoped>
-.base-login{
-    display: flex;
-    justify-content: space-between;
-   
-}
+<style >
 
 </style>
