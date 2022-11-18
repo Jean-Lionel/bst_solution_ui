@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="header">
     <div id="nav">
         <router-link to="/">Home</router-link> |
         <router-link to="/company">Company</router-link> |
@@ -11,6 +11,7 @@
 </template>
 
 <script>
+    import "@/assets/css/tony_css/navbar.css"
     export default {
     methods: {
         logout() {

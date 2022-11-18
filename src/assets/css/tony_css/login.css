@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
+:root {
+    --primary:#0f4c5c;
+    --secondary:#e36414;
+    --danger: #F70E0E;
+    --grey: #8b8b8b;
+    --dark: #5f5f5f;
+    --black: #000000;
+    --white:#ffff;
+    --hover:#FB8B24;
+    --active:#1D1B31;
+
+    --text:12px;
+    --title:20px;
+}
+*{
+    margin: 0 auto;
+    padding: 0px;
+    font-family: 'Raleway', sans-serif;
+}
+.loginbox{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    /* margin-left:-80px; */
+}
+.picture{
+    height: 100vh;
+    width: 65%;
+    margin-left: 0;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: 1;
+    background-position: center;
+    background: url(../../images/bg.jpg);
+}
+.picture::before{
+    background:  linear-gradient(180deg, #e36414, #9a031e);
+    opacity: .8;
+    content: "";
+    display: block;
+    position: absolute;
+    z-index: -1;
+    width: 65%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
+.rectanglebox{
+   padding: 0;
+   background-color: white;
+   z-index: 2;
+   width: 35%;
+    margin: 0 auto;
+}
+
+.rectanglebox p{
+    font-size: 40px;
+    text-align: left;
+    color: var(--secondary);
+    margin-top:20px;
+    margin-bottom: 40px;
+    font-weight: 800;
+    text-align: center;
+}
+.form{
+    padding: 40px;
+}
+i{
+    margin-right: 5px;
+}
+.label_text{
+    text-align: left !important;
+    margin-bottom: -8px;
+}
+.input_group label{
+    font-size: 18px;
+    margin-bottom: -05px;
+    font-weight: 600;
+    color: var(--dark);
+}
+.input_group input,input::placeholder{
+    width: 100%;
+    background: transparent;
+    outline: none;
+    border: none;
+    height: 60px;
+    margin-bottom: 32px;
+    font-size: 20px;
+    color: var(--grey);
+    border-bottom: 3px solid var(--grey);
+}
+.input_group input:focus{
+    border-bottom: 3px solid var(--secondary);
+    transition: .6s;
+    color: var(--dark);
+}
+.login-btn input{
+    width: 100%;
+    height: 55px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    font-size: 20px;
+    font-weight: 500;
+    margin-top:10px;
+    background-image: linear-gradient(120deg, #e36414, #9a031e);
+}
+.login-btn input:hover{
+    cursor: pointer;
+    background-image: linear-gradient(120deg, #9a031e, #e36414);
+
+}
+.login-error{
+    color: #A10C1D;
+   font-weight: 600;
+}
