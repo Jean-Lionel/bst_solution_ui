@@ -59,7 +59,6 @@ export default {
             .then( (response) =>{
                 if(response.data.success) {
                     this.$store.commit("login", JSON.stringify(response.data.data))
-                    this.$router.push("/") 
                 }
             })
             .catch( (error)=> {

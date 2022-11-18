@@ -2,7 +2,9 @@
     <div v-show="addStock">
         
         <modal-component :modalActive="addStock" @close="close">
-        <h1>Je suis un Millionnaire</h1>
+            <form @submit.prevent="saveStock">
+            
+            </form>
         </modal-component>
     </div>
 </template>
@@ -12,6 +14,13 @@ import ModalComponent from '../global/ModalComponent.vue'
 export default {
   components: { ModalComponent },
     props:["addStock"],
+    data() {
+        return{
+            form: {
+                
+            }
+        }
+    },
     methods: {
         close() {
             this.$emit('close')
