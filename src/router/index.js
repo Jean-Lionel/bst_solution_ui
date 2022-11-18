@@ -6,6 +6,7 @@ import CompanyOwner from '../views/CompanyOwner.vue'
 import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
+import store from '../store'
 
 const routes = [
   {
@@ -14,7 +15,7 @@ const routes = [
     component: Home
   },
   {
-    path: '/login',name: 'Login',component: BaseLogin
+    path: '/login',name: 'Login',component: BaseLogin, meta:{auth: false}
   },
   {
     path: '/company',name: 'company',component: Company
@@ -36,6 +37,11 @@ const routes = [
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
   routes
+})
+
+router.beforeEach((to,from, next) => {
+    // Here I will check if the user has the right permissions for using my page
+    next();
 })
 
 export default router
