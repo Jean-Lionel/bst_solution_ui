@@ -27,14 +27,14 @@
             <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
                 <i class='fa fa-trash'></i>
             </button>
-            <button @click="showDetail(entreprise.id)" title="Détail" class="">
+            <button @click="showDetail(item.id)" title="Détail" class="">
                 <i class='fa fa-eye'></i>
         
             </button>
-            <button @click="showDetail(entreprise.id)" title="Modifier" class="">
+            <button @click="editComapny(item.id)" title="Modifier" class="">
                 <i class="fa fa-edit"></i>
             </button>
-            <button @click="showDetail(entreprise.id)" title="Bloquer" class="">
+            <button @click="deleteCompany(item.id)" title="Bloquer" class="">
                 <i class="fa fa-ban"></i>
             </button>
         </td>
@@ -74,7 +74,7 @@
 
             },
             showDetail(id) {
-                alert("Todo Item deleted")
+                this.$router.push("company/"+ id)
             }
         },
         computed:{

@@ -6,7 +6,7 @@ import CompanyOwner from '../views/CompanyOwner.vue'
 import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
-import store from '../store'
+import CompanyDetail from '../components/company/CompanyDetail.vue'
 
 const routes = [
   {
@@ -19,6 +19,9 @@ const routes = [
   },
   {
     path: '/company',name: 'company',component: Company
+  },
+  {
+    path: '/company:id',name: 'company_detail',component: CompanyDetail
   },
   {
     path: '/company_owners',name: 'company_owners',component: CompanyOwner
