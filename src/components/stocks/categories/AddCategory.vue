@@ -37,7 +37,7 @@ export default {
             form: {
                 name : "",
                 description : "",
-                companie_id: this.$route.params.id,
+                stock_id: this.$route.params.id,
             },
             errors: []
         }
