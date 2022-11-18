@@ -21,7 +21,7 @@ const routes = [
     path: '/company',name: 'company',component: Company
   },
   {
-    path: '/company:id',name: 'company_detail',component: CompanyDetail
+    path: '/company/:id',name: 'company_detail',component: CompanyDetail
   },
   {
     path: '/company_owners',name: 'company_owners',component: CompanyOwner
