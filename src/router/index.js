@@ -7,12 +7,12 @@ import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
+import StockDetail from '../components/stocks/StockDetail.vue'
+import Stocks from '../components/stocks/Stocks.vue'
 
 const routes = [
   {
-    path: '/',
-    name: 'Home',
-    component: Home
+    path: '/', name: 'Home',component: Home
   },
   {
     path: '/login',name: 'Login',component: BaseLogin, meta:{auth: false}
@@ -22,6 +22,12 @@ const routes = [
   },
   {
     path: '/company/:id',name: 'company_detail',component: CompanyDetail
+  },
+  {
+    path: '/stocks/:id',name: 'stock_detail',component: StockDetail
+  },
+  {
+    path: '/stocks',name: 'stocks',component: Stocks
   },
   {
     path: '/company_owners',name: 'company_owners',component: CompanyOwner
