@@ -4,8 +4,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
 
 :root {
-    --primary: #e36414;
-    /* --primary: #00c4ad; */
+    /* --primary: #e36414; */
+    --primary: #00c4ad; 
     --secondary: #e36414;
     --danger: #F70E0E;
     --grey: #8b8b8b;
@@ -78,13 +78,22 @@ button i {
     border: 1px solid rgb(225, 217, 217);
     border-radius: 10px;
     margin: 10px 0px;
+    padding: 0 20px;
+}
+button{
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .table_containner {
+           overflow-x: scroll;
+        }
+    
 }
 
 table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    overflow: scroll;
 }
 
 tr {

@@ -64,9 +64,10 @@
                             <td> {{ item.price}} </td>
                             <td> {{ item.price_max}} </td>
                             <td> {{ item.price_min}} </td>
-                        
+                            <td></td>
                             <td>
-                                Action
+                              <button @click="addProductStock(item)">In</button>
+                              <button>Out</button>
                             </td>
                             
                             
@@ -75,14 +76,20 @@
                 </table>
             </div>
         </div>
+
+        <div>
+       <add-quantite-stock :selectProduct="selectProduct"  v-if="isAddProductStock" @close="addProductStock"/> 
+        
+        </div>
     </div>
 </template>
 
 <script>
 import AddCategory from './categories/AddCategory.vue';
 import AddProduct from './products/AddProduct.vue';
+import AddQuantiteStock from './products/AddQuantiteStock.vue';
 export default {
-    components: { AddCategory, AddProduct },
+    components: { AddCategory, AddProduct, AddQuantiteStock },
     data(){
         return{
             isAddCategory: false,
@@ -91,6 +98,8 @@ export default {
             products : [],
             category_id : "",
             textSearch : "",
+            isAddProductStock : false,
+            selectProduct : null
             
         }
     },
@@ -107,6 +116,10 @@ export default {
         
     },
     methods: {
+        addProductStock(item){
+            this.isAddProductStock = !this.isAddProductStock;
+            this.selectProduct = item
+        },
         addProduct(){
             this.isAddProduct = !this.isAddProduct
             this.get();
