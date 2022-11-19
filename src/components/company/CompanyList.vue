@@ -1,6 +1,5 @@
 <template>
     <div>
-  
         <div class="table_containner">
         <input type="text" v-model="searchText" placeholder="Rechercher ici">
         <button @click="searchIntoDb">Rechercher</button>
@@ -25,17 +24,17 @@
         <td>{{ item.tp_address_quartier }}</td>
         <td>
             <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
-                <i class='fa fa-trash'></i>
+                <i class='fab fa-trash'></i>
             </button>
             <button @click="showDetail(item.id)" title="Détail" class="">
-                <i class='fa fa-eye'></i>
+                <i class='fab fa-eye'></i>
         
             </button>
             <button @click="editComapny(item.id)" title="Modifier" class="">
-                <i class="fa fa-edit"></i>
+                <i class="fab fa-edit"></i>
             </button>
             <button @click="deleteCompany(item.id)" title="Bloquer" class="">
-                <i class="fa fa-ban"></i>
+                <i class="fab fa-ban"></i>
             </button>
         </td>
         </tr>

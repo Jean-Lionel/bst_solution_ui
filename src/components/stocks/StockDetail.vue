@@ -3,7 +3,7 @@
         <div class="container-flex">
             <div>
                 <p><b>Identifiant Unique</b> : {{ stock.uuid }}</p>
-                <p><b>Désignation</b> : {{ stock.name }}</p>
+                <p><b></b> : {{ stock.name }}</p>
                 <p><b>Désignation</b> : {{ stock.id }}</p>
             </div>
             <div>

@@ -3,6 +3,8 @@
 <div class="header-table">
     <div>
         <h4>Liste des Entreprises</h4>
+        
+        <i class="fa fa-free-code-camp" aria-hidden="true"></i>
     </div>
     <div>
         <input type="text" v-model="searchText"/>
