@@ -6,12 +6,14 @@ import mixins from './mixins'
 import axiosInstance from './plugins/axiosConfig'
 import VueSweetalert2,{ options} from './plugins/sweetAlert'
 import "./assets/css/main.css"
+import LoadingComponentVue from './components/global/LoadingComponent.vue'
 
 // Configuration pour axios
 const app = createApp(App)
 
 app.config.globalProperties.axios =  { ...axiosInstance }
 app
+.component("Loading",LoadingComponentVue)
 .mixin(mixins)
 .use(VueSweetalert2,options)
 .use(store)

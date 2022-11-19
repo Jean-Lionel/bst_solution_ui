@@ -10,9 +10,11 @@
     </div>
 
     <div>
-    
-      <img src="favicon.ico" alt="logo">
-    
+  
+      <div class="img_logo">
+            <img src="img/lion.png" alt="logo">
+            
+      </div>
     </div>
     </div>
 </template>
@@ -37,6 +39,15 @@
 </script>
 
 <style scoped>
+.img_logo{
+    display: flex;
+    align-items: center;
+    margin-right: 5px;
+}
+img{
+    height: 50px;
+    border-radius: 50%;
+}
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
 #nav{

@@ -22,7 +22,8 @@
 </modal-component>
 <div class="table_containner">
     
-    <table  class="text-left" >
+    <loading v-if="isLoading" />
+    <table  class="text-left" v-if="!isLoading">
         <thead>
             <tr>
                 <th>#</th>
@@ -80,7 +81,8 @@
         data() {
             return{
                 modalActive: false,
-                searchText : ""
+                searchText : "",
+                isLoading: false
                 
             }
         },
@@ -96,9 +98,12 @@
                 this.get("company_owners?q=" + this.searchText)
             },
             get(url ="company_owners") {
+
+                this.isLoading = true
                 this.getData(url)
                 .then(resp => {
                     this.$store.state.chefsEntreprise = resp.data.data
+                    this.isLoading = false
                 })
                 .catch(err => {
                     console.error(err)
