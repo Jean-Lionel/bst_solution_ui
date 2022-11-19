@@ -82,7 +82,7 @@
             return{
                 modalActive: false,
                 searchText : "",
-                isLoading: false
+                isLoading: false,
                 
             }
         },

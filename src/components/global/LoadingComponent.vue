@@ -19,9 +19,9 @@ export default {
     align-items: center;
 }
 .loader {
-    border: 16px solid #f3f3f3;
+    border: 10px solid var(--secondary);
     /* Light grey */
-    border-top: 16px solid var(--grey);
+    border-top: 10px solid var(--grey);
     /* Blue */
     border-radius: 50%;
     width: 120px;
