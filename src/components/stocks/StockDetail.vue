@@ -15,7 +15,7 @@
                 </select>
             </div>
             <div>
-                <input type="text" placeholder="Rechercher !!!">
+                <input type="text" v-model="textSearch" placeholder="Rechercher !!!">
             </div>
             <div>
                 <button @click="addCategory">Ajouter une Category</button>
@@ -51,7 +51,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="item in products.data" :key="item.id">
+                        <tr v-for="item in filteredProducts" :key="item.id">
                             
                             <td>{{ item.id }}</td>
                             <td> <b>{{ item.category.name }}</b> </td>
@@ -90,6 +90,7 @@ export default {
             stock: {},
             products : [],
             category_id : "",
+            textSearch : "",
             
         }
     },
@@ -128,7 +129,7 @@ export default {
             this.getData(`products?stock_id=${ stock_id ?? ""}&category_id=${ category_id ?? ""}`)
             .then(response => {
                 console.log(response)
-                this.products = response.data
+                this.products = response.data.data
             })
             .then(error => {
                 console.log(error)
@@ -138,6 +139,9 @@ export default {
     computed:{
         categories(){
             return this.stock.categories
+        },
+        filteredProducts(){
+            return this.searchInArray(this.products, this.textSearch)
         }
     }
 }
