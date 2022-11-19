@@ -1,10 +1,11 @@
 <template>
     <div class="header">
     <div id="nav">
-        <router-link to="/"> Home</router-link> 
-        <router-link to="/company">Company</router-link> 
-        <router-link to="/company_owners">Chefs des entreprises</router-link> 
-        <router-link to="/users">Utilisateur</router-link> 
+        <a href=""><i class="fa fa-bars"></i></a>
+        <router-link to="/"> <i class="fa fa-home"></i> Home</router-link> 
+        <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link> 
+        <router-link to="/company_owners"> <i class="fa fa-briefcase" ></i>  Chefs des entreprises</router-link> 
+        <router-link to="/users"> <i class="fa  fa-users"></i>Utilisateur</router-link> 
         <router-link v-if="$store.state.user" to="" @click="logout">Logout</router-link>
     </div>
 
