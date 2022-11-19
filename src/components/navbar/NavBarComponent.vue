@@ -10,12 +10,14 @@
 
     <div>
     
-      
+      <img src="favicon.ico" alt="logo">
+    
     </div>
     </div>
 </template>
 
 <script>
+
     export default {
     methods: {
         data(){
@@ -33,7 +35,8 @@
     }
 </script>
 
-<style >
+<style scoped>
+
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
 #nav{
     display: flex;
@@ -45,26 +48,6 @@
     text-decoration: none;
     color: #fff;
 
-}
-:root {
-    --primary: #e36414;
-    --secondary: #e36414;
-    --danger: #F70E0E;
-    --grey: #8b8b8b;
-    --dark: #5f5f5f;
-    --black: #000000;
-    --white: #ffff;
-    --hover: #FB8B24;
-    --active: #1D1B31;
-
-    --text: 12px;
-    --title: 20px;
-}
-
-* {
-    margin: 0 auto;
-    padding: 0px;
-    font-family: 'Raleway', sans-serif !important;
 }
 
 .header {

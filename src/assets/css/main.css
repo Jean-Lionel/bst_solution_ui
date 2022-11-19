@@ -1,10 +1,35 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Poppins:wght@500;600;700&display=swap');
 
-:root{
-    --main-color : #333;
-   
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #e36414;
+    --secondary: #e36414;
+    --danger: #F70E0E;
+    --grey: #8b8b8b;
+    --dark: #5f5f5f;
+    --black: #000000;
+    --white: #ffff;
+    --hover: #FB8B24;
+    --active: #1D1B31;
+
+    --text: 12px;
+    --title: 20px;
 }
+
+* {
+    margin: 0 auto;
+    padding: 0px;
+    
+}
+
+.header {
+    background-color: var(--secondary);
+    width: 100%;
+    height: 60px;
+}
+
 h1,h2,h3,h4,h5,h6, th{
      font-family: 'Poppins', sans-serif;
 }
@@ -64,10 +89,13 @@ td {
     padding: 6px 10px;
 }
 
+
 th {
     text-transform: uppercase;
     padding: 6px 10px;
     font-size: 0.8rem;
+    box-shadow: 0 3px 3px -1px rgba(126, 6, 6, 0.4);
+    
 }
 
 .error{
@@ -78,5 +106,6 @@ th {
 .container-flex{
     display: flex;
     justify-content: space-evenly;
+    
 }
 

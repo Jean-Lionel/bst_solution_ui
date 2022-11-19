@@ -16,7 +16,7 @@
 *{
     margin: 0 auto;
     padding: 0px;
-    font-family: 'Raleway', sans-serif !important; 
+    font-family: 'Raleway', sans-serif; 
 }
 .header{
     background-color: var(--secondary);
