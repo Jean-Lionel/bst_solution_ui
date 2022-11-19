@@ -23,13 +23,15 @@
                     <i class="fa fa-angle-down"></i>
                 </span>
                 <div v-if="showModal" class="modal-login">
-                    <router-link  to="" @click="logout">
-                    <i class="fa  fa-lock"></i>
-                    <span>Logout</span>
-                    </router-link>
+                    
                     <router-link to="" >
                     <i class="fa fa-bar-chart"></i>
                     <span>Dashboard</span>
+                    </router-link>
+
+                    <router-link to="" @click="logout">
+                        <i class="fa  fa-lock"></i>
+                        <span>Logout</span>
                     </router-link>
                 </div>
             </div>
@@ -113,7 +115,7 @@
 }
 
 .header {
-    background-color: var(--secondary);
+    background-color: var(--primary);
     width: 100%;
     height: 60px;
     display: flex;
