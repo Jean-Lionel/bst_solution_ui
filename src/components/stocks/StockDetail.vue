@@ -7,7 +7,15 @@
                 <p><b>Désignation</b> : {{ stock.id }}</p>
             </div>
             <div>
-            <input type="text" placeholder="Rechercher !!!">
+                <select name="" id="" v-model="category_id">
+                    <option value=""></option>
+                    <option :value="categorie.id" v-for="categorie in categories" :key="categorie.id">
+                        {{ categorie.name}}
+                    </option>
+                </select>
+            </div>
+            <div>
+                <input type="text" placeholder="Rechercher !!!">
             </div>
             <div>
                 <button @click="addCategory">Ajouter une Category</button>
@@ -56,9 +64,9 @@
                             <td> {{ item.price}} </td>
                             <td> {{ item.price_max}} </td>
                             <td> {{ item.price_min}} </td>
-                            <td> {{ item.description}} </td>
+                        
                             <td>
-                            Action
+                                Action
                             </td>
                             
                             
@@ -81,12 +89,16 @@ export default {
             isAddProduct: false,
             stock: {},
             products : [],
+            category_id : "",
             
         }
     },
     watch:{
         stock(val){
             this.getProducts(this.$route.params.id)
+        },
+        category_id(val){
+            this.getProducts(this.$route.params.id, val)
         }
     },
     mounted(){

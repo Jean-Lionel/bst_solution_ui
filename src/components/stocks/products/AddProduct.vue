@@ -49,7 +49,7 @@
                 </div>
                 <div>
                     <label for="name">Description </label>
-                    <textarea name="" id="" cols="30" rows="10" v-model="description"></textarea>
+                    <textarea name="" id="" cols="30" rows="10" v-model="form.description"></textarea>
                 </div>
                 <div>
                     <button type="submit">Enregistrer</button>
