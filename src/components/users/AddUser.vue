@@ -86,6 +86,7 @@ export default {
                         this.successAllert({
                             body : "Utilisateur bien ajouté"
                         })
+                        this.$emit('saved')
 
                         this.close() 
                     }

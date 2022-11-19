@@ -62,7 +62,7 @@
 </template>
 
 <script>
-import axios from "axios"
+
 export default {
     data(){
         return {
@@ -85,14 +85,8 @@ export default {
     },
     methods:{
         saveInformation(){
-           
-            axios.post("http://127.0.0.1:8000/api/company_owners",
-                this.form, {
-                headers: {
-                    "Accept": "application/json",
-                    "Authorization": "Bearer 8|wawvTD9M8bzkZxFxQAF8xs21hTUyVFv0xTpLcq2X",
-                }
-            })
+
+            this.postData("company_owners", this.form)
                 .then(resp => {
                     this.chefsEntreprise = resp.data
                     console.log(resp.data)

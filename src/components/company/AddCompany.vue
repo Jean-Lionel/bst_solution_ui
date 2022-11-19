@@ -162,6 +162,7 @@ export default {
                 tp_legal_form : "",
                 payment_type : "",
                 description : "",
+                company_category_id : 1,
                 
             },
             errors:""

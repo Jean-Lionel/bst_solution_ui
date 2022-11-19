@@ -1,7 +1,7 @@
 <template>
   <div class="home">
   <alert-component/>
- 
+    <img src="../assets/images/bg.jpg" alt="" title="" />
   </div>
 </template>
 

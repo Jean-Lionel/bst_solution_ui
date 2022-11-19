@@ -67,8 +67,9 @@ export default {
             if(result){
                 this.deleteData(`users/${ id }`)
                     .then(resp => {
-                        this.showDeleteConfirmation()
                         this.get();
+                        this.showDeleteConfirmation()
+                        
                     })
                     .catch(err => {
                         console.error(err)
@@ -76,6 +77,7 @@ export default {
             }
         },
         addUser(){
+            this.get()
             this.isAddUser = !this.isAddUser;
         },
         searchInDB(){

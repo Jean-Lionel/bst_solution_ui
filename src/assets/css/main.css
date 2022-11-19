@@ -23,9 +23,8 @@ body {
     height: 100vh;
     margin: auto;
     color: var(--main-color);
-   
-   
 }
+
 
 .text-left {
     text-align: left !important;
@@ -55,7 +54,6 @@ table {
     border-collapse: collapse;
     text-align: left;
     overflow: scroll;
-
 }
 
 tr {
@@ -72,10 +70,6 @@ th {
     font-size: 0.8rem;
 }
 
-
-
-
-
 .error{
     color: rgb(215, 28, 28);
     font-style: italic;
@@ -85,3 +79,4 @@ th {
     display: flex;
     justify-content: space-evenly;
 }
+
