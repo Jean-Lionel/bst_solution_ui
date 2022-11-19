@@ -19,7 +19,7 @@
            
             
             <span><i class="fa fa-user-circle-o" title="Aide"></i>
-                Jean Lionel
+                {{ user }}
             <i class="fa fa-angle-down"></i>
             </span>
             
@@ -43,6 +43,12 @@
         },
         logout() {
             this.$store.commit("logout")
+        },
+        
+    },
+    computed: {
+        user() {
+            return this.$store.state.user?.user?.name
         }
     }
     }
