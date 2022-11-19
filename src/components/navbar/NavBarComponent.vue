@@ -1,6 +1,6 @@
 <template>
-    <div class="header">
-    <div id="nav">
+    <div id="nav" class="header">
+    <div >
         <a href=""><i class="fa fa-bars"></i></a>
         <router-link to="/"> <i class="fa fa-home"></i> Home</router-link> 
         <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link> 
@@ -12,7 +12,17 @@
     <div>
   
       <div class="img_logo">
-            <img src="img/lion.png" alt="logo">
+            <!-- <img src="img/lion.png" alt="logo"> -->
+            
+            <span title="Notification"><i class="fa fa fa-bell"></i></span>
+            <span><i class="fa fa-question-circle-o" title="Aide"></i></span>
+           
+            
+            <span><i class="fa fa-user-circle-o" title="Aide"></i>
+                Jean Lionel
+            <i class="fa fa-angle-down"></i>
+            </span>
+            
             
       </div>
     </div>
@@ -39,14 +49,10 @@
 </script>
 
 <style scoped>
-.img_logo{
-    display: flex;
-    align-items: center;
-    margin-right: 5px;
-}
-img{
-    height: 50px;
-    border-radius: 50%;
+.img_logo span{
+    display: inline-block;
+    padding: 0 8px;
+    font-size: 18px;
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@100;300;400;500;600;700;800&display=swap');
