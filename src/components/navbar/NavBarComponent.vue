@@ -3,8 +3,10 @@
     <div >
         <a href=""><i class="fa fa-bars"></i></a>
         <router-link to="/"> <i class="fa fa-home"></i> Home</router-link> 
-        <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link> 
+        <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link>
+
         <router-link to="/company_owners"> <i class="fa fa-briefcase" ></i>  Chefs des entreprises</router-link> 
+        <router-link to="/fournisseurs"> <i class="fa fa-themeisle" ></i>  Fournisseurs</router-link> 
         <router-link to="/users"> <i class="fa  fa-users"></i>Utilisateur</router-link> 
         
     </div>

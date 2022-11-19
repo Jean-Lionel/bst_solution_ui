@@ -9,7 +9,9 @@ export default createStore({
         chefsEntreprise : [],
         usersLists : [],
         campaniesLists : [],
-        fetchData : {},
+        fetchData : {
+            fournisseurs : []
+        },
   },
   mutations: {
     login(state, user) {

@@ -5,6 +5,7 @@ import Company from '../views/Company.vue'
 import CompanyOwner from '../views/CompanyOwner.vue'
 import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
+import Fournisseur from '../views/Fournisseur.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
@@ -19,6 +20,9 @@ const routes = [
   },
   {
     path: '/company',name: 'company',component: Company
+  },
+  {
+    path: '/fournisseurs',name: 'fournisseurs',component: Fournisseur
   },
   {
     path: '/company/:id',name: 'company_detail',component: CompanyDetail
