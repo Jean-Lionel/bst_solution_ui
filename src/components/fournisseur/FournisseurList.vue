@@ -19,6 +19,7 @@
                             <th>Email</th>
                             <th>R.c</th>
                             <th>Adresse</th>
+                            <th>Date</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,7 @@
                             <td>{{ fournisseur.email }}</td>
                             <td>{{ fournisseur.registre_commerce }}</td>
                             <td>{{ fournisseur.addresse }}</td>
+                            <td>{{ fournisseur.created_at }}</td>
                             <td></td>
                         </tr>
                     </tbody>
@@ -61,13 +63,14 @@ export default {
         
     },
     mounted(){
-        this.get("fournisseurs")
+        this.get()
     },
     methods: {
         addFournisseur(){
             this.isAddFournisseur = !this.isAddFournisseur;
+            this.get()
         },
-        get(url){
+        get(url = "fournisseurs"){
             this.getData(url)
             .then(response =>{
                 this.$store.state.fetchData.fournisseurs = response.data
