@@ -33,7 +33,7 @@ export default {
             form: {
                 name : "",
                 description : "",
-                companie_id: this.$route.params?.id,
+                company_id: this.$route.params?.id,
             },
             errors:null
         }

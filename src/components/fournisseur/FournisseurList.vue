@@ -1,6 +1,6 @@
 <template>
     <div>
-        <loading v-if="isLoading" />
+        <loading v-if="$store.state.isLoading" />
         
         <div>
             <div>
@@ -55,7 +55,6 @@ export default {
         return{
             isLoading : false,
             searchText : "",
-            isAddFournisseur : false,
             
         }
     },
@@ -71,6 +70,7 @@ export default {
             this.get()
         },
         get(url = "fournisseurs"){
+            
             this.getData(url)
             .then(response =>{
                 this.$store.state.fetchData.fournisseurs = response.data

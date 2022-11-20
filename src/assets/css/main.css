@@ -119,9 +119,17 @@ th {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
+.container-flex-evenly{
+    display: flex;
+    justify-content: space-evenly;
+}
 .container-flex{
     display: flex;
     justify-content: space-evenly;
+}
+.container-flex-between{
+    display: flex;
+    justify-content: space-between;
 }
 form div{
     display:flex;
