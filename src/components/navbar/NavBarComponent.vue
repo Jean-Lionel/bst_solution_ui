@@ -26,7 +26,7 @@
                 </span>
                 <div v-if="showModal" class="modal-login">
                     
-                    <router-link to="" >
+                    <router-link to="/" >
                     <i class="fa fa-bar-chart"></i>
                     <span>Dashboard</span>
                     </router-link>

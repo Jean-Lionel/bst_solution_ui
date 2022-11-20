@@ -5,6 +5,7 @@
         <div>
             <div>
                 <input type="text" v-model="searchText">
+                <button @click="addFournisseur">Ajouter un Fournisseur</button>
             </div>
             
             <div class="table_containner">
@@ -37,15 +38,22 @@
                 </table>
             </div>
         </div>
+
+        <div>
+         <add-fournisseur v-if="isAddFournisseur" @close="addFournisseur" />
+        </div>
     </div>
 </template>
 
 <script>
+import AddFournisseur from './AddFournisseur.vue';
 export default {
+  components: { AddFournisseur },
     data(){
         return{
             isLoading : false,
-            searchText : ""
+            searchText : "",
+            isAddFournisseur : false,
             
         }
     },
@@ -56,6 +64,9 @@ export default {
         this.get("fournisseurs")
     },
     methods: {
+        addFournisseur(){
+            this.isAddFournisseur = !this.isAddFournisseur;
+        },
         get(url){
             this.getData(url)
             .then(response =>{

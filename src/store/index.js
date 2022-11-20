@@ -12,6 +12,7 @@ export default createStore({
         fetchData : {
             fournisseurs : []
         },
+        isLoading : false, 
   },
   mutations: {
     login(state, user) {
