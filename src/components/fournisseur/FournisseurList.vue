@@ -40,7 +40,7 @@
         </div>
 
         <div>
-         <add-fournisseur v-if="isAddFournisseur" @close="addFournisseur" />
+         <add-fournisseur :isAddFournisseur="isAddFournisseur" v-if="isAddFournisseur" @close="addFournisseur" />
         </div>
     </div>
 </template>

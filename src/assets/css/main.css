@@ -116,11 +116,20 @@ th {
 .error{
     color: rgb(215, 28, 28);
     font-style: italic;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .container-flex{
     display: flex;
     justify-content: space-evenly;
-    
 }
-
+form div{
+    display:flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+form div input, form div input:focus{
+   border: none;
+    border-bottom: 3px solid var(--primary);
+    width: 400px;
+}

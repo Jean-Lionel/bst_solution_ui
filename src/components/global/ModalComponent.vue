@@ -39,6 +39,7 @@ export default {
     top: 0;
     left: 0;
     background-color: rgba(110, 110, 110, 0.7);
+    overflow:scroll;
 }
 
 .modal-inner {
