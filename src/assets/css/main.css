@@ -136,8 +136,12 @@ form div{
     justify-content: space-between;
     padding: 5px;
 }
-form div input, form div input:focus{
+form div input, select, textarea{
    border: none;
     border-bottom: 3px solid var(--primary);
     width: 400px;
+}
+
+form{
+    padding: 10px 20px;
 }

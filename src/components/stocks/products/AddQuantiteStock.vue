@@ -8,7 +8,14 @@
                 
                 <div>
                     <label for="">Fournisseur</label>
-                    <input type="text" />
+                    
+                    <select name="" id="">
+                    <option value=""></option>
+                    <option :value="f.id" v-for="f in fournisseurs" :key="f.id">
+                    {{ f.name }}
+                    
+                    </option>
+                    </select>
                     <!--  <button @click.prevent="addLot">Ajouter</button> -->
                 </div>
                 <div>
@@ -18,17 +25,31 @@
                 </div>
                 <div>
                     <label for="">Quantité</label>
-                    <input type="text">
+                    <input type="number" v-model="form.quantite">
                 </div>
                 <div>
                     <label for="">Prix d'achat unitaire</label>
-                    <input type="text">
+                    <input type="number" v-model="form.price_achat">
+                </div>
+                <div>
+                    <label for="">Prix de vente unitaire</label>
+                    <input type="number" v-model="form.price_achat">
+                </div>
+                <div>
+                    <label for="">Date d'achat</label>
+                    <input type="date" v-model="form.price_achat">
                 </div>
                 <div>
                     <label for="">Unite de Mésure</label>
-                    <input type="text">
+                    <select name="" id="" v-model="form.unite_mesure">
+                        <option value=""></option>
+                        <option :value="unite.id" v-for="unite in unite_mesures" :key="unite.id">
+                        {{ unite.name }}
+                        </option>
+                    </select>
                 </div>
                 <div>
+                    <button>Enregistrer</button>
                 </div>
                 
             </form>
@@ -55,10 +76,44 @@ export default {
             }
         }
     },
+    mounted(){
+        this.getUniteMesure()
+        this.getFournisseur()
+    },
+    
     methods: {
+        getFournisseur(){
+            this.getData("fournisseurs")
+                .then(resp => {
+                    this.$store.state.fetchData.fournisseurs = resp.data
+                })
+                .catch(error => {
+                    console.log(error);
+                })
+
+        },
+        getUniteMesure(){
+            this.getData("unite_mesures")
+                .then(resp =>{
+                    this.$store.state.fetchData.unite_mesures = resp.data
+                })
+                .catch(error=>{
+                    console.log(error);
+                })
+        },
         addLot(){
             alert("Ajouter de lot!");
+        },
+
+    },
+    computed:{
+        fournisseurs(){
+            return this.$store.state.fetchData.fournisseurs;
+        },
+        unite_mesures(){
+            return this.$store.state.fetchData.unite_mesures;
         }
+
     }
     
 }
