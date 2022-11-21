@@ -59,7 +59,7 @@
                             <td> {{ item.code_product}} </td>
                             <td> {{ item.marque}} </td>
                             <td> {{ item.unite_mesure}} </td>
-                            <td> {{ item.quantite}} </td>
+                            <td> <b>{{ item.quantite}}</b> </td>
                             <td> {{ item.quantite_alert}} </td>
                             <td> {{ item.price}} </td>
                             <td> {{ item.price_max}} </td>
@@ -119,6 +119,7 @@ export default {
         addProductStock(item){
             this.isAddProductStock = !this.isAddProductStock;
             this.selectProduct = item
+            this.get();
         },
         addProduct(){
             this.isAddProduct = !this.isAddProduct
