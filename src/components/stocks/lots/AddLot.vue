@@ -38,19 +38,27 @@
                             <div class="text-right">
                             <button type="submit"> <i class="fa fa-plus-circle"></i> Ajouter</button>
                             </div>
+                            <div class="error">
+                            {{ errors }}
+                            </div>
                         </form>
                     </div>
+                   
                     <table>
                         <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Numéro de lot</th>
-                                <th>Quantité disponible</th>
                                 <th>Date d'expiration</th>
+                                <th>Quantité disponible</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
+                            <tr v-for="(lot,i) in lot_products" :key="lot.id">
+                            <td>{{ i +1}}</td>
+                            <td>{{ lot.name }}</td>
+                            <td>{{ lot.date_expiration }}</td>
+                            <td>{{ lot.number }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -70,20 +78,49 @@ export default {
         return {
             form: {
                 name: "",
-                date_expiration: ""
-            }
+                date_expiration: "",
+                product_id: this.selectProduct.id
+            },
+            lot_products : [],
+            errors : [],
         }
+    },
+    updated() { 
+        this.get();
+    },
+    mounted() { 
+        this.get();
     },
     methods: {
         saveLot(){
+            this.errors = []
             this.postData("lot_products", this.form)
               .then(response => {
                 console.log(response)
+                  this.get()
               })
               .catch(error => {
                 console.error(error)
+                  this.errors = error.response.data.errors
               })
+        },
+        
+        get(){
+            this.getData("lot_products?product_id=" + this.selectProduct.id)
+                .then(response => {
+                    this.lot_products = response.data
+                    console.log("Lots", response)
+                })
+                .catch(error =>{
+                    console.error(error)
+                    
+                }
+                    
+                )
         }
+    },
+    computed:{
+       
     }
     
 }
