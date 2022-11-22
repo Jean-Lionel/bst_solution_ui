@@ -20,9 +20,9 @@
                 </div>
                 <div>
                     <label for="">Numéro de Lot </label>
-                    <select>
+                    <select v-model="form.lot_id">
                         <option></option>
-                        <option v-for="lot in lots">{{lot.name}}</option>
+                        <option  v-for="lot in lots" :value="lot.id" :key="lot.id" >{{lot.name}}</option>
                     </select>
                     <!--  <button @click.prevent="addLot">Ajouter</button> -->
                 </div>
@@ -87,6 +87,7 @@ export default {
                 fournisseur_id : "",
                 detail : "",
                 date_achat : "",
+                lot_id : "",
                 product_id: this.selectProduct.id,
             },
             error: [],
