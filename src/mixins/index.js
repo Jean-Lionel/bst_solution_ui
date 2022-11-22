@@ -53,5 +53,10 @@ export default{
 
         }
 
+    },
+    computed:{
+        fetchData() {
+            return this.$store.state.fetchData;
+        }
     }
 }

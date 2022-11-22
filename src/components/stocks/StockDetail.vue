@@ -68,6 +68,7 @@
                             <td>
                               <button @click="addProductStock(item)">In</button>
                               <button>Out</button>
+                              <button @click="addLot(item)">lots</button>
                             </td>
                             
                             
@@ -80,16 +81,18 @@
         <div>
        <add-quantite-stock :selectProduct="selectProduct"  v-if="isAddProductStock" @close="addProductStock"/> 
         
+        <add-lot :selectProduct="selectProduct" :isAddLot="isAddLot"  v-if="selectProduct" @close="addLot"/>
         </div>
     </div>
 </template>
 
 <script>
 import AddCategory from './categories/AddCategory.vue';
+import AddLot from './lots/AddLot.vue';
 import AddProduct from './products/AddProduct.vue';
 import AddQuantiteStock from './products/AddQuantiteStock.vue';
 export default {
-    components: { AddCategory, AddProduct, AddQuantiteStock },
+    components: { AddCategory, AddProduct, AddQuantiteStock, AddLot },
     data(){
         return{
             isAddCategory: false,
@@ -99,7 +102,8 @@ export default {
             category_id : "",
             textSearch : "",
             isAddProductStock : false,
-            selectProduct : null
+            selectProduct : null,
+            isAddLot : false,
             
         }
     },
@@ -111,11 +115,15 @@ export default {
             this.getProducts(this.$route.params.id, val)
         }
     },
-    mounted(){
+    mounted(item){
         this.get();
         
     },
     methods: {
+        addLot(item){
+            this.isAddLot = !this.isAddLot
+            this.selectProduct = item
+        },
         addProductStock(item){
             this.isAddProductStock = !this.isAddProductStock;
             this.selectProduct = item

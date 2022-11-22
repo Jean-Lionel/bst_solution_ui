@@ -103,6 +103,9 @@ tr {
 td {
     padding: 6px 10px;
 }
+.text-right{
+    text-align: right !important;
+}
 
 
 th {

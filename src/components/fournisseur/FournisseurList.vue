@@ -40,9 +40,9 @@
                 </table>
             </div>
         </div>
-
+        
         <div>
-         <add-fournisseur :isAddFournisseur="isAddFournisseur" v-if="isAddFournisseur" @close="addFournisseur" />
+            <add-fournisseur :isAddFournisseur="isAddFournisseur" v-if="isAddFournisseur" @close="addFournisseur" />
         </div>
     </div>
 </template>
@@ -50,11 +50,12 @@
 <script>
 import AddFournisseur from './AddFournisseur.vue';
 export default {
-  components: { AddFournisseur },
+    components: { AddFournisseur },
     data(){
         return{
             isLoading : false,
             searchText : "",
+            
             
         }
     },
@@ -70,11 +71,13 @@ export default {
             this.get()
         },
         get(url = "fournisseurs"){
-            
+            if (this.$store.state.fetchData.fournisseurs.length ==0)
+                 this.$store.state.isLoading = true
             this.getData(url)
             .then(response =>{
                 this.$store.state.fetchData.fournisseurs = response.data
-               
+                this.$store.state.isLoading = false
+                
             })
             .catch(error =>{
                 console.error(error)
