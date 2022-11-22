@@ -103,7 +103,8 @@ export default {
             .catch(error =>{
                 this.errors = error.response
             })
-        }
+        },
+
     }
 }
 </script>

@@ -7,7 +7,7 @@
                 <p class="container-flex-between"><span>Nom du Produit :</span> <span> <b>{{ selectProduct.name }}</b> </span></p>
                 
                 <div>
-                    <label for="">Fournisseur</label>
+                    <label for="">Fournisseur {{}}</label>
                     
                     <select name="" id="" v-model="form.fournisseur_id">
                         <option value=""></option>
@@ -19,8 +19,11 @@
                     <!--  <button @click.prevent="addLot">Ajouter</button> -->
                 </div>
                 <div>
-                    <label for="">Numéro de Lot</label>
-                    <input type="text" />
+                    <label for="">Numéro de Lot </label>
+                    <select>
+                        <option></option>
+                        <option v-for="lot in lots">{{lot.name}}</option>
+                    </select>
                     <!--  <button @click.prevent="addLot">Ajouter</button> -->
                 </div>
                 <div>
@@ -93,6 +96,7 @@ export default {
     mounted(){
         this.getUniteMesure()
         this.getFournisseur()
+        this.getLots()
     },
     
     methods: {
@@ -131,6 +135,16 @@ export default {
         addLot(){
             alert("Ajouter de lot!");
         },
+        getLots() {
+            this.getData("lot_products?product_id=" + this.selectProduct.id)
+                .then(resp => {
+                    console.log("Lot recus ",resp.data)
+                    this.$store.state.fetchData.lots = resp.data
+                })
+                .catch(err => {
+                    console.log(err)
+                })
+        },
         
     },
     computed:{
@@ -139,6 +153,9 @@ export default {
         },
         unite_mesures(){
             return this.$store.state.fetchData.unite_mesures;
+        },
+        lots(){
+            return this.$store.state.fetchData?.lots;
         }
         
     }
