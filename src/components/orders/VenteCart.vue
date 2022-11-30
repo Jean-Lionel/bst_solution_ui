@@ -62,12 +62,11 @@ export default {
     display: flex;
     margin: 1px 30px 0 0;
 }
-.vent-part{
-    width: 100vw;
-}
+
 .cart-liste{
     display: flex;
     justify-content: space-arround;
+  
     gap: 10px;
     flex-wrap: wrap;
     padding: 10px 20px;

@@ -13,6 +13,9 @@ export default createStore({
             fournisseurs : [],
             products : [],
         },
+        cart:{
+            choosedProduct: [],
+        },
         isLoading : false, 
   },
   mutations: {
