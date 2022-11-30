@@ -6,10 +6,12 @@ import CompanyOwner from '../views/CompanyOwner.vue'
 import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
 import Fournisseur from '../views/Fournisseur.vue'
+import Order from '../views/Order.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
 import Stocks from '../components/stocks/Stocks.vue'
+
 
 const routes = [
   {
@@ -22,10 +24,13 @@ const routes = [
     path: '/company',name: 'company',component: Company
   },
   {
+    path: '/company/:id',name: 'company_detail',component: CompanyDetail
+  },
+  {
     path: '/fournisseurs',name: 'fournisseurs',component: Fournisseur
   },
   {
-    path: '/company/:id',name: 'company_detail',component: CompanyDetail
+    path: '/orders',name: 'orders',component: Order
   },
   {
     path: '/stocks/:id',name: 'stock_detail',component: StockDetail

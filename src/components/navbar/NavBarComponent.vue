@@ -3,6 +3,7 @@
     <div >
         <a href=""><i class="fa fa-bars"></i></a>
         <router-link to="/"> <i class="fa fa-home"></i> Home</router-link> 
+        <router-link to="/orders"> <i class="fa fa-dollar"></i>  Ventes</router-link>
         <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link>
 
         <router-link to="/company_owners"> <i class="fa fa-briefcase" ></i>  Chefs des entreprises</router-link> 

@@ -58,7 +58,7 @@
                             <td>{{ i +1}}</td>
                             <td>{{ lot.name }}</td>
                             <td>{{ lot.date_expiration }}</td>
-                            <td>{{ lot.number }}</td>
+                            <td>{{ lot.quantite }} </td>
                             </tr>
                         </tbody>
                     </table>

@@ -15,8 +15,6 @@
         <button @click="modalActive = true" class="add-btn">Ajouter Un Entreprise</button>
     </div>
 </div>
-
-
 <modal-component :modalActive="modalActive" @close="modalActive = !modalActive">
     <add-form/>
 </modal-component>
@@ -83,7 +81,6 @@
                 modalActive: false,
                 searchText : "",
                 isLoading: false,
-                
             }
         },
         mounted(){
@@ -91,15 +88,16 @@
         },
         methods:{
             showDetail(id){
-               
                 this.$router.push(`company_owners/${id}`)
             },
             searchinDatabase(){
                 this.get("company_owners?q=" + this.searchText)
             },
             get(url ="company_owners") {
-
-                this.isLoading = true
+                if (this.$store.state.chefsEntreprise.length == 0){
+                    this.isLoading = true
+                }
+                  
                 this.getData(url)
                 .then(resp => {
                     this.$store.state.chefsEntreprise = resp.data.data

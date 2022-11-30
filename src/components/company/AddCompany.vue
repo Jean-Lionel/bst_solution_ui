@@ -7,7 +7,7 @@
                 <div>
                     <label for="tp_name">tp_name</label>
                     <input type="text" id="tp_name" v-model="form.tp_name" required />
-
+                    
                 </div>
                 
                 <div>
@@ -40,7 +40,7 @@
                     <label for="tp_address_privonce">Province</label>
                     <input type="text" v-model="form.tp_address_privonce" />
                 </div>
-               
+                
                 
                 <div>
                     <label for="tp_address_commune">Commune</label>
@@ -64,9 +64,9 @@
                     <label for="vat_taxpayer">Assujetti à la TVA</label>
                     
                     <select name="" id="" v-model="form.vat_taxpayer">
-                    <option value=""></option>
-                    <option value="1">OUI</option>
-                    <option value="0">NOM</option>
+                        <option value=""></option>
+                        <option value="1">OUI</option>
+                        <option value="0">NOM</option>
                     </select>
                 </div>
                 <div>
@@ -79,7 +79,7 @@
                 </div>
                 <div>
                     <label for="">Assujetti au prélèvement forfaitaire libératoire</label>
-                   
+                    
                     <select name="" id="" v-model="form.tl_taxpayer">
                         <option value=""></option>
                         <option value="1">OUI</option>
@@ -107,28 +107,28 @@
                     <input type="text" v-model="form.tp_legal_form" />
                 </div>
                 <div>
-                   <label for="">Type de paiement</label>
-            
+                    <label for="">Type de paiement</label>
+                    
                     <select name="" id="" v-model="form.payment_type">
-                    <option value=""></option>
-                    <option value="1">En espèce</option>
-                    <option value="2">Banque</option>
-                    <option value="3">A crédit</option>
-                    <option value="4">Autres</option>
+                        <option value=""></option>
+                        <option value="1">En espèce</option>
+                        <option value="2">Banque</option>
+                        <option value="3">A crédit</option>
+                        <option value="4">Autres</option>
                     </select>
                 </div>
                 <div>
-                   <label for="">description</label> 
+                    <label for="">description</label> 
                     <textarea v-model="form.description"></textarea>
                 </div>
-               
+                
                 <div>
-                <button type="submit">Enregistrer</button>
+                    <button type="submit">Enregistrer</button>
                 </div>
                 
             </form>
             <div class="error">
-            {{ errors }}
+                {{ errors }}
             </div>
             
         </modal-component>
@@ -172,17 +172,18 @@ export default {
         saveCompany(){
             this.form.company_owner_id = this.$route.params.id 
             this.postData("companies",this.form)
-                .then(resp =>{
-                    console.log(resp)
-                    this.errors = ""
-                    this.form = {}
-                    this.close()
-                })
-                .catch(err =>{
-                    console.log(err)
-                    this.errors = err.response
-                })
-                ;
+            .then(resp =>{
+                console.log(resp)
+                this.errors = ""
+                this.form = {}
+                this.close()
+            })
+            .catch(err =>{
+                console.log(err)
+                this.errors = err.response
+            })
+            ;
+
         },
         close(){
             this.$emit("close")

@@ -10,7 +10,8 @@ export default createStore({
         usersLists : [],
         campaniesLists : [],
         fetchData : {
-            fournisseurs : []
+            fournisseurs : [],
+            products : [],
         },
         isLoading : false, 
   },
@@ -23,7 +24,6 @@ export default createStore({
     logout(state) {
         state.user = null;
         localStorage.removeItem('user');
-        
     },
     initializeStore(state) {
         if(localStorage.getItem('user')){

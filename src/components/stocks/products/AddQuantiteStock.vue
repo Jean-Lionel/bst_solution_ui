@@ -55,15 +55,7 @@
                     <button>Enregistrer</button>
                 </div>
                 <div class="error">
-                    
-                    <div v-if="error">
-                        <ul>
-                            <ol v-for="(a,b ) in error" class="container-flex-between">
-                                <span>{{b}}*</span>
-                                <span>{{a[0]}}</span>
-                            </ol>
-                        </ul>
-                    </div>
+                    {{ error }}
                 </div>
             </form>
         </modal-component>
@@ -105,13 +97,13 @@ export default {
             this.postData("achat_products", this.form)
             .then(resp => {
                 console.log(resp)
-                this.error =[]
+                this.error = []
                 this.$emit('close')
                 
             })
             .catch(error => {
                 console.log(error);
-                this.error = error.response?.data?.errors
+                this.error = error.response.data
             })
         },
         getFournisseur(){
