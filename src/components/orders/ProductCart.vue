@@ -31,7 +31,7 @@
 
 <style  scoped>
 .cart {
-    width: 250px;
+    width: 225px;
     border: 1px solid var(--primary);
     padding: 5px;
     border-radius: 6px;

@@ -1,22 +1,25 @@
 <template>
     <div>
         <loading v-if="isLoading"/>
-        <div>
+        <div class="vente">
             <div class="cart-liste">
                 <div class="cart-container" v-for="lot in    products " :key="lot.id">
                     <product-cart :lot="lot" />
                 </div>
             </div>
-            <div>Part 2</div>
+            <div class="vent-part">
+             <vente-cart/>
+            </div>
         </div>
     </div>
 </template>
 
 <script>
 import ProductCart from './ProductCart.vue'
+import VenteCart from './VentePart.vue'
 export default {
     components: {
-        ProductCart
+        ProductCart, VenteCart
     },
     data(){
         return {
@@ -55,6 +58,13 @@ export default {
 </script>
 
 <style  scoped>
+.vente{
+    display: flex;
+    margin: 1px 30px 0 0;
+}
+.vent-part{
+    width: 100vw;
+}
 .cart-liste{
     display: flex;
     justify-content: space-arround;
@@ -62,5 +72,4 @@ export default {
     flex-wrap: wrap;
     padding: 10px 20px;
 }
-
 </style>
