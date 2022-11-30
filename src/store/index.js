@@ -19,6 +19,18 @@ export default createStore({
         isLoading : false, 
   },
   mutations: {
+    addCartItem(state, item){
+        let index = state.cart.choosedProduct.findIndex(el =>el.uuid === item.uuid);
+        if(index > -1){
+            state.cart.choosedProduct[index].quantity +=1
+        }else{
+            
+            state.cart.choosedProduct.push(item);
+        }
+    },
+    removeCartItem(state, uuid){
+        state.cart.choosedProduct =  state.cart.choosedProduct.filter(e => e.uuid !== uuid)
+    },
     login(state, user) {
         state.user = user;
         localStorage.setItem('user', state.user);

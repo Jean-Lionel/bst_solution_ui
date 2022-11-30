@@ -27,15 +27,18 @@
     export default {
     props: ["lot"],
     methods: {
-        addProduct(product){
+        addProduct(product, lot){
             let p ={
+                uuid: (lot.id +"_"+ product.id),
                 id : product.id,
                 name : product.name,
                 price: lot.prix_unitaire,
                 lot_id: lot.id,
-                qty : 1
+                lot_name: lot.name,
+                quantity : 1
             }
-            this.$store.state.cart.choosedProduct.push(p)
+            // this.$store.state.cart.choosedProduct.push(p)
+            this.$store.commit("addCartItem", p)
         }
     }
     }
