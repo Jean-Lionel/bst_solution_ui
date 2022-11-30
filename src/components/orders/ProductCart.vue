@@ -18,7 +18,7 @@
             <span>{{ lot.prix_unitaire }} FBU</span>
         </div>
         <div class="cart-btn">
-            <button @click="addProduct(product)">Ajouter</button>
+            <button @click="addProduct(product, lot)">Ajouter</button>
         </div>
     </div>
 </template>
@@ -28,7 +28,14 @@
     props: ["lot"],
     methods: {
         addProduct(product){
-            this.$store.state.cart.choosedProduct.push(product)
+            let p ={
+                id : product.id,
+                name : product.name,
+                price: lot.prix_unitaire,
+                lot_id: lot.id,
+                qty : 1
+            }
+            this.$store.state.cart.choosedProduct.push(p)
         }
     }
     }
