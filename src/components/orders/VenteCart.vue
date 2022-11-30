@@ -4,28 +4,7 @@
         <div>
             <div class="cart-liste">
                 <div class="cart-container" v-for="lot in    products " :key="lot.id">
-                    <div class="cart" v-for="product in lot.products" :key="product.id">
-                        <div><b>{{ product.name }}</b> </div>
-                        <div class="cart-flex">
-                            <span>Cat.</span>
-                            <span> <b>{{ product.category.name}}</b></span>
-                        </div>
-                        <div class="cart-flex">
-                            <span>Lot N°</span>
-                            <span><b>{{ lot.name }}</b></span>
-                        </div>
-                        <div class="cart-flex">
-                        <span>Qté </span>
-                        <span>{{ lot.quantite}}</span>
-                        </div>
-                        <div class="cart-flex">
-                        <span>Prix U</span>
-                        <span>{{ lot.prix_unitaire }} FBU</span>
-                        </div>
-                        <div class="cart-btn">
-                        <button>Ajouter</button>
-                        </div>
-                    </div>
+                    <product-cart :lot="lot" />
                 </div>
             </div>
             <div>Part 2</div>
@@ -34,7 +13,11 @@
 </template>
 
 <script>
+import ProductCart from './ProductCart.vue'
 export default {
+    components: {
+        ProductCart
+    },
     data(){
         return {
             searchText : "",
@@ -79,18 +62,5 @@ export default {
     flex-wrap: wrap;
     padding: 10px 20px;
 }
-.cart{
-    width: 250px;
-    border: 1px solid var(--primary);
-    padding: 5px;
-    border-radius: 6px;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-}
-.cart-btn{
-    text-align: right;
-}
-.cart-flex{
-    display: flex;
-    justify-content: space-between;
-}
+
 </style>
