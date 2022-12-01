@@ -5,6 +5,7 @@ export default createStore({
   state: {
         baseUrl: 'http://127.0.0.1:8000/api/',
         user : null,
+        tva : 18,
         entreprises : [],
         chefsEntreprise : [],
         usersLists : [],
@@ -23,8 +24,7 @@ export default createStore({
         let index = state.cart.choosedProduct.findIndex(el =>el.uuid === item.uuid);
         if(index > -1){
             state.cart.choosedProduct[index].quantity +=1
-        }else{
-            
+        }else{  
             state.cart.choosedProduct.push(item);
         }
     },

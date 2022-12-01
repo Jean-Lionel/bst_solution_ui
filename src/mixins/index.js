@@ -13,15 +13,15 @@ export default{
     },
     methods: {
         // Modal Confirmation delete
-        async confirmDelete() {
+        async confirmDelete(title, message, btnConfirm) {
          return  await this.$swal({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: title ?? 'Are you sure?',
+                text: message ?? "You won't be able to revert this!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: btnConfirm ?? 'OK !'
             })
 
         },
@@ -30,6 +30,13 @@ export default{
                         'Deleted!',
                         'Your file has been deleted.',
                         'success'
+                    )
+        },
+        errorAlert(message) {
+            this.$swal.fire(
+                        'Error',
+                        message ?? "Erreur !!!",
+                        'error'
                     )
         },
         successAllert() {

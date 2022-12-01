@@ -15,7 +15,7 @@
         </div>
         <div class="cart-flex">
             <span>Prix U</span>
-            <span>{{ lot.prix_unitaire }} FBU</span>
+            <span>{{ lot.prix_unitaire ?? product.price }} FBU</span>
         </div>
         <div class="cart-btn">
             <button @click="addProduct(product, lot)">Ajouter</button>
@@ -32,10 +32,11 @@
                 uuid: (lot.id +"_"+ product.id),
                 id : product.id,
                 name : product.name,
-                price: lot.prix_unitaire,
+                // Recuperer le prix du produit ou le prix du lot
+                price: lot.prix_unitaire ?? product.price,
                 lot_id: lot.id,
                 lot_name: lot.name,
-                quantity : 1
+                quantity : 1,
             }
             // this.$store.state.cart.choosedProduct.push(p)
             this.$store.commit("addCartItem", p)
