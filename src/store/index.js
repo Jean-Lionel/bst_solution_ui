@@ -23,8 +23,11 @@ export default createStore({
     addCartItem(state, item){
         let index = state.cart.choosedProduct.findIndex(el =>el.uuid === item.uuid);
         if(index > -1){
-            state.cart.choosedProduct[index].quantity +=1
+            const produit = state.cart.choosedProduct[index];
+            produit.quantity +=1
+            produit.prix_total = produit.quantity * produit.price
         }else{  
+            item.prix_total = item.quantity * item.price
             state.cart.choosedProduct.push(item);
         }
     },

@@ -14,7 +14,7 @@
                         <td>
                             <input style="width:50px" type="number" @keyup="changeQuantite(el.uuid)" :value="el.quantity">
                         </td>
-                        <td>{{ el.quantity * el.price}}</td>
+                        <td>{{ el.prix_total }}</td>
                         <td> <button @click="removeItem(el.uuid)">X</button> </td>
                     </tr>
                     <tr v-if="prixHorsTVA">
@@ -55,7 +55,8 @@ export default {
             }else{
                 const { value: result } = await this.confirmDelete("Vente", "Voulez-vous effectuer cetter Opération")
                 if(result){
-                    alert('Je suis un Milliardaire en FBU')
+                    const data = this.$store.state.cart.choosedProduct
+                    this.postData('ventes', data)
                 }
             }
         },
@@ -76,7 +77,7 @@ export default {
             return this.$store.state.cart.choosedProduct
         },
         prixHorsTVA() {
-            const sum = this.cartList.reduce((c , v) => c + (v.quantity * v.price), 0)
+            const sum = this.cartList.reduce((c, v) => c + (v.prix_total), 0)
             return sum
         },
         prixTVA() {
