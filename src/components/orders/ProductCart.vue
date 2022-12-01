@@ -30,7 +30,7 @@
         addProduct(product, lot){
             let p ={
                 uuid: (lot.id +"_"+ product.id),
-                id : product.id,
+                product_id : product.id,
                 name : product.name,
                 // Recuperer le prix du produit ou le prix du lot
                 price: lot.prix_unitaire ?? product.price,

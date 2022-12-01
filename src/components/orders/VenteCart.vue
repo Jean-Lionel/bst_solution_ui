@@ -8,7 +8,7 @@
                 </div>
             </div>
             <div class="vent-part">
-             <vente-cart/>
+             <vente-cart @saveFinished="get"/>
             </div>
         </div>
     </div>
