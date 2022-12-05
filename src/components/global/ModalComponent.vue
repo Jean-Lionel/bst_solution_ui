@@ -2,12 +2,12 @@
     <transition name="modal-animation">
         <div v-show="modalActive" class="modal">
             <transition name="modal-animation-inner">
-            
                 <div v-show="modalActive" class="modal-inner">
+                <div class="modal-top">
                 <button @click="close" class="modal-modal" type="button">X</button>
-                    
+                </div>
+             
                     <slot />
-                    
                 </div>
             </transition>
         </div>
@@ -33,24 +33,23 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 100vh;
     width: 100vw;
     position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(110, 110, 110, 0.7);
-    overflow: auto;
+    overflow: scroll;
     
 }
 
 .modal-inner {
     position: relative;
- 
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     background-color: #fff;
-    padding: 20px 0px;
-   
+    padding: 20px 20px;
+    overflow: scroll;
 }
+
 
 .modal-modal {
     position: absolute;
@@ -58,8 +57,6 @@ export default {
     right: 0px;
     font-size: 20px;
     cursor: pointer;
-
-
 }
 
 /* .modal-modal:hover {

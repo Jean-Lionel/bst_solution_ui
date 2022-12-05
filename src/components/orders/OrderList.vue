@@ -27,21 +27,26 @@
                     <td>{{ order.type_paiement }}</td>
                     <td>{{ order.created_at }}</td>
                     <td>
-                    <button> <i class="fa fa-print"></i> Imprimer </button>
+                    <button @click="printFacture(order)"> <i class="fa fa-print"></i> Imprimer </button>
                     </td>
                 </tr>
                 </tbody>
             </table>
         </div>
+    <PrintFacture v-if="isActive" :isActive="isActive" :order="order" @close="close"/>
     </div>
 </template>
 
 <script>
+import PrintFacture from './PrintFacture.vue'
 export default {
+    components: { PrintFacture },
     data(){
         return {
             isLoading : false,
             searchText : "",
+            order: null,
+            isActive: false,
         }
     },
     mounted(){
@@ -60,6 +65,13 @@ export default {
                 .catch(error => {
                     console.error(error)
                 })
+        },
+        printFacture(order){
+            this.order = order
+            this.isActive = true;
+        },
+        close(){
+            this.isActive =false;
         }
     },
     computed:{

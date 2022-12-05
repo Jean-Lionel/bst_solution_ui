@@ -6,8 +6,8 @@
                 <h1>Facture</h1>
             </div>
             <div class="text-right">
-                <div>Serial No. <b>AA. 00001</b></div>
-                <div>Invoice date: <b>2022-02-14</b></div>
+                <div>Serial No. <b> {{ order.id }}</b></div>
+                <div>Invoice date: <b>{{ order.created_at }}</b></div>
             </div>
         </header>
         <section class="invoice_section">
@@ -46,32 +46,26 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
-                            <td class="text-left">Ordinateur</td>
-                            <td class="line">1</td>
-                            <td class="line">4 500 000 </td>
-                            <th class="line">4 500 000 </th>
+                        <tr v-for="product in products" :key="product.uuid">
+                            <td class="text-left">{{ product.name }}</td>
+                            <td class="line">{{ product.quantity }}</td>
+                            <td class="line">{{ product.price }} </td>
+                            <th class="line">{{ product.prix_total }} </th>
                         </tr>
                         <tr>
-                            <td colspan="3">Total discount </td>
-                            <th class="line">4 500 000</th>
+                            <td colspan="3">Prix Hors TVA </td>
+                            <th class="line">{{ order.amount }}</th>
                         </tr>
                         <tr>
-                            <td colspan="3">Taxable amount </td>
-                            <th class="line">4 500 000</th>
+                            <td colspan="3">Tax </td>
+                            <th class="line">{{ order.tax }}</th>
                         </tr>
                         <tr>
-                            <td colspan="3">Tax rate</td>
-                            <th class="line">4 500 000</th>
+                            <td colspan="3">TOTAL</td>
+                            <th class="line">{{ order.amount_tax }}</th>
                         </tr>
-                        <tr>
-                            <td colspan="3">Shipping</td>
-                            <th class="line">1.99</th>
-                        </tr>
-                        <tr>
-                            <td colspan="3">Total </td>
-                            <th class="line">1.99</th>
-                        </tr>
+                        
+                        
                     </tbody>
                 </table>
             </div>
@@ -89,6 +83,12 @@
 
 <script>
     export default {
+        props: ["order"],
+        computed: {
+            products() {
+                return JSON.parse(this.order.products) 
+            }
+        }
         
     }
 </script>
@@ -101,11 +101,8 @@
     padding: 0;
     font-family: "Open Sans", sans-serif;
 }
-
-body {
-    width: 80%;
-    margin: auto;
-
+.invoice{
+    margin-top: 400px;
 }
 
 header {
@@ -118,17 +115,14 @@ header {
     justify-content: space-between;
     gap: 20px;
 }
-
 table {
     width: 100%;
     text-align: right;
     border-collapse: collapse;
 }
-
 .text-left {
     text-align: left !important;
 }
-
 .text-right {
     text-align: right !important;
 }
