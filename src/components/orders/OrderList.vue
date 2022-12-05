@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="table_containner">
+        <div class="table_containner no_print">
             <loading v-if="isLoading" />
             <table class="table">
                 <thead>
@@ -27,7 +27,7 @@
                     <td>{{ order.type_paiement }}</td>
                     <td>{{ order.created_at }}</td>
                     <td>
-                    <button @click="printFacture(order)"> <i class="fa fa-print"></i> Imprimer </button>
+                    <button @click="printFacture(order)"> <i class="fa fa-eye"></i> Afficher </button>
                     </td>
                 </tr>
                 </tbody>

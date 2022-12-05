@@ -87,6 +87,12 @@ button:hover{
     cursor: pointer;
     background: var(--secondary);
 }
+
+@media print {
+    .no_print {
+        display: none !important;
+    }
+}
 @media screen and (max-width: 768px) {
     .table_containner {
            overflow-x: scroll;

@@ -1,6 +1,7 @@
 import axiosMethods from "./axiosMethods"
+import print from "./print"
 export default{
-    mixins: [axiosMethods],
+    mixins: [axiosMethods,print],
     data() {
         return {    
         }

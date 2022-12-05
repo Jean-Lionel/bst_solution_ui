@@ -67,6 +67,8 @@ export default {
                         .then(result =>{
                             this.$emit("saveFinished", result)
                             this.successAllert()
+                            this.$store.state.cart.choosedProduct = [];
+                            this.$router.push("/order_history")
                         })
                         .catch(err =>{
                             console.log(err.response.data)
