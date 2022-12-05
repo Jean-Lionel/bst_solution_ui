@@ -66,9 +66,11 @@ export default {
                     this.postData('ventes', data)
                         .then(result =>{
                             this.$emit("saveFinished", result)
+                            this.successAllert()
                         })
                         .catch(err =>{
-                            console.log(err.response)
+                            console.log(err.response.data)
+                            this.errorAlert(err.response.data.message)
                         })
                 }
             }
