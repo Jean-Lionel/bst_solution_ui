@@ -14,7 +14,7 @@
                         <td>
                             <input style="width:50px" type="number" @keyup="changeQuantite(el.uuid)" :value="el.quantity">
                         </td>
-                        <td>{{ el.price * el.quantity }}</td>
+                        <td>{{ el.prix_total }}</td>
                         <td> <button @click="removeItem(el.uuid)">X</button> </td>
                     </tr>
                     <tr v-if="prixHorsTVA">
@@ -82,7 +82,9 @@ export default {
         changeQuantite(uuid){
             const v = event.target.value * 1
             let index = this.$store.state.cart.choosedProduct.findIndex(el => el.uuid === uuid);
-            this.$store.state.cart.choosedProduct[index].quantity = v
+            const p = this.$store.state.cart.choosedProduct[index]
+            p.quantity = v
+            p.prix_total = v * p.price
         }
     },
     computed:{

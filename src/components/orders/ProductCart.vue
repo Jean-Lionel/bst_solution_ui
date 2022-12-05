@@ -37,6 +37,7 @@
                 lot_id: lot.id,
                 lot_name: lot.name,
                 quantity : 1,
+                prix_total : 0
             }
             // this.$store.state.cart.choosedProduct.push(p)
             this.$store.commit("addCartItem", p)
