@@ -1,15 +1,11 @@
-
 import axiosMethods from "./axiosMethods"
-
 export default{
     mixins: [axiosMethods],
     data() {
-        return {
-            
+        return {    
         }
     },
     mounted() {
-      
     },
     methods: {
         // Modal Confirmation delete
@@ -23,7 +19,6 @@ export default{
                 cancelButtonColor: '#d33',
                 confirmButtonText: btnConfirm ?? 'OK !'
             })
-
         },
         showDeleteConfirmation() {
             this.$swal.fire(

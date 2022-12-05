@@ -1,9 +1,13 @@
 <template>
-    <div>
+    <div class="container">
         <loading v-if="isLoading"/>
+        <div class="container-input">
+            <input type="text" v-model="searchText" placeholder="Rechercher !!!">
+            <button @click="searchDatabase">Ok</button>
+        </div>
         <div class="vente">
             <div class="cart-liste">
-                <div class="cart-container" v-for="lot in    products " :key="lot.id">
+                <div class="cart-container" v-for="lot in products" :key="lot.id">
                     <product-cart :lot="lot" />
                 </div>
             </div>
@@ -31,6 +35,9 @@ export default {
         this.get();
     },
     methods: {
+        searchDatabase(){
+            alert("Searching...");
+        },
         get() {
             if (this.$store.state.fetchData.products == 0)
             this.isLoading = true;
@@ -58,9 +65,16 @@ export default {
 </script>
 
 <style  scoped>
+.container{
+    padding: 0 10px 0 20px;
+}
+.container-input{
+    text-align: center;
+}
 .vente{
     display: flex;
     margin: 1px 30px 0 0;
+    width: 60wv;
 }
 .cart-liste{
     display: flex;

@@ -3,6 +3,7 @@
   <alert-component/>
   <h1>Dashoboard </h1>
    <h4>To Do</h4>
+   <h4>Je suis un Millionnaire</h4>
  
   </div>
 </template>
@@ -17,6 +18,16 @@ export default {
   data(){
     return {
        
+    }
+  },
+  mounted() {
+    this.put();
+  },
+  methods: {
+    put() {
+          this.putData("clients/1", {
+            "name" : "Hacker"
+        })
     }
   }
   

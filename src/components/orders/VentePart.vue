@@ -1,6 +1,6 @@
 <template>
     <div class="vente-part">
-        <h4>Hello Nous sommes en bonne santé</h4>
+        <h4 class="text-center">Panier</h4>
         <div>
             <table>
                 <thead>
