@@ -83,24 +83,20 @@ button i {
     margin: 10px 0px;
     padding: 0 20px;
 }
-button{
+button:hover{
     cursor: pointer;
+    background: var(--secondary);
 }
 @media screen and (max-width: 768px) {
     .table_containner {
            overflow-x: scroll;
-        }
-    
+        } 
 }
-
 table {
     width: 100%;
     border-collapse: collapse;
     text-align: left;
 }
-
-
-
 .table_containner td {
     padding: 6px 10px;
 }

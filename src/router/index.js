@@ -12,8 +12,6 @@ import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
 import Stocks from '../components/stocks/Stocks.vue'
-
-
 const routes = [
   {
     path: '/', name: 'Home',component: Home

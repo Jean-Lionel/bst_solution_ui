@@ -13,6 +13,7 @@ export default createStore({
         fetchData : {
             fournisseurs : [],
             products : [],
+            ordersHistory : [],
         },
         cart:{
             choosedProduct: [],
