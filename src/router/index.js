@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import BaseLogin from '../views/Login.vue'
 import Company from '../views/Company.vue'
+import OrderHistory from '../views/OrderHistory.vue'
 import CompanyOwner from '../views/CompanyOwner.vue'
 import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
@@ -49,6 +50,9 @@ const routes = [
   },
   {
     path: '/users/:id',name: 'users-details',component: UsersDetail
+  },
+  {
+    path: '/order_history',name: 'order_history',component: OrderHistory
   },
 ]
 
