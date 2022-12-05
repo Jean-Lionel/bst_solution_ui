@@ -99,24 +99,20 @@ table {
     text-align: left;
 }
 
-tr {
-    border-bottom: 1px solid rgb(231, 228, 228);
-}
 
-td {
+
+.table_containner td {
     padding: 6px 10px;
 }
 .text-right{
     text-align: right !important;
 }
 
-
-th {
+.table_containner th {
     text-transform: uppercase;
     padding: 6px 10px;
     font-size: 0.8rem;
     box-shadow: 0 3px 3px -1px rgba(126, 6, 6, 0.4);
-    
 }
 
 .error{

@@ -4,16 +4,15 @@
   <h1>Dashoboard </h1>
    <h4>To Do</h4>
    <h4>Je suis un Millionnaire</h4>
+   <Facture/>
  
   </div>
 </template>
 
 <script>
-
-import AlertComponent from '../components/test/AlertComponent.vue'
-
+import Facture from '../components/global/Facture.vue';
 export default {
-  components: { AlertComponent },
+  components: { Facture },
   name: 'Home',
   data(){
     return {
@@ -21,13 +20,11 @@ export default {
     }
   },
   mounted() {
-    this.put();
+   
   },
   methods: {
     put() {
-          this.putData("clients/1", {
-            "name" : "Hacker"
-        })
+         
     }
   }
   

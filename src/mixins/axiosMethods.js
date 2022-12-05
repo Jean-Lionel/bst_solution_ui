@@ -18,6 +18,5 @@ export default{
       async deleteData(url, data=null) {
             return await this.axios.delete(url, data)
       },
-        
     }
 }
