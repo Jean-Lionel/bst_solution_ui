@@ -62,6 +62,10 @@ const router = createRouter({
 router.beforeEach((to,from, next) => {
     // Here I will check if the user has the right permissions for using my page
     next();
+    // if(to.name === 'Home'){
+    //     window.location.reload();
+    // }
+     
 })
 
 export default router

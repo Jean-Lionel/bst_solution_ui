@@ -1,6 +1,6 @@
 <template>
     <div>
-        <button id="print" @click="printFacture"> <i class="fa fa-print"></i> Imprimer</button>
+        <button class="print" @click="printFacture"> <i class="fa fa-print"></i> Imprimer</button>
         <div id="invoice">
             <div>
             </div>
@@ -94,7 +94,7 @@
         },
         methods: {
             printFacture(){
-                this.print("invoice", "Invoice-" + this.order.id );
+                this.print("invoice", "Invoice-" + this.order?.id);
             }
         }
     }
@@ -107,7 +107,7 @@
     margin: 0;
     padding: 0;  
 }
-#print{
+.print{
     padding: 6px 6px;
 }
 .invoice{

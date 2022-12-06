@@ -54,7 +54,8 @@ export default {
     },
     methods: {
         get(url = "orders") {
-            if(this.ordersHistory.length == 0){
+           
+            if (this.$store.state.fetchData.ordersHistory.length == 0){
                 this.isLoading =true
             }
             this.getData(url)

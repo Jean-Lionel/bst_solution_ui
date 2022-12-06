@@ -32,6 +32,7 @@ export default {
         }
     },
     mounted(){
+       
         this.get();
     },
     methods: {
@@ -39,8 +40,13 @@ export default {
             alert("Searching...");
         },
         get() {
-            if (this.$store.state.fetchData.products == 0)
-            this.isLoading = true;
+         
+            if (this.$store.state.fetchData.products == 0){
+              
+                this.isLoading = true;
+            }
+                
+            
             this.getData("ventes")
             .then(resp=>{
                 this.$store.state.fetchData.products = resp.data

@@ -39,12 +39,13 @@ export default createStore({
     login(state, user) {
         state.user = user;
         localStorage.setItem('user', state.user);
-         window.location.href = "/" 
+        //router.push("/")
+         window.location.href = "/"
+       
     },
     logout(state) {
         state.user = null;
         localStorage.removeItem('user');
-       
     },
     initializeStore(state) {
         if(localStorage.getItem('user')){
