@@ -44,6 +44,7 @@ export default createStore({
     logout(state) {
         state.user = null;
         localStorage.removeItem('user');
+       
     },
     initializeStore(state) {
         if(localStorage.getItem('user')){
