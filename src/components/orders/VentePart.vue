@@ -30,10 +30,12 @@
                         <td> <b>{{ priceTotal }}</b></td>
                     </tr>
                     <tr v-if="prixHorsTVA">
-                        <td colspan="4"></td>
+                        <td colspan="3"></td>
                         <td>
                             <button @click="clearCart">Effacer</button>
-                            
+                        </td>
+                        <td>
+                            <button @click="addClient">Ajouter Un Client</button>
                         </td>
                         <td><button @click="valideVente">Valider</button></td>
                     </tr>
@@ -45,9 +47,16 @@
 
 <script>
 export default {
-    
     components: {},
+    data(){
+        return{ 
+            isAddClient : false
+        }
+    },
     methods: {
+        addClient(){
+            this.isAddClient   =  !this.isAddClient   
+         },
        async valideVente(){
             let products = this.$store.state.cart.choosedProduct;
             if(products.length < 1){

@@ -81,10 +81,7 @@
         </section>
         <footer>
             <p> Nininahazwe Jean Lionel</p>
-            <!-- <p>Tél <i>+257 79 614 036 / 61 444 953</i></p>
-                    <p> Adresse <i>Bujumbura-Burundi</i></p> -->
-            <p>&copy; Pour usage </p>
-    
+            <p>&copy; Pour usage de Test </p>
         </footer>
     </div>
     </div>
@@ -138,7 +135,7 @@ header {
 .invoice_section {
     display: flex;
     justify-content: space-between;
-    gap: 20px;
+    gap: 0 20px;
 }
 table {
     width: 100%;
@@ -168,7 +165,7 @@ tr td {
 
 footer {
     position: relative;
-    top: 50px;
+    top: 5px;
     bottom: 20px;
     left: 0;
     right: 0;
