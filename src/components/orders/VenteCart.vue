@@ -74,6 +74,8 @@ export default {
 .container{
     padding: 0 10px 0 20px;
 }
+
+
 .container-input{
     text-align: center;
 }
@@ -88,6 +90,8 @@ export default {
     gap: 10px;
     flex-wrap: wrap;
     padding: 10px 20px;
+    overflow: auto;
+    height: 450px;
 }
 .vent-part{
     width: 100%;
