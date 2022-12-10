@@ -52,8 +52,9 @@ export default{
             )
             }
             return arrayList
-            
-
+        },
+        numberFormat(number, format=0) {
+            return number.toFixed(format)
         }
 
     },

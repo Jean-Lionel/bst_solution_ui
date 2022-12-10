@@ -6,7 +6,6 @@
                 <div class="modal-top">
                 <button @click="close" class="modal-modal" type="button">X</button>
                 </div>
-             
                     <slot />
                 </div>
             </transition>
@@ -34,11 +33,12 @@ export default {
     align-items: center;
     justify-content: center;
     width: 100vw;
+    height: 100%;
     position: fixed;
     top: 0;
     left: 0;
     background-color: rgba(110, 110, 110, 0.7);
-    overflow: scroll;
+    overflow: auto;
     
 }
 

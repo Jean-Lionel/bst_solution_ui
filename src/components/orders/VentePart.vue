@@ -1,6 +1,5 @@
 <template>
     <div class="vente-part">
-     
         <div>
             <table>
                 <thead>
@@ -27,15 +26,15 @@
                     </tr>
                     <tr v-if="prixHorsTVA" class="text-right">
                         <td colspan="5"><b>PRIX HORS TVA</b></td>
-                        <td  colspan="2"><b>{{ prixHorsTVA }}</b></td>
+                        <td  colspan="2"><b>{{ numberFormat(prixHorsTVA,2) }}</b></td>
                     </tr>
                     <tr v-if="prixTVA" class="text-right">
                         <td colspan="5" ><b>TVA</b></td>
-                        <td colspan="2"><b>{{ prixTVA }}</b></td>
+                        <td colspan="2"><b>{{ numberFormat(prixTVA,2) }}</b></td>
                     </tr>
                     <tr v-if="priceTotal" class="text-right">
                         <td colspan="5" ><b>TOTAL</b></td>
-                        <td  colspan="2"> <b>{{ priceTotal }}</b></td>
+                        <td  colspan="2"> <b>{{ numberFormat(priceTotal,2) }}</b></td>
                     </tr>
                     <tr v-if="prixHorsTVA" class="text-right">
                         <td colspan="3" ><button @click="addClient">Ajouter Un Client</button></td>
@@ -48,12 +47,15 @@
                 </tbody>
             </table>
         </div>
+        <AddClient v-show="isAddClient" @close="addClient" />
     </div>
 </template>
 
 <script>
+import AddClient from '../clients/AddClient.vue';
+
 export default {
-    components: {},
+    components: { AddClient },
     data(){
         return{ 
             isAddClient : false
@@ -133,13 +135,11 @@ tr{
 }
 .vente-part{
     background-color: #ddffcf;
-    width: 40vw;
     box-shadow: 2px 4px 2px 1px rgba(134, 15, 15, 0.2);
     border: 1px solid var(--primary);
     border-radius: 6px;
-    
 }
 .vente-part table{
-    overflow: hidden;
+    overflow: scroll;
 }
 </style>

@@ -80,8 +80,8 @@ export default {
     text-align: center;
 }
 .vente{
-    display: flex;
-    margin: 1px 30px 0 0;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
     width: 60wv;
 }
 .cart-liste{
