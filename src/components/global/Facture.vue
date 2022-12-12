@@ -1,7 +1,11 @@
 <template>
 <div>
-    <button class="print" @click="printFacture"> <i class="fa fa-print"></i> Imprimer</button>
     <div id="invoice">
+    <div class="print  no-print">
+    <button class="" @click="printFacture"> <i class="fa fa-print"></i> Imprimer</button>
+    <button class="" @click="$emit('close')">Fermer</button>
+    </div>
+   
     <div id="invoice_element">
         <div>
         </div>
@@ -112,7 +116,18 @@
     padding: 0;  
 }
 .print{
+    display: block;
+    margin-top: 100px;
+   display: flex;
+   justify-content: space-between;
+}
+.print button{
     padding: 6px 6px;
+}
+@media print {
+    .no-print{
+        display: none;
+    }
 }
 #invoice{
     margin-top: 10px;

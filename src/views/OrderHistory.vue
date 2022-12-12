@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>Order History</h1>
-
         <OrderList/>
     </div>
 </template>

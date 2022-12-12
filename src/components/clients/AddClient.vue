@@ -3,7 +3,7 @@
         <modal-component :modalActive="true" @close="$emit('close')">
             <div>
                 <h4>Ajout d'un Client</h4>
-                <form action="">
+                <form action="" @submit.prevent="saveClient">
                     <div>
                         <label for="">NOM DU CLIENT</label>
                         <input type="text" v-model="form.customer_name">
@@ -30,8 +30,8 @@
                     </div>
 
                     <div>
-                    <button>Ajouter</button>
                     <button @click.prevent="$emit('close')">Fermer</button>
+                    <button >Ajouter</button>
                     </div>
                 </form>
             </div>
@@ -56,6 +56,18 @@ export default {
                 description : "",
             }
         }
+    },
+    methods: {
+        saveClient(){
+            this.postData("clients", this.form)
+                .then(response => {
+                    console.log(response)
+                })
+                .catch(error => {
+                    console.log(error)
+                })
+        }
+
     }
     
 }

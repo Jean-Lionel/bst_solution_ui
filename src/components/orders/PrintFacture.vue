@@ -1,7 +1,7 @@
 <template>
     <modal-component :modalActive="true" @close="$emit('close')">
         <div id="facture"> 
-        <Facture :order="order"/>
+        <Facture :order="order" @close="$emit('close')" />
         </div>
     </modal-component>
 </template>
