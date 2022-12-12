@@ -47,7 +47,7 @@
                 </tbody>
             </table>
         </div>
-        <AddClient v-show="isAddClient" @close="addClient" />
+        <AddClient v-show="isAddClient" @close="addClient" @clientSave="clientEnregistrer" />
     </div>
 </template>
 
@@ -58,10 +58,14 @@ export default {
     components: { AddClient },
     data(){
         return{ 
-            isAddClient : false
+            isAddClient : false,
+            client : null,
         }
     },
     methods: {
+        clientEnregistrer(a){
+            this.client = a
+        },
         addClient(){
             this.isAddClient   =  !this.isAddClient   
         },
@@ -74,6 +78,7 @@ export default {
                 if(result){
                     const data = {}
                     data["products"] = this.$store.state.cart.choosedProduct
+                    data["client"] = this.client
                     data["orders"] = {
                         amount_tax : this.priceTotal,
                         tax : this.prixTVA,

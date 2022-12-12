@@ -36,9 +36,7 @@
                 </form>
             </div>
         </modal-component>
-        
     </div>
-    
 </template>
 
 <script>
@@ -61,6 +59,7 @@ export default {
         saveClient(){
             this.postData("clients", this.form)
                 .then(response => {
+                    this.$emit("clientSave", response.data?.data )
                     console.log(response)
                 })
                 .catch(error => {
