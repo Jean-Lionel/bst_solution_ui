@@ -42,8 +42,9 @@
                 <h4>Buyer</h4>
                 <div class="line"></div>
                 <div class="text-right">
-                    <div>John Doe</div>
-                    <div>Email: test@example.com</div>
+                    <div>{{ client?.customer_name }}</div>
+                    <div>NIF: {{ client.customer_TIN }}</div>
+                    <div>Tél: {{ client?.telephone }}</div>
                 </div>
             </div>
         </section>
@@ -103,6 +104,11 @@
         methods: {
             printFacture(){
                 this.print("invoice", "Invoice-" + this.order?.id);
+            }
+        },
+        computed: {
+            client() {
+                return JSON.parse(this.order.client)
             }
         }
     }
