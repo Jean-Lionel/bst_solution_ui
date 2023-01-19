@@ -16,7 +16,7 @@
     </div>
 </div>
 <modal-component :modalActive="modalActive" @close="modalActive = !modalActive">
-    <add-form/>
+    <add-form @close="close"/>
 </modal-component>
 <div class="table_containner">
     
@@ -51,9 +51,9 @@
                         <td>{{ entreprise.nationality }} </td> 
                         <td>{{ entreprise.description }} </td>-->
                         <td>
-                            <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
+                            <!-- <button @click="deleteEntreprise(entreprise.id)" title="Effacer" class="">
                                 <i class='fa fa-trash'></i>
-                            </button>
+                            </button> -->
                             <button @click="showDetail(entreprise.id)" title="Détail" class="">
                                 <i class='fa fa-eye'></i>
                                 
@@ -87,6 +87,10 @@
             this.get()
         },
         methods:{
+            close(){
+                this.modalActive = !this.modalActive
+                this.get()
+            },
             showDetail(id){
                 this.$router.push(`company_owners/${id}`)
             },

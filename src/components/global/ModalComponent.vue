@@ -38,7 +38,6 @@ export default {
     top: 0;
     left: 0;
     background-color: rgba(110, 110, 110, 0.7);
-    overflow: auto;
     
 }
 
@@ -47,7 +46,7 @@ export default {
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
     background-color: #fff;
     padding: 20px 20px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 

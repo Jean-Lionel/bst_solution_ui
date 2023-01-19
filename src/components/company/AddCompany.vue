@@ -3,13 +3,18 @@
         <modal-component :modalActive="modalActive" @close="close">
             
             <form action="" @submit.prevent="saveCompany">
-                
+                <div>
+                    <label for="">Type d'entreprise</label>
+                    <select name="" id="">
+                        <option value=""></option>
+                        <option value="BAR">BAR</option>
+                        <option value="HOTEL">HOTEL</option>
+                    </select>
+                </div>
                 <div>
                     <label for="tp_name">tp_name</label>
                     <input type="text" id="tp_name" v-model="form.tp_name" required />
-                    
                 </div>
-                
                 <div>
                     <label for="tp_type">Type de contribuable.</label>
                     

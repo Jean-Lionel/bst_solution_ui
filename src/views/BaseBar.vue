@@ -1,16 +1,16 @@
 <template>
     <div>
-    <h1>Base bar</h1>
-    <bar-nav-bar/>
+        <h1>Base bar</h1>
+        
     </div>
 </template>
 
 <script>
-import BarNavBar from '../components/navbar/BarNavBar.vue'
-    export default {
-  components: { BarNavBar },
-        
-    }
+
+export default {
+    components: {  },
+    
+}
 </script>
 
 <style lang="scss" scoped>

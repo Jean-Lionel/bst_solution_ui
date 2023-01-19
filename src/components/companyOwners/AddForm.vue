@@ -10,7 +10,7 @@
             <div>
                 <label for="">Prénom</label>
                 <input type="text" v-model="form.last_name" />
-                <span>{{ errors?.first_name }}</span>
+                <span>{{ errors?.last_name }}</span>
             </div>
             <div>
                 <label for="" > Titre </label>
@@ -85,10 +85,10 @@ export default {
     },
     methods:{
         saveInformation(){
-
             this.postData("company_owners", this.form)
                 .then(resp => {
                     this.chefsEntreprise = resp.data
+                    this.$emit('close')
                     console.log(resp.data)
                 })
                 .catch(err => {
@@ -104,7 +104,7 @@ export default {
 <style  scoped>
 .add-form div{
     display: grid;
-    grid-template-columns : 1fr 1fr 1fr;
+    grid-template-columns : 1fr 2fr;
     margin-top: 5px;
 }
 .add-form div label{
