@@ -141,9 +141,10 @@ form div{
     padding: 5px;
 }
 form div input, select, textarea{
-   border: none;
+    border: none;
     border-bottom: 3px solid var(--primary);
     width: 400px;
+    
 }
 
 form{

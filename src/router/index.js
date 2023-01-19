@@ -8,6 +8,7 @@ import Users from '../views/Users.vue'
 import UsersDetail from '../views/UsersDetail.vue'
 import Fournisseur from '../views/Fournisseur.vue'
 import Order from '../views/Order.vue'
+import BaseBar from '../views/BaseBar.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
@@ -51,6 +52,9 @@ const routes = [
   },
   {
     path: '/order_history',name: 'order_history',component: OrderHistory
+  },
+  {
+    path: '/bar',name: 'bar',component: BaseBar
   },
 ]
 

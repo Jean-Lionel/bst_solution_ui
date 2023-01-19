@@ -8,6 +8,7 @@
 
         <router-link to="/company_owners"> <i class="fa fa-briefcase" ></i>  Chefs des entreprises</router-link> 
         <router-link to="/fournisseurs"> <i class="fa fa-themeisle" ></i>  Fournisseurs</router-link> 
+        <router-link to="/bar"> <i class="fa fa-themeisle" ></i>  Bar</router-link> 
         <router-link to="/users"> <i class="fa  fa-users"></i>Utilisateur</router-link> 
         
     </div>
