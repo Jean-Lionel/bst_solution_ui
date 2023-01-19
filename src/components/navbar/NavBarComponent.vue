@@ -5,7 +5,6 @@
         <router-link to="/"> <i class="fa fa-home"></i> Home</router-link> 
         <router-link to="/orders"> <i class="fa fa-dollar"></i>  Ventes</router-link>
         <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link>
-
         <router-link to="/company_owners"> <i class="fa fa-briefcase" ></i>  Chefs des entreprises</router-link> 
         <router-link to="/fournisseurs"> <i class="fa fa-themeisle" ></i>  Fournisseurs</router-link> 
         <router-link to="/bar"> <i class="fa fa-themeisle" ></i>  Bar</router-link> 
@@ -32,21 +31,14 @@
                     <i class="fa fa-bar-chart"></i>
                     <span>Dashboard</span>
                     </router-link>
-
                     <router-link to="" @click="logout">
                         <i class="fa  fa-lock"></i>
                         <span>Logout</span>
                     </router-link>
                 </div>
             </div>
-
-           
-        
-            
-      </div>
-    
+      </div> 
     </div>
-
     </div>
 </template>
 
@@ -59,10 +51,6 @@
         }
     },
     methods: {
-        
-        mounted(){
-            
-        },
         logout() {
             this.$store.commit("logout")
             window.location.href = "/"
