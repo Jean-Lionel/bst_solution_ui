@@ -62,12 +62,17 @@
                             <td>{{ lot.name }}
                             </td>
                             <td>{{ lot.prix_unitaire }}
-                            <input type="text" v-if="i === selectedRow">
+                            <input type="text"
+                            v-model="lotPrice"
+                             v-if="i === selectedRow"
+                            @keyup.enter="saveValueMontant"
+                            
+                              />
                             </td>
                             <td>{{ lot.date_expiration }}</td>
                             <td>{{ lot.quantite }} </td>
                             <td>
-                            <button @click="editElement(lot, i)">
+                            <button @click="editElement(lot.prix_unitaire, i)">
                                 <i class="fa fa-edit"></i>
                             </button>
                             </td>
@@ -97,7 +102,7 @@ export default {
             lot_products : [],
             errors : [],
             selectedRow : -1,
-            selectedLot : {},
+            lotPrice : 0,
         }
     },
     updated() { 
@@ -107,7 +112,11 @@ export default {
         this.get();
     },
     methods: {
-        editElement(lot, i){
+        saveValueMontant(){
+            alert('Ok je suis cool')
+        },
+        editElement(m,i){
+            this.lotPrice = m
             this.selectedRow = i
         },
         saveLot(){
