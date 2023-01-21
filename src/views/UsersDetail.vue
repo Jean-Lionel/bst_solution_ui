@@ -3,7 +3,6 @@
     <h1>Details de l'utilisateur id : {{ $route.params.id }}
      </h1>
     <div>
-    
     <h1>{{ selectUser?.id }}</h1>
     <h1>{{ selectUser?.name }}</h1>
     <h1>{{ selectUser }}</h1>

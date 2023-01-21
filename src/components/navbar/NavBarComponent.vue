@@ -7,6 +7,7 @@
         <router-link to="/company"> <i class="fa fa-institution"></i>  Company</router-link>
         <router-link to="/company_owners"> <i class="fa fa-briefcase" ></i>  Chefs des entreprises</router-link> 
         <router-link to="/fournisseurs"> <i class="fa fa-themeisle" ></i>  Fournisseurs</router-link> 
+        <router-link :to="company_id"> <i class="fa fa-themeisle" ></i>  Stocks</router-link> 
         <router-link to="/bar"> <i class="fa fa-themeisle" ></i>  Bar</router-link> 
         <router-link to="/users"> <i class="fa  fa-users"></i>Utilisateur</router-link> 
         
@@ -60,6 +61,9 @@
     computed: {
         user() {
             return this.$store.state.user?.user?.name
+        },
+        company_id() {
+            return  "/company/" + (this.$store.state.user?.user?.company_id ?? 1)
         }
     }
     }

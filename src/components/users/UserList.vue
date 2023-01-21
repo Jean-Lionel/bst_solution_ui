@@ -14,6 +14,7 @@
                     <th>#</th>
                     <th>Nom et Prénom</th>
                     <th>Email</th>
+                    <th>Entreprise</th>
                     <th>Action</th>
                 </tr>
             </thead>
@@ -22,6 +23,7 @@
                 <td>{{ user.id }}</td>
                 <td>{{ user.name }}</td>
                 <td>{{ user.email }}</td>
+                <td>{{ user.company.tp_name }}</td>
 
                 <td>
                 </td>
@@ -39,7 +41,6 @@
                 <button @click="blockUser(user.id)" class="">
                     <i class="fa fa-ban"></i>
                     </button>
-               
                 </tr>
             </tbody>
             
