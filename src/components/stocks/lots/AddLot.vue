@@ -48,18 +48,31 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>Numéro de lot</th>
+                                <th>Nom du lot</th>
+                                <th>Prix Unitaire</th>
                                 <th>Date d'expiration</th>
                                 <th>Quantité disponible</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
+                        
                             <tr v-for="(lot,i) in lot_products" :key="lot.id">
                             <td>{{ i +1}}</td>
-                            <td>{{ lot.name }}</td>
+                            <td>{{ lot.name }}
+                            </td>
+                            <td>{{ lot.prix_unitaire }}
+                            <input type="text" v-if="i === selectedRow">
+                            </td>
                             <td>{{ lot.date_expiration }}</td>
                             <td>{{ lot.quantite }} </td>
+                            <td>
+                            <button @click="editElement(lot, i)">
+                                <i class="fa fa-edit"></i>
+                            </button>
+                            </td>
                             </tr>
+                            
                         </tbody>
                     </table>
                 </div>
@@ -83,6 +96,8 @@ export default {
             },
             lot_products : [],
             errors : [],
+            selectedRow : -1,
+            selectedLot : {},
         }
     },
     updated() { 
@@ -92,6 +107,9 @@ export default {
         this.get();
     },
     methods: {
+        editElement(lot, i){
+            this.selectedRow = i
+        },
         saveLot(){
             this.errors = []
             this.postData("lot_products", this.form)
@@ -127,6 +145,9 @@ export default {
 </script>
 
 <style  scoped>
+ th,td {
+    padding: 0 10px;
+}
 .text-right{
     display: flex;
     justify-content: flex-end;
