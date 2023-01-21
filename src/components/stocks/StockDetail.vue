@@ -69,6 +69,9 @@
                               <button @click="addProductStock(item)">In</button>
                               <button>Out</button>
                               <button @click="addLot(item)">lots</button>
+                              <button @click="deleteProduct(item)">
+                            <i class='fa fa-trash'></i>
+                              Delete</button>
                             </td>
                             
                             
@@ -120,6 +123,21 @@ export default {
         
     },
     methods: {
+       async deleteProduct(item){
+        
+            const { value: result } = await this.confirmDelete()
+            if (result) {
+                this.deleteData("products/" + item.id)
+                    .then(result => {
+                        this.get();
+                    })
+                    .catch(error => {
+                        console.log(error)
+                    })
+            }
+
+           
+        },
         closeProductModal(){
             this.isAddProduct = !this.isAddProduct
             this.get();
