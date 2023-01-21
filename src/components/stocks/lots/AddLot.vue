@@ -72,7 +72,7 @@
                             <td>{{ lot.date_expiration }}</td>
                             <td>{{ lot.quantite }} </td>
                             <td>
-                            <button @click="editElement(lot.prix_unitaire, i)">
+                            <button @click="editElement(lot, i)">
                                 <i class="fa fa-edit"></i>
                             </button>
                             </td>
@@ -103,6 +103,7 @@ export default {
             errors : [],
             selectedRow : -1,
             lotPrice : 0,
+            selectLot : {},
         }
     },
     updated() { 
@@ -113,10 +114,22 @@ export default {
     },
     methods: {
         saveValueMontant(){
-            alert('Ok je suis cool')
+            this.postData("update_lot",{
+                lot_id : this.selectLot.id,
+                price_unitaire: this.lotPrice
+            })
+            .then(response =>{
+                console.log(response)
+                this.editElement({}, -1)
+                this.get()
+            })
+            .catch(error =>{
+                console.log(error)
+            })
         },
         editElement(m,i){
-            this.lotPrice = m
+            this.selectLot = m
+            this.lotPrice = m.prix_unitaire
             this.selectedRow = i
         },
         saveLot(){
