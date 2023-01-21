@@ -24,19 +24,19 @@
                         <td>{{ el.prix_total }}</td>
                         <td> <button @click="removeItem(el.uuid)">X</button> </td>
                     </tr>
-                    <tr v-if="prixHorsTVA" class="text-right">
+                    <tr class="text-right">
                         <td colspan="5"><b>PRIX HORS TVA</b></td>
                         <td  colspan="2"><b>{{ numberFormat(prixHorsTVA,2) }}</b></td>
                     </tr>
-                    <tr v-if="prixTVA" class="text-right">
+                    <tr  class="text-right">
                         <td colspan="5" ><b>TVA</b></td>
                         <td colspan="2"><b>{{ numberFormat(prixTVA,2) }}</b></td>
                     </tr>
-                    <tr v-if="priceTotal" class="text-right">
+                    <tr  class="text-right">
                         <td colspan="5" ><b>TOTAL</b></td>
                         <td  colspan="2"> <b>{{ numberFormat(priceTotal,2) }}</b></td>
                     </tr>
-                    <tr v-if="prixHorsTVA" class="text-right">
+                    <tr  class="text-right">
                         <td colspan="3" ><button @click="addClient">Ajouter Un Client</button></td>
                         <td >
                             <button @click="clearCart">Effacer</button>
@@ -119,6 +119,7 @@ export default {
         },
         prixHorsTVA() {
             const sum = this.cartList.reduce((c, v) => c + (v.price * v.quantity), 0)
+            console.log(this.cartList)
             return sum
         },
         prixTVA() {

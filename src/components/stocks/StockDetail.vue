@@ -30,7 +30,7 @@
         </div>
         
         <div>
-            <div class="table_containner">
+            <div class="table_containner list_produit">
                 <table>
                     <thead>
                         <tr>
@@ -70,8 +70,7 @@
                               <button>Out</button>
                               <button @click="addLot(item)">lots</button>
                               <button @click="deleteProduct(item)">
-                            <i class='fa fa-trash'></i>
-                              Delete</button>
+                              Supprimmer</button>
                             </td>
                             
                             
@@ -124,11 +123,10 @@ export default {
     },
     methods: {
        async deleteProduct(item){
-        
             const { value: result } = await this.confirmDelete()
             if (result) {
                 this.deleteData("products/" + item.id)
-                    .then(result => {
+                    .then(r => {
                         this.get();
                     })
                     .catch(error => {
@@ -191,6 +189,8 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style  scoped>
+.list_produit{
+    
+}
 </style>
