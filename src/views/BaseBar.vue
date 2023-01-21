@@ -1,7 +1,6 @@
 <template>
     <div>
         <h1>Base bar</h1>
-        
     </div>
 </template>
 

@@ -26,7 +26,7 @@
         
         <div>
             <add-category :addCategory="isAddCategory" @close="addCategory"/>
-            <add-product :addProduct="isAddProduct" :categories="categories" @close="addProduct"/>
+            <add-product :addProduct="isAddProduct" :categories="categories" @close="closeProductModal"/>
         </div>
         
         <div>
@@ -120,6 +120,10 @@ export default {
         
     },
     methods: {
+        closeProductModal(){
+            this.isAddProduct = !this.isAddProduct
+            this.get();
+        },
         addLot(item){
             this.isAddLot = !this.isAddLot
             this.selectProduct = item

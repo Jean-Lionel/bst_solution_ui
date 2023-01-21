@@ -2,8 +2,13 @@
 <div> 
 <button @click="showModal">Ajouter une entreprise</button>
 <add-company :modalActive="modalActive" @close="showModal"/>
-  <div>
+  <div class="detail_company">
+    <div>
     {{ company }}
+    </div>
+    <div>
+    {{ company.companies }}
+    </div>
   </div>
   
     </div>
@@ -40,6 +45,9 @@ export default {
 }
 </script>
     
-<style lang="scss" scoped>
-
+<style  scoped>
+.detail_company{
+    display: flex;
+    justify-content: center;
+}
 </style>

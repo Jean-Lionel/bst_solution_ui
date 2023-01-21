@@ -12,11 +12,11 @@
                 </div>
                 <div>
                     <label for="name">Code du Produit</label>
-                    <input type="text" v-model="form.code_product" required> 
+                    <input type="text" v-model="form.code_product" > 
                 </div>
                 <div>
                     <label for="name"> Marque</label>
-                    <input type="text" v-model="form.marque" required> 
+                    <input type="text" v-model="form.marque" > 
                 </div>
                 <div>
                     <label for="category_id">Catégorie </label>
@@ -33,19 +33,19 @@
                 </div>
                 <div>
                     <label for="name">Quantite</label>
-                    <input type="number" v-model="form.quantite" required> 
+                    <input type="number" v-model="form.quantite" > 
                 </div>
                 <div>
                     <label for="name">Quantite Minimum</label>
-                    <input type="number" v-model="form.quantite_alert" required> 
+                    <input type="number" v-model="form.quantite_alert" > 
                 </div>
                 <div>
                     <label for="name">Price </label>
-                    <input type="number" v-model="form.price" required> 
+                    <input type="number" v-model="form.price"> 
                 </div>
                 <div>
                     <label for="name">Date d'expiration </label>
-                    <input type="date" v-model="form.date_expiration" required> 
+                    <input type="date" v-model="form.date_expiration"> 
                 </div>
                 <div>
                     <label for="name">Description </label>
@@ -96,8 +96,8 @@ export default {
             console.log(this.form)
             this.postData("products", this.form)
             .then(response =>{
-                this.$emit("close")
                 this.form = {}
+                this.$emit("close")
                
             })
             .catch(error =>{
