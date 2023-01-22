@@ -13,9 +13,14 @@ import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
 import Stocks from '../components/stocks/Stocks.vue'
+import ClientPageVue from '../components/clients/ClientPage.vue'
+
 const routes = [
   {
     path: '/', name: 'Home',component: Home
+  },
+  {
+    path: '/client_add', name: 'Client',component: ClientPageVue
   },
   {
     path: '/login',name: 'Login',component: BaseLogin, meta:{auth: false}
