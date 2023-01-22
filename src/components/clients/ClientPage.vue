@@ -6,6 +6,25 @@
 
 <script>
     export default {
+        data(){
+            return{
+
+            }
+        },
+        mounted(){
+            this.get();
+        }, 
+        methods:{
+            get(){
+                this.getData('clients')
+                    .then(response =>{
+
+                    })
+                    .catch(error =>{
+                        console.log(error)
+                    })
+            }
+        }
         
     }
 </script>
