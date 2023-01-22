@@ -35,6 +35,9 @@
                     </div>
                 </form>
             </div>
+            <div class="error">
+            {{ errorMessage }}
+            </div>
         </modal-component>
     </div>
 </template>
@@ -52,17 +55,20 @@ export default {
                 vat_customer_payer : "",
                 telephone : "",
                 description : "",
-            }
+            },
+            errorMessage : "",
         }
     },
     methods: {
         saveClient(){
+            this.errorMessage = ""
             this.postData("clients", this.form)
                 .then(response => {
                     this.$emit("clientSave", response.data?.data )
                     console.log(response)
                 })
                 .catch(error => {
+                    this.errorMessage = error.response.data.message
                     console.log(error)
                 })
         }
