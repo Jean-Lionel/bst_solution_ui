@@ -1,50 +1,63 @@
 <template>
-    <div class="ui vertical segment">
-        <div class="flexbox">
-            <div class="flex-content">
-                <h3>Multi</h3>
-                <div class="button-group">
-                    <button type="button" @click="reset" class="small ui button">reset</button>
-                    <button type="button" @click="selectOption" class="small ui button">option select from
-                        parent</button>
+    <div>
+        <div class="ui vertical segment">
+            <div class="flexbox">
+                <div class="flex-content">
+                    <h3>Dynamic Search with ajax (country name)</h3>
+                    <div>
+                        <model-list-select :list="countries" option-value="code" option-text="name"
+                            v-model="selectedCountry" placeholder="select item" @searchchange="searchCountry">
+                        </model-list-select>
+                    </div>
                 </div>
-                <div>
-                    <multi-select :options="options" :selected-options="items" placeholder="select item"
-                        @select="onSelect">
-                    </multi-select>
-                </div>
-            </div>
-            <div class="flex-result">
-                <div>
-                    <h4>Last selected Item</h4>
+                <div class="flex-result">
+                    <h4>input text(searchText)</h4>
+                    <p>{{ searchText }}</p>
                     <table class="ui celled table">
                         <thead>
                             <tr>
-                                <th>value</th>
-                                <th>text</th>
+                                <th>code</th>
+                                <th>name</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>{{ lastSelectItem.value }}</td>
-                                <td>{{ lastSelectItem.text }}</td>
+                                <td>{{ selectedCountry.code }}</td>
+                                <td>{{ selectedCountry.name }}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
-                <div>
-                    <h4>All selected item</h4>
+            </div>
+        </div>
+        <div class="ui vertical segment">
+            <div class="flexbox">
+                <div class="flex-content">
+                    <h3>Init with ajax</h3>
+                    <div>
+                        <model-list-select :list="animations" option-value="id" :custom-text="optionDisplayText"
+                            v-model="selectedAnimation" placeholder="select item" @searchchange="printSearchText">
+                        </model-list-select>
+                    </div>
+                </div>
+                <div class="flex-result">
+                    <h4>input text(searchText)</h4>
+                    <p>{{ searchText2 }}</p>
                     <table class="ui celled table">
                         <thead>
                             <tr>
-                                <th>value</th>
-                                <th>text</th>
+                                <th>id</th>
+                                <th>title_short1</th>
+                                <th>twitter_account</th>
+                                <th>public_url</th>
                             </tr>
                         </thead>
-                        <tbody v-for="item in items" :key="item.value">
+                        <tbody>
                             <tr>
-                                <td>{{ item.value }}</td>
-                                <td>{{ item.text }}</td>
+                                <td>{{ selectedAnimation.id }}</td>
+                                <td>{{ selectedAnimation.title_short1 }}</td>
+                                <td>{{ selectedAnimation.twitter_account }}</td>
+                                <td>{{ selectedAnimation.public_url }}</td>
                             </tr>
                         </tbody>
                     </table>
@@ -55,50 +68,55 @@
 </template>
 
 <script>
-import unionWith from 'lodash/unionWith'
-import isEqual from 'lodash/isEqual'
-import { MultiSelect } from "vue-search-select"
+import { ModelListSelect } from "vue-search-select"
+import axios from "axios"
+import { ajaxFindCountry } from "../data/countriesApi"
+
 export default {
     data() {
         return {
-            options: [
-                { value: '1', text: 'aa' + ' - ' + '1' },
-                { value: '2', text: 'ab' + ' - ' + '2' },
-                { value: '3', text: 'bc' + ' - ' + '3' },
-                { value: '4', text: 'cd' + ' - ' + '4' },
-                { value: '5', text: 'de' + ' - ' + '5' },
-                { value: '6', text: 'ef' + ' - ' + '6' },
-                { value: '7', text: 'ef' + ' - ' + '7' },
-                { value: '8', text: 'ef' + ' - ' + '8' },
-                { value: '9', text: 'ef' + ' - ' + '9' },
-                { value: '10', text: 'ef' + ' - ' + '10' },
-                { value: '11', text: 'ef' + ' - ' + '11' },
-                { value: '12', text: 'ef' + ' - ' + '12' },
-                { value: '13', text: 'down case' + ' - ' + 'testcase' },
-                { value: '14', text: 'camel case' + ' - ' + 'testCase' },
-                { value: '15', text: 'Capitalize case' + ' - ' + 'Testcase' }
-            ],
-            searchText: '', // If value is falsy, reset searchText & searchItem
-            items: [],
-            lastSelectItem: {}
+            countries: [],
+            selectedCountry: {},
+            searchText: "",
+            animations: [],
+            selectedAnimation: {},
+            searchText2: "",
         }
+    },
+    created() {
+        this.searchAnimation()
     },
     methods: {
-        onSelect(items, lastSelectItem) {
-            this.items = items
-            this.lastSelectItem = lastSelectItem
+        searchCountry(searchText) {
+            this.searchText = searchText
+            ajaxFindCountry(searchText).then(response => {
+                this.countries = response
+            })
         },
-        // deselect option
-        reset() {
-            this.items = [] // reset
+        printSearchText(searchText) {
+            this.searchText2 = searchText
         },
-        // select option from parent component
-        selectOption() {
-            this.items = unionWith(this.items, [this.options[0]], isEqual)
-        }
+        /**
+         * api : https://qiita.com/AKB428/items/64938febfd4dcf6ea698
+         */
+        searchAnimation() {
+            if (this.animations.length === 0) {
+                axios.get(`http://api.moemoe.tokyo/anime/v1/master/2017/2`)
+                    .then(response => {
+                        this.animations = response.data
+                    })
+                    .catch(error => {
+                        /* eslint no-console: off */
+                        console.error(error)
+                    })
+            }
+        },
+        optionDisplayText(animation) {
+            return `${ animation.title_short1 } - ${ animation.twitter_account } - ${ animation.public_url }`
+        },
     },
     components: {
-        MultiSelect
-    }
+        ModelListSelect,
+    },
 }
 </script>

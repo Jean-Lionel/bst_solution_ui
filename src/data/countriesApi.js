@@ -10,3 +10,4 @@ export function ajaxFindCountry (query) {
     }, 100)
   })
 }
+
