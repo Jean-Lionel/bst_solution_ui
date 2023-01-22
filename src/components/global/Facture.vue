@@ -12,13 +12,14 @@
         <header class="invoice_header">
             <div>
                 <h1>Facture</h1>
+
             </div>
             <div class="text-right">
                 <div>Serial No. <b> {{ order.id }}</b></div>
                 <div>Invoice date: <b>{{ order.created_at }}</b></div>
             </div>
         </header>
-        <section class="invoice_section">
+        <!-- <section class="invoice_section">
             <div>
                 <h4>Seller</h4>
                 <div class="line"></div>
@@ -47,7 +48,7 @@
                     <div>Tél: {{ client?.telephone }}</div>
                 </div>
             </div>
-        </section>
+        </section> -->
         <section>
             <div>
                 <table>
@@ -60,7 +61,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr v-for="(product, i ) in products" :key="i">
+                        <tr v-for="(product, i ) in JSON.parse(order.products)" :key="i">
                             <td class="text-left">{{ product.name }}</td>
                             <td class="line">{{ product.quantity }}</td>
                             <td class="line">{{ product.price }} </td>
@@ -78,18 +79,14 @@
                             <td colspan="3">TOTAL</td>
                             <th class="line">{{ order.amount_tax }}</th>
                         </tr>
-    
-    
                     </tbody>
                 </table>
             </div>
         </section>
-        <footer>
-            <p> Nininahazwe Jean Lionel</p>
-            <p>&copy; Pour usage de Test </p>
-        </footer>
+        
     </div>
     </div>
+
     </div>
 </template>
     
@@ -98,7 +95,7 @@
         props: ["order"],
         computed: {
             products() {
-                return JSON.parse(this.order.products) 
+                return this.order.products
             }
         },
         methods: {
@@ -137,12 +134,13 @@
 }
 #invoice{
     margin-top: 10px;
+    font-size: 12px;
 }
 
 @media print {
     #invoice_element {
             font-family: "Open Sans", sans-serif;
-            padding: 10px 40px;
+            padding: 10px 10px;
             height: auto;
         }
 }
@@ -172,7 +170,7 @@ table {
 
 .invoice_header,
 .invoice_section {
-    margin: 0 0 50px 0;
+    margin: 0 0 20px 0;
 }
 
 .line {

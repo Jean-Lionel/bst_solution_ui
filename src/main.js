@@ -5,6 +5,7 @@ import store from './store'
 import mixins from './mixins'
 import axiosInstance from './plugins/axiosConfig'
 import VueSweetalert2,{ options} from './plugins/sweetAlert'
+import "vue-search-select/dist/VueSearchSelect.css"
 import "./assets/css/main.css"
 import LoadingComponentVue from './components/global/LoadingComponent.vue'
 
