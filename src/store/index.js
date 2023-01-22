@@ -10,6 +10,7 @@ export default createStore({
         chefsEntreprise : [],
         usersLists : [],
         campaniesLists : [],
+        fectchData: {},
         fetchData : {
             fournisseurs : [],
             products : [],
@@ -70,7 +71,7 @@ export default createStore({
             return state.user
         },
         token : (state, getters)=> getters?.user?.token,
-        
+
         fetchData: (state) => (key) =>{
             if(!state.fectchData[key]){
                 state.fectchData[key] = [];
