@@ -5,8 +5,12 @@
                 <div class="flex-content">
                     <h3>Dynamic Search with ajax (country name)</h3>
                     <div>
-                        <model-list-select :list="countries" option-value="code" option-text="name"
-                            v-model="selectedCountry" placeholder="select item" @searchchange="searchCountry">
+                        <model-list-select 
+                        :list="countries" 
+                        option-value="code" 
+                        option-text="name"
+                         v-model="selectedCountry" 
+                         placeholder="select item" @searchchange="searchCountry">
                         </model-list-select>
                     </div>
                 </div>
@@ -35,8 +39,12 @@
                 <div class="flex-content">
                     <h3>Init with ajax</h3>
                     <div>
-                        <model-list-select :list="animations" option-value="id" :custom-text="optionDisplayText"
-                            v-model="selectedAnimation" placeholder="select item" @searchchange="printSearchText">
+                        <model-list-select 
+                        :list="animations" 
+                        option-value="id" 
+                        :custom-text="optionDisplayText"
+                            v-model="selectedAnimation" 
+                            placeholder="select item" @searchchange="printSearchText">
                         </model-list-select>
                     </div>
                 </div>
