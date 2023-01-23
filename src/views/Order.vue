@@ -1,7 +1,7 @@
 <template>
     <div>
         <order-header/>
-        <h1>Partie Vente</h1>
+
         <vente-cart/>
     </div>
 </template>
