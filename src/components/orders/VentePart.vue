@@ -39,8 +39,7 @@
                     </tr>
                     <tr  class="text-right">
                         <td colspan="3" >
-                        <search-client/>
-                        <button @click="addClient">Ajouter Un Client</button>
+                        <search-client @selectClient="selectClient"/>
                         
                         </td>
                         <td >
@@ -69,6 +68,10 @@ export default {
         }
     },
     methods: {
+        selectClient(a){
+            console.log(a)
+            this.client = a
+        },
         clientEnregistrer(a){
             this.client = a
         },
