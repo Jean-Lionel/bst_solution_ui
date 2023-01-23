@@ -51,7 +51,7 @@
                 </tbody>
             </table>
         </div>
-        <AddClient v-show="isAddClient" @close="addClient" @clientSave="clientEnregistrer" />
+       
     </div>
 </template>
 
