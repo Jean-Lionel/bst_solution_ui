@@ -55,11 +55,11 @@
                     <div>
                         <table>
                             <thead>
-                                <tr class="line">
+                                <tr >
                                     <th class="text-left">Description</th>
-                                    <th>Qty</th>
-                                    <th>Price</th>
-                                    <th>Sub total</th>
+                                    <th class="line">Qté</th>
+                                    <th class="line">Prix</th>
+                                    <th class="line">Total</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -135,12 +135,14 @@ export default {
     padding: 6px 6px;
 }
 @media print {
+    *{
+        font-size: 0.9rem !important;
+    }
     .no-print{
         display: none;
     }
 }
 #invoice{
-    margin-top: 10px;
     font-size: 12px;
 }
 
@@ -173,15 +175,16 @@ table {
 }
 .text-right {
     text-align: right !important;
+    padding: 0 20px !important; 
 }
 
 .invoice_header,
 .invoice_section {
-    margin: 0 0 20px 0;
+    padding: 0 0 20px 0;
 }
 
 .line {
-    margin: 10px 0px;
+    padding: 10px ;
     border-bottom: 2px solid #ccc;
 }
 

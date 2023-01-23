@@ -117,8 +117,9 @@ table {
     display: flex;
     justify-content: space-between;
 }
-input {
-    padding: 12px 20px;
+input , select{
+    padding: 4px 5px;
+    width: 100%;
     margin: 8px 0;
     box-sizing: border-box;
     border: 2px solid #ccc;
@@ -132,7 +133,7 @@ input:focus {
 }
 
 button {
-    padding: 5px 8px;
+    padding: 2px 8px;
     background-color: var(--primary);
     color: white;
     border: none;

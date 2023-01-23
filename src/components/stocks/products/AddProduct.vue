@@ -109,6 +109,10 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
-
+<style  scoped>
+form{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 0 10px;
+}
 </style>
