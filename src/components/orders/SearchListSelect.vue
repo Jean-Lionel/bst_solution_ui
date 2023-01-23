@@ -1,29 +1,41 @@
 <template>
     <div>
-        <model-list-select :list="countries" option-value="code" option-text="name" v-model="selectedCountry"
-        placeholder="select item" @searchchange="searchCountry">
+    <model-list-select :list="produits" option-value="name" option-text="name" v-model="selectedProduct"
+        placeholder="select item" @searchchange="searchProduct">
     </model-list-select>
-    
+    <search-multi-select/>
+
 </div>
 </template>
 
 <script>
-import { ModelListSelect } from "vue-search-select"
-import { ajaxFindCountry } from "../../data/countriesApi"
+import { ModelListSelect, MultiSelect } from "vue-search-select"
+import SearchMultiSelect from './SearchMultiSelect.vue'
 export default {
-    components: { ModelListSelect },
-    data() { return{
-        countries : []
-    }},
-    methods: { 
-        searchCountry(searchText) {
-            this.searchText = searchText
-            ajaxFindCountry(searchText).then(response => {
-                this.countries = response
-            })
+    props:{
+        produits :{
+            type : Array,
+            required : true,
+            default : [],
+        }
+    },
+    components: { ModelListSelect, SearchMultiSelect, MultiSelect },
+    data() { 
+        return{
+            countries : [],
+            selectedProduct : "",
+        }},
+        watch:{
+            selectedProduct(val){
+                console.log(val)
+            }
         },
+        methods: { 
+            searchProduct(x){
+                console.log(x)
+            }
+        }
     }
-}
 </script>
 
 <style lang="scss" scoped>

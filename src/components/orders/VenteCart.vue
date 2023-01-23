@@ -1,23 +1,22 @@
 <template>
     <div class="container">
         <loading v-if="isLoading"/>
-    <div class="container-input">
-            <input id="" type="text" v-model="searchText" placeholder="Rechercher !!!">
-            <button @click="searchDatabase">Ok</button>
-    </div>
-    <search-list-select />
-    <div class="vente">
-        <div class="cart-liste">
-        
-            <div class="cart-container" v-for="lot in products" :key="lot.id">
-                <product-cart :lot="lot" />
+        <div class="">
+            <input v-model="searchText" type="search" placeholder="Search..." id="search-input">
+            <button type="submit" id="search-button" @click="searchDatabase">Search</button>
+        </div>
+
+        <div class="vente">
+            <div class="cart-liste">
+                <div class="cart-container" v-for="lot in products" :key="lot.id">
+                    <product-cart :lot="lot" />
+                </div>
+            </div>
+            <div class="vent-part">
+                <vente-cart @saveFinished="get"/>
             </div>
         </div>
-        <div class="vent-part">
-            <vente-cart @saveFinished="get"/>
-        </div>
     </div>
-</div>
 </template>
 <script>
 import ProductCart from './ProductCart.vue'
@@ -71,6 +70,28 @@ export default {
 </script>
 
 <style  scoped>
+#search-input {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    width: 60%;
+    margin-right: 10px;
+}
+
+#search-button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#search-button:hover {
+    background-color: #3e8e41;
+}
 .container{
     padding: 0 10px 0 20px;
 }
