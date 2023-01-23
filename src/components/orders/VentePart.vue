@@ -19,7 +19,8 @@
                         <td>{{ el.name }}</td>
                         <td>{{ el.price }}</td>
                         <td>
-                            <input style="width:50px" type="number" @keyup="changeQuantite(el.uuid)" :value="el.quantity">
+        
+                            <input id="input_qte"  type="number" @keyup="changeQuantite(el.uuid)" :value="el.quantity">
                         </td>
                         <td>{{ el.prix_total }}</td>
                         <td> <button @click="removeItem(el.uuid)">X</button> </td>
@@ -138,6 +139,12 @@ export default {
 </script>
 
 <style  scoped>
+#input_qte{
+    color: black;
+    padding: 0;
+    margin: 4px;
+    width: 50px;
+}
 th, td{ 
     padding: 2px 6px;
 }

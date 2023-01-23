@@ -51,23 +51,18 @@ h1,h2,h3,h4,h5,h6, th{
     box-sizing: border-box;
     padding: 0;
 }
-
 body {
     height: 100vh;
     margin: auto;
     color: var(--main-color);
     background:   var(--background);
 }
-
-
 .text-left {
     text-align: left !important;
 }
-
 button i {
     font-size: 16px;
 }
-
 .table_containner {
     border: 1px solid rgb(225, 217, 217);
     border-radius: 10px;
@@ -122,8 +117,6 @@ table {
     display: flex;
     justify-content: space-between;
 }
-
-
 input {
     padding: 12px 20px;
     margin: 8px 0;
