@@ -5,7 +5,6 @@
             <input v-model="searchText" type="search" placeholder="Search..." id="search-input">
             <button type="submit" id="search-button" @click="searchDatabase">Search</button>
         </div>
-
         <div class="vente">
             <div class="cart-liste">
                 <div class="cart-container" v-for="lot in products" :key="lot.id">
@@ -76,7 +75,7 @@ export default {
     border-radius: 5px;
     font-size: 16px;
     outline: none;
-    width: 60%;
+    width: 55%;
     margin-right: 10px;
 }
 
@@ -108,7 +107,7 @@ export default {
     justify-content: space-arround;
     gap: 10px;
     flex-wrap: wrap;
-    padding: 10px 20px;
+    padding: 10px 0px;
     overflow: auto;
     height: 450px;
 }

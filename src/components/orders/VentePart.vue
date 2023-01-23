@@ -37,7 +37,11 @@
                         <td  colspan="2"> <b>{{ numberFormat(priceTotal,2) }}</b></td>
                     </tr>
                     <tr  class="text-right">
-                        <td colspan="3" ><button @click="addClient">Ajouter Un Client</button></td>
+                        <td colspan="3" >
+                        <search-client/>
+                        <button @click="addClient">Ajouter Un Client</button>
+                        
+                        </td>
                         <td >
                             <button @click="clearCart">Effacer</button>
                         </td>
@@ -53,9 +57,10 @@
 
 <script>
 import AddClient from '../clients/AddClient.vue';
+import SearchClient from './SearchClient.vue';
 
 export default {
-    components: { AddClient },
+    components: { AddClient, SearchClient },
     data(){
         return{ 
             isAddClient : false,
