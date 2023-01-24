@@ -3,12 +3,12 @@
     <h4>Caisse</h4>
     <div>
         <p>Le {{ new Date().toLocaleString() }}</p>
-        <p class="text-right">  <b>500 000</b> FBU</p>
+        <p class="text-right">  <b>{{ montant_journalier }} </b> FBU</p>
     </div>
     <hr>
     <div>
         <p>CAISSE TOTAL</p>
-        <p  class="text-right">  <b>500 000</b> FBU</p>
+        <p  class="text-right">  <b>{{ my_operation.caisse_total }}</b> FBU</p>
     </div>
    
     </div>
@@ -16,6 +16,35 @@
 
 <script>
     export default {
+        mounted(){
+            this.get()
+        },
+        methods:{
+            get() {
+                this.getData("my_operation")
+                    .then(response =>{
+                        this.$store.commit('setStateData',{
+                            key: 'my_operation',
+                            value: response.data
+                        });
+                    })
+            }
+        },
+        computed:{
+            my_operation(){
+                return this.$store.getters.fetchData('my_operation')
+            },
+            montant_journalier(){
+                let total = 0;
+                if (this.my_operation?.montant_journalier?.length){
+                    for (const op of this.my_operation.montant_journalier){
+                        total += (op.montant * 1)
+                    }
+                }
+                
+                return total;
+            }
+        }
         
     }
 </script>

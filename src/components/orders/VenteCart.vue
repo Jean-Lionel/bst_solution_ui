@@ -107,6 +107,12 @@ export default {
     grid-template-columns: 2fr 1fr;
     width: 60wv;
 }
+@media screen and (max-width:900px){
+    .vente{
+     display: block;
+     }
+    
+}
 .cart-liste{
     display: flex;
     justify-content: space-arround;
