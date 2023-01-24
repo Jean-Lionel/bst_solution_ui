@@ -18,7 +18,7 @@
             <span>{{ lot.prix_unitaire ?? product.price }} FBU</span>
         </div>
         <div class="cart-btn">
-            <button @click="addProduct(product, lot)">Ajouter</button>
+            <button v-if="lot.quantite > 0" @click="addProduct(product, lot)">Ajouter</button>
         </div>
     </div>
 </template>
@@ -36,6 +36,7 @@
                 price: lot.prix_unitaire ?? product.price,
                 lot_id: lot.id,
                 lot_name: lot.name,
+                lot_quantite: lot.quantite,
                 quantity : 1,
                 prix_total : 0
             }

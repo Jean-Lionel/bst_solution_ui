@@ -5,8 +5,8 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Lot</th>
                         <th>Déscription</th>
+                        <th>Catégorie</th>
                         <th>P.U</th>
                         <th>Qté</th>
                         <th>Montant Total</th>
@@ -15,8 +15,8 @@
                 <tbody>
                     <tr v-for="(el, index) in cartList" :key="index">
                         <td>{{ ++index }}</td>
-                        <td>{{el.lot_name}}</td>
                         <td>{{ el.name }}</td>
+                        <td>{{el.lot_name}}</td>
                         <td>{{ el.price }}</td>
                         <td>
         
@@ -118,7 +118,12 @@ export default {
             const v = event.target.value * 1
             let index = this.$store.state.cart.choosedProduct.findIndex(el => el.uuid === uuid);
             const p = this.$store.state.cart.choosedProduct[index]
-            p.quantity = v
+            console.log(JSON.stringify(p))
+            if (p.quantity <= p.lot_quantite){
+                p.quantity = v
+            }else{
+                p.quantity = p.lot_quantite
+            }
             p.prix_total = v * p.price
         }
     },

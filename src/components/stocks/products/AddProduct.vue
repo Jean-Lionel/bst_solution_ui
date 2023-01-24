@@ -1,11 +1,8 @@
 <template>
     <div v-show="addProduct">
-        
-        <modal-component :modalActive="addProduct" @close="$emit('close')">
-            
+        <modal-component :modalActive="addProduct" @close="$emit('close')"> 
             <h1>Ajouter un Produit</h1>
             <form action="" @submit.prevent="saveProduct">
-                
                 <div>
                     <label for="name">Nom du produit</label>
                     <input type="text" v-model="form.name" required> 
