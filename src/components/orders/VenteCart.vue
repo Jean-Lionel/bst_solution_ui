@@ -7,8 +7,9 @@
         </div>
         <div class="vente">
             <div class="cart-liste">
-                <div class="cart-container" v-for="lot in products" :key="lot.id">
-                    <product-cart :lot="lot" />
+                <div class="cart-container" v-for="lot in products" :key="lot.id" 
+                >
+                    <product-cart :lot="lot"   />
                 </div>
             </div>
             <div class="vent-part">
@@ -59,7 +60,8 @@ export default {
     },
     computed:{
         listeProducts() {
-            return this.$store.state.fetchData.products
+            // Trie du plus grands a plus petit 
+            return this.$store.state.fetchData.products.sort((a, b) => (a.quantite < b.quantite) ? 1 : ((b.quantite < a.quantite) ? -1 : 0));
         },
         products() {
             return this.searchInArray(this.listeProducts, this.searchText)

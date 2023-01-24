@@ -1,5 +1,5 @@
 <template>
-    <div class="cart" v-for="product in lot.products" :key="product.id">
+    <div class="cart" v-for="product in lot.products" :key="product.id" >
         <div><b>{{ product.name }}</b> </div>
         <div class="cart-flex">
             <span>Cat.</span>
