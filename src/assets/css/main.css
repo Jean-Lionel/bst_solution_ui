@@ -117,7 +117,7 @@ table {
     display: flex;
     justify-content: space-between;
 }
-input , select{
+input , select, textarea{
     padding: 4px 5px;
     width: 100%;
     margin: 8px 0;

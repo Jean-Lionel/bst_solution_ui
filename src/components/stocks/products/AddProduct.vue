@@ -33,7 +33,7 @@
                 </div>
                 <div>
                     <label for="name">Quantite</label>
-                    <input type="number" v-model="form.quantite" > 
+                    <input disabled type="number" v-model="form.quantite" > 
                 </div>
                 <div>
                     <label for="name">Quantite Minimum</label>
@@ -49,8 +49,9 @@
                 </div>
                 <div>
                     <label for="name">Description </label>
-                    <textarea name="" id="" cols="30" rows="10" v-model="form.description"></textarea>
+                    <textarea name="" id=""  v-model="form.description"></textarea>
                 </div>
+                <div></div>
                 <div>
                     <button type="submit">Enregistrer</button>
                 </div>
@@ -79,7 +80,7 @@ export default {
                 code_product : "",
                 marque : "",
                 unite_mesure : "",
-                quantite : "",
+                quantite : 0,
                 quantite_alert : "",
                 price : "",
                 date_expiration : "",
@@ -110,6 +111,11 @@ export default {
 </script>
 
 <style  scoped>
+button{
+    width: 98%;
+    margin: 10px auto;
+    padding: 5px;
+}
 form{
     display: grid;
     grid-template-columns: 1fr 1fr;

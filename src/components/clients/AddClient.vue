@@ -28,9 +28,12 @@
                         <label for="">description</label>
                         <textarea name="" id="" cols="30" rows="10" v-model="form.description"></textarea>
                     </div>
-
                     <div>
                     <button @click.prevent="$emit('close')">Fermer</button>
+                    </div>
+
+                    <div>
+                 
                     <button >Ajouter</button>
                     </div>
                 </form>
@@ -79,6 +82,15 @@ export default {
 </script>
 
 <style  scoped>
+button {
+    width: 99%;
+    margin: 0 auto;
+}
+form{
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-gap: 0 10px;
+}
 .ok{
     position: absolute;
     bottom: 0;

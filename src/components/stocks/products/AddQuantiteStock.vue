@@ -34,10 +34,10 @@
                     <label for="">Prix d'achat unitaire</label>
                     <input type="number" v-model="form.price_achat">
                 </div>
-                <div>
+                <!-- <div>
                     <label for="">Prix de vente unitaire</label>
                     <input type="number" v-model="form.prix_vente">
-                </div>
+                </div> -->
                 <div>
                     <label for="">Date d'achat</label>
                     <input type="date" v-model="form.date_achat">
@@ -74,7 +74,7 @@ export default {
                 price_achat : "",
                 quantite : "",
                 prix_total : "",
-                prix_vente : "",
+                prix_vente : "0",
                 unite_mesure : "",
                 fournisseur_id : "",
                 detail : "",

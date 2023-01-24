@@ -9,7 +9,7 @@
                     <input type="text" v-model="form.name">
                 </div>
                 <div>
-                    <label for="name">Déescription</label>
+                    <label for="name">Déscription</label>
                     <textarea v-model="form.description"></textarea>
                 </div>
                 <div v-if="errors" class="error">

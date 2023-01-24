@@ -37,16 +37,12 @@
                             <th>#</th>
                             <th>Categorie</th>
                             <th>Désignation</th>
-                            <th>Code de produit</th>
-                            <th>Marque</th>
                             <th>Unite de Mesure</th>
                             <th>Quantinte</th>
                             <th>Qté d'alerte</th>
                             <th>Prix par default</th>
                             <th>Quantinte Max</th>
                             <th>Quantinte Min</th>
-                            
-                            <th>Déscription</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -56,21 +52,21 @@
                             <td>{{ item.id }}</td>
                             <td> <b>{{ item.category.name }}</b> </td>
                             <td> {{ item.name}} </td>
-                            <td> {{ item.code_product}} </td>
-                            <td> {{ item.marque}} </td>
                             <td> {{ item.unite_mesure}} </td>
-                            <td> <b>{{ item.quantite}}</b> </td>
+                            <td> 
+                            <b>{{ item.quantite}}</b> 
+                            </td>
                             <td> {{ item.quantite_alert}} </td>
                             <td> {{ item.price}} </td>
                             <td> {{ item.price_max}} </td>
                             <td> {{ item.price_min}} </td>
-                            <td></td>
-                            <td>
+                            <td style="display: flex; gap:0 5px;">
                               <button @click="addProductStock(item)">In</button>
                               <button>Out</button>
                               <button @click="addLot(item)">lots</button>
-                              <button @click="deleteProduct(item)">
-                              Supprimmer</button>
+                              <button @click="deleteProduct(item)" title="Supprimer">
+                              <i class="fa fa-trash-o" aria-hidden="true"></i>
+                              </button>
                             </td>
                             
                             
