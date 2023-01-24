@@ -13,20 +13,23 @@
                 </div>
             </div>
             <div class="vent-part">
-                <vente-cart @saveFinished="get"/>
+                <VentePart @saveFinished="get"/>
+                <caisse-card/>
             </div>
         </div>
     </div>
 </template>
 <script>
+import CaisseCard from '../caisses/CaisseCard.vue'
 import ProductCart from './ProductCart.vue'
 import SearchListSelect from './SearchListSelect.vue'
-import VenteCart from './VentePart.vue'
+import VentePart from './VentePart.vue'
 
 export default {
     components: {
-        ProductCart, VenteCart,
-        SearchListSelect
+        ProductCart, VentePart,
+        SearchListSelect,
+        CaisseCard
     },
     data(){
         return {
