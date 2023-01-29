@@ -109,6 +109,10 @@ table {
     display: flex;
     justify-content: space-evenly;
 }
+
+.text-right{
+    text-align: right !important;
+}
 .container-flex{
     display: flex;
     justify-content: space-evenly;

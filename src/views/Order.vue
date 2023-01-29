@@ -1,7 +1,6 @@
 <template>
     <div>
         <order-header/>
-
         <vente-cart/>
     </div>
 </template>

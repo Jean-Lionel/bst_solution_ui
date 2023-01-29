@@ -10,6 +10,10 @@ export default{
     },
     methods: {
         // Modal Confirmation delete
+
+        numberFormat(number) {
+            return number.toLocaleString("fr");
+        },
         async confirmDelete(title, message, btnConfirm) {
          return  await this.$swal({
                 title: title ?? 'Are you sure?',

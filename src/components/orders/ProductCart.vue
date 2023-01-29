@@ -49,7 +49,7 @@
 
 <style  scoped>
 .cart {
-    width: 225px;
+    width: 250px;
     border: 1px solid var(--primary);
     padding: 5px;
     border-radius: 6px;

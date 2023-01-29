@@ -3,12 +3,12 @@
     <h4>Caisse</h4>
     <div>
         <p>Le {{ new Date().toLocaleString() }}</p>
-        <p class="text-right">  <b>{{ montant_journalier }} </b> FBU</p>
+        <p class="text-right">  <b>{{ montant_journalier?.toLocaleString("fr") }} </b> FBU</p>
     </div>
     <hr>
     <div>
         <p>CAISSE TOTAL</p>
-        <p  class="text-right">  <b>{{ my_operation.caisse_total }}</b> FBU</p>
+        <p  class="text-right">  <b>{{ my_operation.caisse_total?.toLocaleString("fr") }}</b> FBU</p>
     </div>
    
     </div>
@@ -57,8 +57,9 @@
 .caisse{
     width: 100%;
     min-height: 50px;
-    background-color: rgb(206, 190, 190);
+    background-color: var(--primary);
     border-radius: 4px;
+    color: #ECECEC;
     box-shadow: inset;
     padding: 0 10px;
 }
