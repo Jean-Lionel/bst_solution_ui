@@ -10,6 +10,7 @@ import UsersDetail from '../views/UsersDetail.vue'
 import Fournisseur from '../views/Fournisseur.vue'
 import Order from '../views/Order.vue'
 import BaseBar from '../views/BaseBar.vue'
+import CaisseDetail from '../views/CaisseDetail.vue'
 import CompanyOwnerDetail from '../views/CompanyOwnerDetail.vue'
 import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
@@ -22,6 +23,9 @@ const routes = [
   },
   {
     path: '/caisse', name: 'Caisse',component: Caisse
+  },
+  {
+    path: '/caisses_detail/:id', name: 'caisses_detail',component: CaisseDetail
   },
   {
     path: '/client_add', name: 'Client',component: ClientPageVue

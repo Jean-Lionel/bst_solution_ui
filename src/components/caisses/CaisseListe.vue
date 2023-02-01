@@ -8,6 +8,7 @@
                 <th>Status</th>
                 <th>Montant ( FBU)</th>
                 <th>Dernier activité</th>
+                <th>Action</th>
                 </tr>
             </thead>
             <tbody>
@@ -17,6 +18,9 @@
             <td>{{ caisse.is_active }}</td>
             <td>{{ caisse.montant }}</td>
             <td>{{ caisse.updated_at }}</td>
+            <td>
+                <router-link :to="`caisses_detail/${caisse.id}`"><button>Détail</button></router-link>
+            </td>
             </tr>
             </tbody>
         </table>
