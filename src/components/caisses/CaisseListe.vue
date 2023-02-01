@@ -13,7 +13,7 @@
             <tbody>
             <tr v-for="caisse in caisses">
             <td>{{ caisse.id }}</td>
-            <td>{{ caisse.user.name }}</td>
+            <td>{{ caisse?.user?.name }}</td>
             <td>{{ caisse.is_active }}</td>
             <td>{{ caisse.montant }}</td>
             <td>{{ caisse.updated_at }}</td>
