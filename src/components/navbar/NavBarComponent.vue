@@ -10,6 +10,7 @@
         <router-link to="/caisse"> <i class="fa fa-themeisle" ></i> Caisses</router-link> 
         <router-link :to="company_id"> <i class="fa fa-themeisle" ></i>  Stocks</router-link> 
         <router-link to="/bar"> <i class="fa fa-themeisle" ></i>  Bar</router-link> 
+                                                <router-link to="/guy"> <i class="fa fa-themeisle" ></i>  Guy</router-link> 
         <router-link to="/users"> <i class="fa  fa-users"></i>Utilisateur</router-link> 
         
     </div>

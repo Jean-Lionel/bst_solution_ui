@@ -16,10 +16,14 @@ import CompanyDetail from '../components/company/CompanyDetail.vue'
 import StockDetail from '../components/stocks/StockDetail.vue'
 import Stocks from '../components/stocks/Stocks.vue'
 import ClientPageVue from '../components/clients/ClientPage.vue'
+import splitInvoinceVue from '../components/guy/splitInvoince.vue'
 
 const routes = [
   {
     path: '/', name: 'Home',component: Home
+  },
+  {
+    path: '/guy', name: 'Home',component: splitInvoinceVue
   },
   {
     path: '/caisse', name: 'Caisse',component: Caisse
