@@ -24,9 +24,6 @@
                 </tr>
             </table>
 
-            {{ inputs }}
-            <hr>
-            {{ arrayData }}
         </div>
     </div>
 </template>
@@ -37,7 +34,7 @@ export default {
         return {
             inputs: {},
             arrayData: [],
-            number: 5,
+            number: 3,
             products: [
                 {
                     id: "1",
@@ -60,11 +57,7 @@ export default {
             const x = this.products.find(product => product.id == article_id);
             // Le produits peut n'est pas être disponible
             const artiles = this.arrayData.filter(e => e.articleId == x?.id);
-            let sum = 0;
-
-            if (artiles.length > 0) {
-                sum = this.arrayData.reduce((c, object) => object.value * 1 + c, 0)
-            }
+            let sum = this.arrayData.reduce((c, object) => object.value * 1 + c, 0)
             return x.qte - sum;
         },
         setValue(clientId, article, v) {
